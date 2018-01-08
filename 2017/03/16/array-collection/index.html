@@ -1,0 +1,414 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>Java的基础核心-集合 | 独一无二</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="独一无二" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+    
+                <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+    
+    <div class="hide">
+    	<script src="https://s4.cnzz.com/z_stat.php?id=1263868967&web_id=1263868967" language="JavaScript"></script>
+    </div>
+
+
+
+
+
+
+    
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(
+    http://7xpw2b.com1.z0.glb.clouddn.com/hexo-sinppet/img/banner2.jpg)"
+         >
+            <div class="main-header-box">
+                <a class="header-avatar" href="/" title="">
+                    <img src="/img/avatar.jpg" alt="logo头像">
+                </a>
+                <div class="branding">
+                    <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+                    
+                            <img src="/img/branding2.png" alt="Snippet 博客主题">
+                                
+                </div>
+            </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars"></i>
+                    </span>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" path=""><a href="/"><i class="fa fa-fw "></i>首页</a>
+                            </li>
+                            
+                            <li role="presentation" path="/前端/"><a href="/categories/"><i class="fa fa-fw "></i>前端</a>
+                            </li>
+                            
+                            <li role="presentation" path="/后端/"><a href="/categories/"><i class="fa fa-fw "></i>后端</a>
+                            </li>
+                            
+                            <li role="presentation" path="/工具/"><a href="/categories/工具/"><i class="fa fa-fw "></i>资源工具</a>
+                            </li>
+                            
+                            <li role="presentation" path="/about/"><a href="/about/"><i class="fa fa-fw "></i>关于作者</a>
+                            </li>
+                            
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Java的基础核心-集合">
+            
+            Java的基础核心-集合
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <span>语言基础</span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            集合类
+            
+        </span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2017/03/16</span>
+    </span>
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h2 id="1-数组"><a href="#1-数组" class="headerlink" title="1. 数组"></a>1. 数组</h2><p><strong>数组是一个特殊对象</strong></p>
+<p>网上找到的学习资料，java基础总结的比较完善的一位<br><a href="http://www.cnblogs.com/chenssy/category/525010.html" target="_blank" rel="noopener">http://www.cnblogs.com/chenssy/category/525010.html</a></p>
+<blockquote>
+<ol>
+<li>数组性能比起list和set,效率高，单操作没有他们方便</li>
+<li>ArrayList的扩容的方式中使用copyOf方法，按照此方法可以实现数据的动态长度</li>
+<li>Arrays的方法中 copyOf 和asList 需要注意 .</li>
+</ol>
+</blockquote>
+<p> asList的返回值是 Arrays.ArrayList 其父类是 AbstractList ,其中对 add()/remove等方法都是没有实现的。所以都是直接返回UnsupportedOperationException</p>
+<p> 这个内部类ArrayList并没有提高add的实现方法。在ArrayList中，它主要提供了如下几个方法：</p>
+<blockquote>
+<ol>
+<li>size：元素数量</li>
+<li>toArray：转换为数组，实现了数组的浅拷贝。</li>
+<li>get：获得指定元素。</li>
+<li>contains：是否包含某元素。</li>
+</ol>
+</blockquote>
+<p> 所以综上所述，asList返回的是一个长度不可变的列表。数组是多长，转换成的列表是多长，我们是无法通过add、remove来增加或者减少其长度的。</p>
+<h2 id="2-集合"><a href="#2-集合" class="headerlink" title="2.集合"></a>2.集合</h2><p>关于集合的整体上面的理解，参考<br><a href="http://www.cnblogs.com/chenssy/p/3495238.html" target="_blank" rel="noopener">http://www.cnblogs.com/chenssy/p/3495238.html</a></p>
+<p><img src="http://images.cnitblog.com/blog/381060/201312/28124707-3a873160808e457686d67c118af6fa70.png" alt="集合"></p>
+<p>图片来自<a href="http://images.cnitblog.com/blog/381060/201312/28124706-794c0dc2df43446c85b93d7864119334.png" target="_blank" rel="noopener">http://images.cnitblog.com/blog/381060/201312/28124706-794c0dc2df43446c85b93d7864119334.png</a></p>
+<h3 id="2-1-List接口"><a href="#2-1-List接口" class="headerlink" title="2.1 List接口"></a>2.1 List接口</h3><p> List接口为Collection直接接口。List所代表的是有序的Collection，即它用某种特定的插入顺序来维护元素顺序。用户可以对列表中每个元素的插入位置进行精确地控制，同时可以根据元素的整数索引（在列表中的位置）访问元素，并搜索列表中的元素。实现List接口的集合主要有：ArrayList、LinkedList、Vector、Stack。</p>
+<h4 id="2-1-1-ArrayList"><a href="#2-1-1-ArrayList" class="headerlink" title="2.1.1 ArrayList"></a>2.1.1 ArrayList</h4><ol>
+<li>初始大小为10，没已1.5进行扩容，扩容的时候使用的是Arrays.copyOf (System.arraycopy),所有指定大小可以避免不必要的扩容操作，同时可以避免扩容的时候空间多余</li>
+<li>数组形式，适合快速定位查找。</li>
+<li>非线程安全</li>
+</ol>
+<h4 id="2-1-2-LinkedList"><a href="#2-1-2-LinkedList" class="headerlink" title="2.1.2 LinkedList"></a>2.1.2 LinkedList</h4><ol>
+<li>双向的链表。</li>
+<li>非线程安全 </li>
+<li><strong>首尾添加操作</strong>时候速度快，里面保存了最后一个节点(last)和第一个节点(first)的引用</li>
+</ol>
+<h4 id="2-1-3-Vector"><a href="#2-1-3-Vector" class="headerlink" title="2.1.3 Vector"></a>2.1.3 Vector</h4><p>类似ArrayList 但是操作都是在方法加了同步锁的，所以的线程安全的，同样是因为加了同步锁，整体效率会较ArrayList弱点 </p>
+<h4 id="2-1-4-Stack"><a href="#2-1-4-Stack" class="headerlink" title="2.1.4 Stack"></a>2.1.4 Stack</h4><p> Stack继承自Vector，实现一个后进先出的堆栈。Stack提供5个额外的方法使得Vector得以被当作堆栈使用。基本的push和pop 方法，还有peek方法得到栈顶的元素，empty方法测试堆栈是否为空，search方法检测一个元素在堆栈中的位置。Stack刚创建后是空栈。</p>
+<h3 id="2-2-Map接口"><a href="#2-2-Map接口" class="headerlink" title="2.2 Map接口"></a>2.2 Map接口</h3><p>Map与List、Set接口不同，它是由一系列键值对组成的集合，提供了key到Value的映射。同时它也没有继承Collection。在Map中它保证了key与value之间的一一对应关系。也就是说一个key对应一个value，所以它不能存在相同的key值，当然value值可以相同。实现map的有：HashMap、TreeMap、HashTable、Properties、EnumMap。</p>
+<h4 id="2-2-1-HashMap"><a href="#2-2-1-HashMap" class="headerlink" title="2.2.1 HashMap"></a>2.2.1 HashMap</h4><p>HashMap 非线程安全，访问快</p>
+<h5 id="2-2-1-1-内部结构"><a href="#2-2-1-1-内部结构" class="headerlink" title="2.2.1.1 内部结构"></a>2.2.1.1 内部结构</h5><p><strong>1. Entry<k,v> table</k,v></strong></p>
+<p>内部是一个实现了Map.Entry<k,v>接口的静态内部类的数组。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * An empty table instance to share when the table is not inflated.</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="keyword">static</span> <span class="keyword">final</span> Entry&lt;?,?&gt;[] EMPTY_TABLE = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">   <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * The table, resized as necessary. Length MUST Always be a power of two.</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="keyword">transient</span> Entry&lt;K,V&gt;[] table = (Entry&lt;K,V&gt;[]) EMPTY_TABLE;</span><br></pre></td></tr></table></figure></k,v></p>
+<p><em>值得注意的是，Entry<k,v>实际上是一个链表，所以HashMap可以看做一个链表数组</k,v></em><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">Map</span>.<span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; </span>&#123;</span><br><span class="line">     <span class="keyword">final</span> K key;</span><br><span class="line">     V value;</span><br><span class="line">     Entry&lt;K,V&gt; next;</span><br><span class="line">     <span class="keyword">int</span> hash;</span><br></pre></td></tr></table></figure></p>
+<p><strong>2. 关键概念</strong></p>
+<ol>
+<li>size : map中key-value的数量</li>
+<li>loadFactor：加载因子 ,其中默认加载因子  DEFAULT_LOAD_FACTOR=0.75f</li>
+<li>threshold：阀值，超过阀值的时候需要扩容，默认Integer.MAX_VALUE</li>
+<li>capacity: 容量,构造方法传入或者默认值16，上限 (1 &lt;&lt; 30)</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">threshold = (<span class="keyword">int</span>) Math.min(capacity * loadFactor, MAXIMUM_CAPACITY + <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<p><strong>3. 关于扩容</strong></p>
+<p>每次加入数据的时候会计算Hash值，并检测是否超过阀值而要扩容。当size&gt;=threshold的时候就会扩容，每次扩大2倍的table.length。扩容的时候实际是遍历原来的table数据<strong>重新计算hash</strong>后放到新的size的table中。</p>
+<h5 id="2-2-1-2-定位存放位子（table中的下标）"><a href="#2-2-1-2-定位存放位子（table中的下标）" class="headerlink" title="2.2.1.2 定位存放位子（table中的下标）"></a>2.2.1.2 定位存放位子（table中的下标）</h5><p>元素在table数组中的下标计算方式是使用hash() 方法的值与table的length-1进行&amp;运算（indexFor()方法）</p>
+<p>插入数据的时候，要检测key时候重复，没有重复的时候，如果index的位子有元素，则新的元素插入在链表头部。</p>
+<p>get(Object key) 方法的实现，其实就是对key做hash处理之后，在调用indexFor得到在table中的下标。在往后找，找到equals的值返回。</p>
+<h4 id="2-2-2-TreeMap"><a href="#2-2-2-TreeMap" class="headerlink" title="2.2.2 TreeMap"></a>2.2.2 TreeMap</h4><p>红黑树实现，内部是有序的，在要求一个有序的map的是时候用比较的合适，效率上比HashMap弱一点。毕竟构建红黑的树的过程不是很简单</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// todo: 源码分析，待完善</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-2-3-Hashtable"><a href="#2-2-3-Hashtable" class="headerlink" title="2.2.3 Hashtable"></a>2.2.3 Hashtable</h4><p>继承的是Dictionary<k,v> ,HashMap继承是AbstractMap，实现的接口都一样</k,v></p>
+<p>基本思想和HashMap差不多，但是put和get等操作方法上加了同步锁，所以是相对线程安全的，但是效率较HashMap弱</p>
+<h3 id="2-3-Set接口"><a href="#2-3-Set接口" class="headerlink" title="2.3 Set接口"></a>2.3 Set接口</h3><p>Set元素不重复，可以是null,自己维护内部顺序</p>
+<h4 id="2-3-1-EnumSet"><a href="#2-3-1-EnumSet" class="headerlink" title="2.3.1 EnumSet"></a>2.3.1 EnumSet</h4><p>内部元素必须是enum 类型</p>
+<h4 id="2-3-2-HashSet"><a href="#2-3-2-HashSet" class="headerlink" title="2.3.2 HashSet"></a>2.3.2 HashSet</h4><p>内部其实就一个HashMap , set里面的每个元素被作为HashMap的key,set的操作其实就是对内部的HashMap的key的操作。</p>
+<h4 id="2-3-3-TreeSet"><a href="#2-3-3-TreeSet" class="headerlink" title="2.3.3 TreeSet"></a>2.3.3 TreeSet</h4><p>TreeSet 里面就是一个实现了 NavigableMap<e,object>接口的map,通常就是TreeMap。</e,object></p>
+<p>它是使用元素的自然顺序对元素进行排序，或者根据创建Set 时提供的 Comparator 进行排序，具体取决于使用的构造方法。</p>
+<h3 id="2-4-Queue接口"><a href="#2-4-Queue接口" class="headerlink" title="2.4 Queue接口"></a>2.4 Queue接口</h3><blockquote>
+<p>队列，它主要分为两大类，一类是阻塞式队列，队列满了以后再插入元素则会抛出异常，主要包括ArrayBlockQueue、PriorityBlockingQueue、LinkedBlockingQueue。另一种队列则是双端队列，支持在头、尾两端插入和移除元素，主要包括：ArrayDeque、LinkedBlockingDeque、LinkedList。</p>
+</blockquote>
+<p>源自 <a href="http://www.cnblogs.com/chenssy/p/3495238.html" target="_blank" rel="noopener">http://www.cnblogs.com/chenssy/p/3495238.html</a></p>
+<p>其中ArrayBlockQueue、PriorityBlockingQueue、LinkedBlockingQueue 为java.util.concurrent 包中的类</p>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2017/03/17/java关键字/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇</a>
+    
+    
+        <a href="/2017/02/13/inner-class/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    <div id="uyan_frame"></div>
+    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2154669"></script>
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+    <aside class="col-md-4 sidebar">
+        
+        
+    <div class="widget">    
+        <h3 class="title">搜索</h3>
+        <div id="search-form">
+            <div id="result-mask" class="hide"></div>
+            <div class="search-area">
+                
+                    <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢?">
+                    <button type="button" class="search-form-submit" id="search-local">站内搜索</button>
+                
+                
+            </div>
+            <div id="result-wrap" class="hide">
+                <div id="search-result"></div>
+            </div>
+            <div class="hide">
+                <template id="search-tpl">
+                    <div class="item">
+                        <a href="/{path}" title="{title}">
+                            <div class="title">{title}</div>
+                            <div class="content">{content}</div>
+                        </a>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+
+        
+        
+    <div class="widget">
+        <h3 class="title">分类</h3>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link current" href="/categories/工具/"><i class="fa" aria-hidden="true">工具</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/语言基础/"><i class="fa" aria-hidden="true">语言基础</i></a><span class="category-list-count">6</span></li></ul>
+    </div>
+
+
+        
+        
+    <div class="widget">
+      <h3 class="title">归档</h3>
+        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/"><i class="fa" aria-hidden="true">一月 2018</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/"><i class="fa" aria-hidden="true">四月 2017</i></a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/"><i class="fa" aria-hidden="true">三月 2017</i></a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/"><i class="fa" aria-hidden="true">二月 2017</i></a><span class="archive-list-count">1</span></li></ul>
+    </div>
+
+
+        
+        
+  <div class="widget">
+    <h3 class="title">标签云</h3>
+    <div class="content tag-cloud">
+        <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/static/" style="font-size: 10px;">static</a> <a href="/tags/内部类/" style="font-size: 10px;">内部类</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a> <a href="/tags/序列化/" style="font-size: 10px;">序列化</a> <a href="/tags/集合类/" style="font-size: 10px;">集合类</a>
+    </div>
+  </div>
+
+
+        
+        
+    <div class="widget">
+      <h3 class="title">社交</h3> 
+        <div class="content social">
+            
+	            <a href="//github.com/funye" rel="external nofollow" title="Github" target="_blank">
+			    	<i class="git fa fa-git"></i>
+			    </a>
+            
+	            <a href="mailto:fun913510024@163.com" rel="external nofollow" title="邮箱" target="_blank">
+			    	<i class="envelope-o fa fa-envelope-o"></i>
+			    </a>
+            
+	            <a href="/" rel="external nofollow" title="联系QQ" target="_blank">
+			    	<i class="qq fa fa-qq"></i>
+			    </a>
+            
+	            <a href="/" rel="external nofollow" title="微博" target="_blank">
+			    	<i class="weibo fa fa-weibo"></i>
+			    </a>
+            
+	            <a href="/" rel="external nofollow" title="QQ群" target="_blank">
+			    	<i class="users fa fa-users"></i>
+			    </a>
+            
+	            <a href="/atom.xml" rel="external nofollow" title="RSS" target="_blank">
+			    	<i class="feed fa fa-feed"></i>
+			    </a>
+            
+        </div>
+    </div>
+
+
+        
+        
+    <div class="widget">
+        <h3 class="title">友链</h3>
+        <div class="content friends-link">
+        
+            <a href="https://github.funye.io" class="fa" target="_blank">个人博客</a>
+        
+        </div>
+    </div>
+
+
+        
+    </aside>
+
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2018
+                </span> | 
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> | 
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <script src="/js/search.js?rev=@@hash"></script>
+        
+
+            <script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

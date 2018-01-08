@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+    
+    <entry>
+      <title><![CDATA[利用 Hexo 和 GitHub Page搭建个人博客]]></title>
+      <url>/2018/01/03/hello-world/</url>
+      <content type="html"><![CDATA[<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 工具 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Java线程、线程池、并发包(1)]]></title>
+      <url>/2017/04/03/thread-01/</url>
+      <content type="html"><![CDATA[<h2 id="1-线程的一些基本概念"><a href="#1-线程的一些基本概念" class="headerlink" title="1 线程的一些基本概念"></a>1 线程的一些基本概念</h2><blockquote>
+<p>编写线程安全的代码，其核心在于要对状态访问进行管理，特别是对共享（Shared）和可变（Mutable）状态的访问</p>
+</blockquote>
+<p>（引自：《Java并发编程实战》）</p>
+<blockquote>
+<p>从非正式的意义上来说，对象的状态是指存储在状态变量（例如示例或静态域）中的数据</p>
+</blockquote>
+<p>（引自：《Java并发编程实战》）</p>
+<h3 id="1-1-共享-Shared-与可变-Mutable"><a href="#1-1-共享-Shared-与可变-Mutable" class="headerlink" title="1.1 共享(Shared)与可变(Mutable)"></a>1.1 共享(Shared)与可变(Mutable)</h3><blockquote>
+<p>“共享” 意味着变量可以由多个线程同时访问，二“可变”则意味着变量的值在其生命周期内可以发现变化</p>
+</blockquote>
+<p>（引自：《Java并发编程实战》）</p>
+<p>这些可变的变量在被多个线程访问的时候，如何防止这些改变不受控制,解决方法如下：</p>
+<blockquote>
+<p>1、不在线程中共享该状态变量，可以将变量封装到方法中。</p>
+<p>2、将状态变量修改为不可变的变量（final）。</p>
+<p>3、访问状态变量时使用同步策略。</p>
+<p>4、使用原子变量类。</p>
+</blockquote>
+<h3 id="1-2-线程安全性"><a href="#1-2-线程安全性" class="headerlink" title="1.2 线程安全性"></a>1.2 线程安全性</h3><blockquote>
+<p>线程安全是一个比较复杂的概念。其核心概念就是正确性。所谓正确性就是某各类的行为与其规范完全一致，即其近似与“所见即所知（we know it when we see it）”。当多个线程访问某各类时，不管运行时环境采用何种调度方式或者这些线程将如何交替执行，并且在主调代码中不需要任何额外的同步或者协同，这个类都能表现出正确的行为，那么就称这个类是线程安全的。</p>
+</blockquote>
+<p>（引自：《Java并发编程实战》）</p>
+<h3 id="1-3-原子性、可见性、有序性"><a href="#1-3-原子性、可见性、有序性" class="headerlink" title="1.3 原子性、可见性、有序性"></a>1.3 原子性、可见性、有序性</h3><p><strong>原子性</strong>：一个操作如果是不可分割的，那么这个操作可以被认为是具有原子性的</p>
+<p><strong>可见性</strong>：<br>线程可见性是指线程之间的可见性，即一个变量的修改对另外一个线程是可见的，这个变量的修改结果，另外一个线程可以立马知道。</p>
+<p><strong>有序性</strong>：<br>有序性指的是数据不相关的变量在并发的情况下，实际执行的结果和单线程的执行结果是一样的，不会因为重排序的问题导致结果不可预知。volatile, final, synchronized，显式锁都可以保证有序性。</p>
+<h2 id="2-关于锁"><a href="#2-关于锁" class="headerlink" title="2 关于锁"></a>2 关于锁</h2><h3 id="2-1-synchronized-内置锁"><a href="#2-1-synchronized-内置锁" class="headerlink" title="2.1 synchronized (内置锁)"></a>2.1 synchronized (内置锁)</h3><p>java内置的锁机制synchronized 可以用来保证原子性</p>
+<p>同步代码块包括两个部分：一个作为锁的对象引用，一个作为由这个锁保护的代码块。<strong>以synchronized关键字来修饰的方法就是一种横跨整个方法体的同步代码块，其中该同步代码块的锁就是方法调用所在的对象</strong>。静态的synchronized方法已Class对象作为锁</p>
+<p><strong>每个java对象都可以用作一个实现同步的锁，这些锁被称为 内置锁(Intrinsic Lock)或者监视器锁(Monitor Lock)。</strong> 也就是说内置锁是在java对象上面的，普通代码块还在synchronized(内置锁对象) 。同步方法就是在方法调用对象上加锁的 。</p>
+<p><strong>获取【内置锁】的唯一方式就是进入同步锁的代码块或者方法</strong></p>
+<p>java的内置锁是一种互斥锁，这就意味着最多只能有一个线程能持有这种锁。当线程A尝试说去线程B持有的锁的时候，线程A必须等待或者阻塞，直到线程B释放这个锁，否则A就一直等待下去。</p>
+<p>例如上面的特性，可以实现一个死锁的例子：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DeadLockDemo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		DeadLockDemo d = <span class="keyword">new</span> DeadLockDemo();</span><br><span class="line"></span><br><span class="line">		Thread a = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">				System.out.println(<span class="string">"thread a running..."</span>);</span><br><span class="line">				<span class="keyword">synchronized</span> (d) &#123; <span class="comment">// 获得对象d的锁</span></span><br><span class="line">					System.out.println(<span class="string">"thread a get the lock..."</span>);</span><br><span class="line">					<span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">						<span class="comment">// 只是简单的死循环，占用对象d的锁不释放</span></span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line"></span><br><span class="line">		Thread b = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">				System.out.println(<span class="string">"thread b running..."</span>);</span><br><span class="line">				<span class="keyword">synchronized</span> (d) &#123; <span class="comment">// 获得对象d的锁</span></span><br><span class="line">					System.out.println(<span class="string">"thread b get the lock..."</span>);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line"></span><br><span class="line">		a.start();</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			Thread.sleep(<span class="number">3000</span>); <span class="comment">// 确保a先启动，直接顺序start不能保证a比b先启动</span></span><br><span class="line">		&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		b.start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// output</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">thread a running...</span></span><br><span class="line"><span class="comment">thread a get the lock...</span></span><br><span class="line"><span class="comment">thread b running...</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure></p>
+<p>上面的例子，线程b一直都没有获得锁，一直等待a释放锁，从而导致死锁</p>
+<h3 id="2-2-内置锁的重入"><a href="#2-2-内置锁的重入" class="headerlink" title="2.2 内置锁的重入"></a>2.2 内置锁的重入</h3><p>内置锁是可以重入的，也就是说某个线程试图获取他自己持有的锁的时候，这个请求会成功。</p>
+<blockquote>
+<p>“重入”意味着获取锁的操作粒度是“线程”，而不是“调用”</p>
+</blockquote>
+<p>例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 测试锁的重入</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> fun</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> v0.0.1</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2017-03-22 12:02</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LockOverride</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">SuperClass</span> </span>&#123;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">doSomething</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			System.out.println(<span class="string">"super do something...."</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">SubClass</span> <span class="keyword">extends</span> <span class="title">SuperClass</span> </span>&#123;</span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">doSomething</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			System.out.println(<span class="string">"sub do something and call super.doSomething()...."</span>);</span><br><span class="line">			<span class="keyword">super</span>.doSomething();</span><br><span class="line">			System.out.println(<span class="keyword">this</span>);</span><br><span class="line">			System.out.println(<span class="keyword">super</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SubClass sub = <span class="keyword">new</span> SubClass();</span><br><span class="line">		sub.doSomething();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// output</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">sub do something and call super.doSomething()....</span></span><br><span class="line"><span class="comment">super do something....</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure></p>
+<p>可以看到，正常打印了结果，分析一下这个代码，在sub.doSomething的是时候和super.doSomething 的时候都需要获得SuperClass的锁，如果锁不能重入的话，就会一直等待，出现死锁。</p>
+<p>这个是《java并发编程实践》中对所重入的例子，网上也很多地方都是这个例子，但是我不太理解，子类在调用doSomething的时候，获取应该是子类实例对象的锁才对啊，当运行到super.doSomething的时候，获取父类的内置锁，不冲突啊 ？ 一直很不解</p>
+<p>所有我自己根据锁的理解和重入理解，写了个简单点的例子<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 测试锁的重入</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> yehuan</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> v0.0.1</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2017-03-22 12:02</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LockOverride</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		LockOverride lo = <span class="keyword">new</span> LockOverride();</span><br><span class="line"></span><br><span class="line">		<span class="keyword">synchronized</span> (lo) &#123; <span class="comment">// 1</span></span><br><span class="line">			System.out.println(<span class="string">"outter get lock on lo...."</span>);</span><br><span class="line">			<span class="keyword">synchronized</span> (lo) &#123; <span class="comment">// 2</span></span><br><span class="line">				System.out.println(<span class="string">"inner get lock on lo"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//output</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">outter get lock on lo....</span></span><br><span class="line"><span class="comment">inner get lock on lo</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure></p>
+<p>结果很明显，两次(注释1，2)同步块入口，获取锁成功了。但是1和2获取同一个锁，没等1释放，2就获得了。应为锁重入，2的时候已经有获得lo的内置锁了。</p>
+<p>但是，如果上面代码变成如下方式，即2出变成一个新的线程呢：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LockOverride</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		LockOverride lo = <span class="keyword">new</span> LockOverride();</span><br><span class="line"></span><br><span class="line">		<span class="keyword">synchronized</span> (lo) &#123; <span class="comment">// 1</span></span><br><span class="line">			System.out.println(<span class="string">"outter get lock on lo...."</span>+System.currentTimeMillis());</span><br><span class="line"></span><br><span class="line">			<span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">				<span class="meta">@Override</span></span><br><span class="line">				<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">					<span class="keyword">synchronized</span> (lo) &#123; <span class="comment">// 2</span></span><br><span class="line">						System.out.println(<span class="string">"inner get lock on lo..."</span>+System.currentTimeMillis());</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;).start();</span><br><span class="line"></span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				Thread.sleep(<span class="number">5000</span>);</span><br><span class="line">			&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// output</span></span><br><span class="line">outter get lock on lo....<span class="number">1490166261911</span></span><br><span class="line">inner get lock on lo...<span class="number">1490166266912</span></span><br></pre></td></tr></table></figure></p>
+<p>这是时候获取锁的1,2两处实际上是两个线程，所有2等到1释放才执行了里面的代码。这也解释了上面说的锁的获取操作粒度是线程而不是调用。对比也解释了前面的例子能获得锁是因为同一个线程+锁的重入</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 语言基础 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 多线程 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Java不得不提的内存模型]]></title>
+      <url>/2017/04/01/jvm/</url>
+      <content type="html"><![CDATA[<h2 id="1-认识JVM"><a href="#1-认识JVM" class="headerlink" title="1 认识JVM"></a>1 认识JVM</h2><p><img src="http://img.blog.csdn.net/20131231175136859?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQva2luZ29md29ybGQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="JVM内存模型图"></p>
+<h3 id="1-1-程序计数器（program-count-register）"><a href="#1-1-程序计数器（program-count-register）" class="headerlink" title="1.1 程序计数器（program count register）"></a>1.1 程序计数器（program count register）</h3><p><strong>当前线程</strong>执行的字节码的行号指示器。多线程时，当线程数超过CPU数量或CPU内核数量，线程之间就要根据时间片轮询抢夺CPU时间资源，因此每个线程有要有一个独立的程序计数器，记录下一条要运行的指令</p>
+<p>程序计数器内存区域又称“线程私有”内存。</p>
+<p>线程执行java方法，program count register 记录正在执行的虚拟机字节码指令的地址。程序执行Native方法，program count register 的值为空（Undefined），program count register是<strong>唯一一个</strong>在java虚拟机规范中没有定义<strong>OutOfMemoryError</strong>情况的区域</p>
+<h3 id="1-2-虚拟机栈（VM-stack）"><a href="#1-2-虚拟机栈（VM-stack）" class="headerlink" title="1.2 虚拟机栈（VM stack）"></a>1.2 虚拟机栈（VM stack）</h3><p>线程私有的，与线程在同一时间创建。生命周期与线程相同</p>
+<p>管理JAVA方法执行的内存模型。每个方法执行时都会创建一个桢栈来<strong>存储方法的的变量表、操作数栈、动态链接方法、返回值、返回地址等信息</strong>。</p>
+<p>栈的大小决定了方法调用的可达深度（递归多少层次，或嵌套调用多少层其他方法，-Xss参数可以设置虚拟机栈大小）。栈的大小可以是固定的，或者是动态扩展的。如果请求的栈深度大于最大可用深度，则抛出stackOverflowError；如果栈是可动态扩展的，但没有内存空间支持扩展，则抛出OutofMemoryError。</p>
+<p>使用jclasslib工具可以查看class类文件的结构。</p>
+<p>常说的栈内存、堆内存中的栈内存就是说的这个区域</p>
+<p>下图为栈帧结构图：<br><img src="http://img.blog.csdn.net/20140101100938109?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQva2luZ29md29ybGQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<h3 id="1-3-本地方法栈（Native-method-stack）"><a href="#1-3-本地方法栈（Native-method-stack）" class="headerlink" title="1.3 本地方法栈（Native method stack）"></a>1.3 本地方法栈（Native method stack）</h3><p>和虚拟机栈功能相似，但管理的不是JAVA方法，是本地方法，本地方法是用C实现的。</p>
+<h3 id="1-4-java堆-JAVA-Heap"><a href="#1-4-java堆-JAVA-Heap" class="headerlink" title="1.4 java堆 (JAVA Heap)"></a>1.4 java堆 (JAVA Heap)</h3><p><img src="http://img.blog.csdn.net/20140101101922203?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQva2luZ29md29ybGQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>线程共享的，存放所有<strong>对象实例</strong>和<strong>数组</strong>。<strong>垃圾回收的主要区域</strong>。可以分为新生代和老年代(tenured)。</p>
+<p>新生代用于存放刚创建的对象以及年轻的对象，如果对象一直没有被回收，生存得足够长，老年对象就会被移入老年代。</p>
+<p>新生代又可进一步细分为eden、survivorSpace0(s0,from survivor)、survivorSpace1(s1,to survivor)。刚创建的对象都放入eden,s0和s1都至少经过一次GC并幸存。如果幸存对象经过一定时间仍存在，则进入老年代(tenured)。</p>
+<p>物理上不要求连续，逻辑上连续即可。当堆中没有内存分配的时候，并且主机没有空间给堆来扩展的时候，出现 OutOfMemoryError</p>
+<h3 id="1-5-方法区-Method-Area"><a href="#1-5-方法区-Method-Area" class="headerlink" title="1.5 方法区 (Method Area)"></a>1.5 方法区 (Method Area)</h3><p>线程共享的，<strong>用于存放被虚拟机加载的类的元数据信息：如常量、静态变量、即时编译器编译后的代码</strong>。也成为永久代。如果hotspot虚拟机确定一个类的定义信息不会被使用，也会将其回收。回收的基本条件至少有：所有该类的实例被回收，而且装载该类的ClassLoader被回收</p>
+<h4 id="1-5-1-运行时常量池"><a href="#1-5-1-运行时常量池" class="headerlink" title="1.5.1 运行时常量池"></a>1.5.1 运行时常量池</h4><p>运行时常量池是方法去的一部分，Class文件中除了有类型版本、字段、方法、接口等信息外，还有常量池（Constant Pool table）信息，用于存放<strong>编译期生成的各种字面量和符号引用</strong>。</p>
+<h2 id="2-垃圾回收算法"><a href="#2-垃圾回收算法" class="headerlink" title="2. 垃圾回收算法"></a>2. 垃圾回收算法</h2><h3 id="2-1-判断对象是不是“死亡”"><a href="#2-1-判断对象是不是“死亡”" class="headerlink" title="2.1 判断对象是不是“死亡”"></a>2.1 判断对象是不是“死亡”</h3><ol>
+<li><p>引用计数算法</p>
+<ol>
+<li>对象有一个引用计数器，有引用+1，引用失效-1</li>
+<li>缺点，不能解决相互引用的问题</li>
+</ol>
+</li>
+<li><p>可达性分析算法</p>
+<ol>
+<li>GC Roots作为起点向下搜索，走过的路径为引用链。 当一个对象没有引用链到GC Roots时候就被判定为<strong>可回收对象</strong></li>
+<li>GC Roots 对象包括：<ol>
+<li>VM Stack（本地变量表）中引用的对象</li>
+<li>Method Area中<strong>类静态属性引用的对象</strong></li>
+<li>Method Area中<strong>常量引用的对象</strong></li>
+<li>Native Method Stack中JNI引用的对象</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="2-2-垃圾收集算法"><a href="#2-2-垃圾收集算法" class="headerlink" title="2.2 垃圾收集算法"></a>2.2 垃圾收集算法</h3><h4 id="2-2-1-标记-清除算法（Mark-Sweep）"><a href="#2-2-1-标记-清除算法（Mark-Sweep）" class="headerlink" title="2.2.1 标记-清除算法（Mark-Sweep）"></a>2.2.1 标记-清除算法（Mark-Sweep）</h4><p>【实现】：分为标记和清除两个步骤，标记算法即 引用计数算法 和 可达性分析算法</p>
+<p>【优缺点】： </p>
+<ol>
+<li>效率不高，标记和清除效率不高。</li>
+<li>空间问题，清除算法过后，产生大量不连续的空间，碎片太多导致大对象进来的时候没有合适地方，导致提前再触发一次GC</li>
+</ol>
+<h4 id="2-2-2-复制算法-Copying"><a href="#2-2-2-复制算法-Copying" class="headerlink" title="2.2.2 复制算法(Copying)"></a>2.2.2 复制算法(Copying)</h4><p><img src="http://7xsv3u.com1.z0.glb.clouddn.com/gc-copy.png" alt="gc-copying"></p>
+<p>【实现】：把内存容量分为两半，每次在一块上面操作，当一块用完，把所有存活的对象顺序复制到另外一块上，当前这一块全部清除。如此重复，新的一块上面也是连续的。</p>
+<p>【优缺点】：</p>
+<ol>
+<li>优点：效率高，实现简单，每次移动堆定指针即可，整块清除，不用处理内存碎片</li>
+<li>缺点：空间问题，把原本的可用空间缩小了一半</li>
+</ol>
+<p>【改进版】：大部分情况下，新生代对象98%都是“朝生夕死”的 ，所以内存比例划分不用1:1，<br>而是一个大的Eden 和两个小的 Survivor, 每次只使用Eden 和 一个 Survivor。回收时，把Eden和Survivor的存活对象复制到另外的Survivor,如果存活对象比较多，就放到老年代。</p>
+<p>HotSpot默认Eden:Survivor=8:1</p>
+<p><strong>此算法针对新生代</strong></p>
+<p><img src="http://img.blog.csdn.net/20140101113433906?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQva2luZ29md29ybGQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="改进版复制算法"></p>
+<h4 id="2-2-3-标识-整理算法（Mark-compact）"><a href="#2-2-3-标识-整理算法（Mark-compact）" class="headerlink" title="2.2.3 标识-整理算法（Mark-compact）"></a>2.2.3 标识-整理算法（Mark-compact）</h4><p>【实现】：分标记和整理两步，标记: 引用计数算法 和 可达性分析法 ，整理:把存活对象向一段移动，再清除另一端的对象。</p>
+<p>【优缺点】：</p>
+<ol>
+<li>改进了标记清除算法的空间不连续问题</li>
+<li>确定同标记清除一样，移动需要操作，效率问题</li>
+</ol>
+<h4 id="2-2-4-分代收集算法（Generational-Collection）"><a href="#2-2-4-分代收集算法（Generational-Collection）" class="headerlink" title="2.2.4 分代收集算法（Generational Collection）"></a>2.2.4 分代收集算法（Generational Collection）</h4><p>【实现】：根据对象存活周期不同，划分成新生代和老年代。在根据特点采用算法<br>新生代使用复制算法，老年代中存活率高，没有额外控制，则使用“标记-清除”或者“标记-整理”</p>
+<p>【优缺点】：</p>
+<ol>
+<li>根据对象存活周期，灵活使用算法</li>
+</ol>
+<h4 id="2-2-5-理解GC日志"><a href="#2-2-5-理解GC日志" class="headerlink" title="2.2.5 理解GC日志"></a>2.2.5 理解GC日志</h4><p>虚拟机配置参数：-XX:+PrintGCDateStamps -XX:+PrintGCDetails 可以查看gc的日志，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2017-02-16T14:44:55.161+0800: [GC (System.gc()) [PSYoungGen: 6512K-&gt;680K(34816K)] 6512K-&gt;688K(114176K), 0.0031955 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] </span><br><span class="line">2017-02-16T14:44:55.165+0800: [Full GC (System.gc()) [PSYoungGen: 680K-&gt;0K(34816K)] [ParOldGen: 8K-&gt;615K(79360K)] 688K-&gt;615K(114176K), [Metaspace: 3167K-&gt;3167K(1056768K)], 0.0133387 secs] [Times: user=0.03 sys=0.00, real=0.01 secs]</span><br></pre></td></tr></table></figure></p>
+<p>GC日志开头的“[GC” 和 “[Full GC” 表示垃圾收集的停顿类型，Full GC 表示发生了Stop The World</p>
+<p>PSYoungGen、ParOldGen、Metaspace 表示GC发现的区域，具体名字跟收集器相关，方括号内部<br>“680K-&gt;0K(34816K)” 表示 “GC前该区域的内存已使用量-&gt;GC后该区域的内存已使用量(改内存区域总量)”</p>
+<p>方括号外的“688K-&gt;615K(114176K)” 表示“GC前java堆已使用的容量-&gt;GC后java堆的已使用容量(java堆的总容量)”</p>
+<p><strong>在 HandlePromotionFailure设置是否允许担保失败，开启开关后，比较的是历次晋升到老年代对象的平均值</strong></p>
+<p><strong>如果HandlePromotionFailure失败，会触发一次Full GC。打开HandlerPromotionFailure设置，可避免Full GC过于频繁</strong></p>
+<h2 id="3-OutOfMemoryError实战"><a href="#3-OutOfMemoryError实战" class="headerlink" title="3. OutOfMemoryError实战"></a>3. OutOfMemoryError实战</h2><h3 id="3-1-java-heap-溢出"><a href="#3-1-java-heap-溢出" class="headerlink" title="3.1 java heap 溢出"></a>3.1 java heap 溢出</h3><p>【要点】：</p>
+<ol>
+<li>-Xms  -Xmx 设置堆的大小</li>
+<li>-XX:+HeapDumpOnOutOfMemoryError 是vm dump出日志，可供分析</li>
+</ol>
+<p>【应对】：</p>
+<ol>
+<li>分时dump日志，看看是内存泄露（回收不了）还是内存溢出（内存不够）</li>
+<li>如果是内存泄露，通过工作找到泄露对象通过什么引用链关联导致不能回收，处理代码</li>
+<li>如果是内存不够，结合物理机内存，适当调整-Xms -Xmx的大小</li>
+<li>优化代码，减少生命周期长，持有状态时间长的代码</li>
+</ol>
+<h3 id="3-2-VM-stack和-Native-method-stack-溢出"><a href="#3-2-VM-stack和-Native-method-stack-溢出" class="headerlink" title="3.2 VM stack和 Native method stack 溢出"></a>3.2 VM stack和 Native method stack 溢出</h3><p>【要点】：</p>
+<ol>
+<li>使用-Xss 设置栈的容量</li>
+<li>线程请求栈的深度大于虚拟机允许的深度，抛出StackOverflowError</li>
+<li>虚拟机栈扩展的时候不能获得足够空间，抛出OutOfMemoryError</li>
+</ol>
+<p>【应对】：</p>
+<ol>
+<li>在单线程的情况下基本很难出现OutOfMemoryError，基本都只能达到StackOverflowError。多线程的时候可以出现OutOfMemoryError，单个栈的空间大了，多线程的时候，线程使用的空间多了，占用的内存就多了，就会OutOfMemoryError。因此如果是多线程导致OutOfMemoryError可以尝试适当减小栈内存来尝试解决</li>
+</ol>
+<h3 id="3-3-method-area-和-constant-pool-table-溢出"><a href="#3-3-method-area-和-constant-pool-table-溢出" class="headerlink" title="3.3 method area 和 constant pool table 溢出"></a>3.3 method area 和 constant pool table 溢出</h3><p>【要点】：<br>方法区存放的是 Class相关信息，类名，访问修饰符，常量池，字段描述，方法描述等。 在运行时动态产生大量对象有可能造成OOM</p>
+<p>【应对】：<br>使用CGlib ，大量JSP 后者动态JSP文件的应用，基于OSGi的应用等都是可能出现OOM,代码需要注意</p>
+<h3 id="3-4-本机直接内存溢出-DirectMemory"><a href="#3-4-本机直接内存溢出-DirectMemory" class="headerlink" title="3.4 本机直接内存溢出(DirectMemory)"></a>3.4 本机直接内存溢出(DirectMemory)</h3><p>【要点】：通过 -XX:MaxDirectMemorySize 设置。由于DirectMemory 导致的内存溢出，一个明显的特点就是dump文件中看不出来明显异常。</p>
+<p>【应对】：<br>如果发现OOM之后dump文件很小，程序中如果直接或者间接使用了NIO,则可能是NIO这方面的使用有问题</p>
+<h2 id="4-JVM参数："><a href="#4-JVM参数：" class="headerlink" title="4. JVM参数："></a>4. JVM参数：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">-XX:+PrintGCDetails  打印垃圾回收信息</span><br><span class="line"></span><br><span class="line">-Xms 为Heap区域的初始值，线上环境需要与-Xmx设置为一致，否则capacity的值会来回飘动</span><br><span class="line">-Xmx 为Heap区域的最大值</span><br><span class="line">-Xss（或-ss） 线程栈大小（指一个线程的native空间）1.5以后是1M的默认大小</span><br><span class="line">-XX:PermSize与-XX:MaxPermSize  方法区（永久代）的初始大小和最大值（但不是本地方法区）</span><br><span class="line">-XX:NewRatio  老年代与新生代比率</span><br><span class="line">-XX:SurvivorRatio  Eden与Survivor的占用比例。例如8表示，一个survivor区占用 1/8 的Eden内存，即1/10的新生代内存，为什么不是1/9？因为我们的新生代有2个survivor，即S1和S2。所以survivor总共是占用新生代内存的 2/10，Eden与新生代的占比则为 8/10。</span><br><span class="line">-XX:MaxHeapFreeRatio  GC后，如果发现空闲堆内存占到整个预估的比例小于这个值，则减小堆空间。</span><br><span class="line">-XX:MinHeapFreeRatio  GC后，如果发现空闲堆内存占到整个预估的比例大于这个值，则增大堆空间。</span><br><span class="line">-XX:NewSize    新生代大小</span><br></pre></td></tr></table></figure>
+<h2 id="5-内存分配"><a href="#5-内存分配" class="headerlink" title="5. 内存分配"></a>5. 内存分配</h2><p><strong>内存分配算法：</strong> </p>
+<ol>
+<li>指针碰撞(Bump the pointer)（空闲区和不可用区有一个指针分开，内存是规整的）</li>
+<li>空闲列表(Free List)（虚拟机维护一个空闲列表，每次从列表中找出一个足够的空间，并更新列表）</li>
+</ol>
+<p><strong>对象访问定位：</strong><br>目前主流访问方式有 使用句柄访问 和 直接指针</p>
+<p>1 使用句柄访问<br><img src="http://7xsv3u.com1.z0.glb.clouddn.com/20170214164305.png" alt="image"></p>
+<p>2 直接指针<br><img src="http://7xsv3u.com1.z0.glb.clouddn.com/20170214164334.png" alt="image"></p>
+<p>两张访问方式各有优劣</p>
+<p>句柄访问访问最大好处就是稳定的句柄，GC收集的时候只会改变句柄中的实例指针，而reference本身不变</p>
+<p>直接方式就是直接访问，速度快</p>
+<hr>
+]]></content>
+      
+        <categories>
+            
+            <category> 语言基础 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> JVM </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[浅析Java序列化问题]]></title>
+      <url>/2017/03/29/serializable/</url>
+      <content type="html"><![CDATA[<h2 id="1-为什么要序列化"><a href="#1-为什么要序列化" class="headerlink" title="1. 为什么要序列化"></a>1. 为什么要序列化</h2><p>java序列化的目的就是把一个对象转换成流，并通过网络发送，或将其存入文件或者数据库以便未来使用。反序列则是把流转化成实际程序中使用的java。</p>
+<p>Java的”对象序列化”能让你将一个实现了Serializable接口的对象转换成一组byte，这样日后要用这个对象时候，你就能把这些byte数据恢复出来，并据此重新构建那个对象了。这一点甚至在跨网络的环境下也是如此，这就意味着序列化机制能自动补偿操作系统方面的差异。也就是说，你可以在Windows机器上创键一个对象，序列化之后，再通过网络传到Unix机器上，然后在那里进行重建。你不用担心在不同的平台上数据是怎样表示的，byte顺序怎样，或者别的什么细节。之所以需要对象序列化，是因为有时候对象需要在网络上传输，传输的时候需要这种序列化处理，从服务器硬盘上把序列化的对象取出，然后通过网络传到客户端，再由客户端把序列化的对象读入内存，执行相应的处理。</p>
+<h2 id="2-序列化实现及原理"><a href="#2-序列化实现及原理" class="headerlink" title="2. 序列化实现及原理"></a>2. 序列化实现及原理</h2><p>在java jdk1.1中就引入了序列化api。如果你希望一个类对象是可序列化的，你所要做的是实现java.io.Serializable接口。序列化一种标记接口，不需要实现任何字段和方法，这就像是一种选择性加入的处理，通过它可以使类对象成为可序列化的对象。</p>
+<p>序列化处理是通过ObjectInputStream和ObjectOutputStream实现的，因此我们所要做的是基于它们进行一层封装，要么将其保存为文件，要么将其通过网络发送</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Foo</span> <span class="keyword">implements</span> <span class="title">Serializable</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> w = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">transient</span> <span class="keyword">int</span> x = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> y = <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">transient</span> <span class="keyword">int</span> z = <span class="number">4</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TransDemo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Foo foo = <span class="keyword">new</span> Foo();</span><br><span class="line">        System.out.printf(<span class="string">"w: %d%n"</span>, Foo.w);</span><br><span class="line">        System.out.printf(<span class="string">"x: %d%n"</span>, Foo.x);</span><br><span class="line">        System.out.printf(<span class="string">"y: %d%n"</span>, foo.y);</span><br><span class="line">        System.out.printf(<span class="string">"z: %d%n"</span>, foo.z);</span><br><span class="line">        FileOutputStream fos = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line"></span><br><span class="line">            fos = <span class="keyword">new</span> FileOutputStream(<span class="string">"x.ser"</span>);</span><br><span class="line">            ObjectOutputStream oos = <span class="keyword">new</span> ObjectOutputStream(fos);</span><br><span class="line">            oos.writeObject(foo);</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Foo fooNew = <span class="keyword">null</span>;</span><br><span class="line">        FileInputStream fis = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            fis = <span class="keyword">new</span> FileInputStream(<span class="string">"x.ser"</span>);</span><br><span class="line">            ObjectInputStream ois = <span class="keyword">new</span> ObjectInputStream(fis);</span><br><span class="line">            System.out.println();</span><br><span class="line">            fooNew = (Foo) ois.readObject();</span><br><span class="line">            <span class="comment">// 上面代码执行完后，可以看到fooNew的属性中只有y=3,z=0 ,页验证了static 和 transient 不被序列化。</span></span><br><span class="line">            <span class="comment">// 查看源码writeObject上面的注释也写明了</span></span><br><span class="line">            System.out.printf(<span class="string">"w: %d%n"</span>, fooNew.w);</span><br><span class="line">            System.out.printf(<span class="string">"x: %d%n"</span>, fooNew.x);</span><br><span class="line">            System.out.printf(<span class="string">"y: %d%n"</span>, fooNew.y);</span><br><span class="line">            System.out.printf(<span class="string">"z: %d%n"</span>, fooNew.z);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的示例是一个使用序列化的例子。从上面的例子可以看出:</p>
+<p><strong>如果想避免属性被序列化的话，将属性申明为<code>static</code> 或 <code>transient</code>就可以了。</strong></p>
+<p>为什么呢？查看源码<code>ObjectOutputStream</code>和<code>ObjectInputStream</code>就会发现，序列化实现就是依靠这两个类来做的。</p>
+<p>查看<code>ObjectOutputStream</code>的 <code>writeObject</code> 方法，上面明显的注释说明，一个类的non-static属性和non-transient属性会被序列化。</p>
+<p>序列化的过程 <code>ObjectOutputStream.writeObject--&gt;writeObject0--&gt;writeOrdinaryObject--&gt;writeSerialData--&gt;defaultWriteFields--&gt;writeObject0</code></p>
+<p>可以看出，是一个递归的调用，也就是说被序列化的对象如果有嵌套的实现了序列化接口的用户对象，他也会被序列化。</p>
+<h2 id="3-序列化版本uid"><a href="#3-序列化版本uid" class="headerlink" title="3. 序列化版本uid"></a>3. 序列化版本uid</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = -<span class="number">1L</span>;</span><br></pre></td></tr></table></figure>
+<p><code>serialVersionUID</code>这个在实现序列化的类里面很常见，这个实际上就是一个数据版本号，已经序列化的数据在反序列化的时候，如果对象的版本已经修改了，反序列化就会出现错误。其实就是数据独享版本的控制，相同版本的才能正常反序列化。</p>
+<p>把上的示例完善点：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Foo</span> <span class="keyword">implements</span> <span class="title">Serializable</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = -<span class="number">1L</span>;<span class="comment">// 注释①</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> w = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">transient</span> <span class="keyword">int</span> x = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> y = <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">transient</span> <span class="keyword">int</span> z = <span class="number">4</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TransDemo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        TransDemo test = <span class="keyword">new</span> TransDemo();</span><br><span class="line">        Foo foo = <span class="keyword">new</span> Foo();</span><br><span class="line">        System.out.println(<span class="string">"-----before serialize:"</span>);</span><br><span class="line">        test.printObject(foo);</span><br><span class="line"></span><br><span class="line">        test.putSerializedObject(foo); <span class="comment">// 注释②</span></span><br><span class="line">        System.out.println(<span class="string">"-----after serialize:"</span>);</span><br><span class="line">        test.printObject(test.getSerializedObject());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">putSerializedObject</span><span class="params">(Foo foo)</span> </span>&#123;</span><br><span class="line">        FileOutputStream fos = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            fos = <span class="keyword">new</span> FileOutputStream(<span class="string">"x.ser"</span>);</span><br><span class="line">            ObjectOutputStream oos = <span class="keyword">new</span> ObjectOutputStream(fos);</span><br><span class="line">            oos.writeObject(foo);</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Foo <span class="title">getSerializedObject</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Foo fooNew = <span class="keyword">null</span>;</span><br><span class="line">        FileInputStream fis = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            fis = <span class="keyword">new</span> FileInputStream(<span class="string">"x.ser"</span>);</span><br><span class="line">            ObjectInputStream ois = <span class="keyword">new</span> ObjectInputStream(fis);</span><br><span class="line">            System.out.println();</span><br><span class="line">            fooNew = (Foo) ois.readObject();</span><br><span class="line">            <span class="keyword">return</span> fooNew;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printObject</span><span class="params">(Foo foo)</span> </span>&#123;</span><br><span class="line">        System.out.printf(<span class="string">"w: %d%n"</span>, foo.w);</span><br><span class="line">        System.out.printf(<span class="string">"x: %d%n"</span>, foo.x);</span><br><span class="line">        System.out.printf(<span class="string">"y: %d%n"</span>, foo.y);</span><br><span class="line">        System.out.printf(<span class="string">"z: %d%n"</span>, foo.z);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的示例，第一次直接执行，第二字只做反序列化，并且修改了序列化对象的版本号，即操作注释①的uid=-2L ,注释掉 注释②出的代码。只反序列化。这个时候就提提示异常了：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java.io.InvalidClassException: com.fun.lang.Foo; local class incompatible: stream classdesc serialVersionUID = -1, local class serialVersionUID = -2</span><br></pre></td></tr></table></figure>
+]]></content>
+      
+        <categories>
+            
+            <category> 语言基础 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 序列化 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[你以为你熟悉的java关键字]]></title>
+      <url>/2017/03/17/java%E5%85%B3%E9%94%AE%E5%AD%97/</url>
+      <content type="html"><![CDATA[<h2 id="1-static"><a href="#1-static" class="headerlink" title="1 static"></a>1 static</h2><ol>
+<li>使用StaticDemo的任何方法（静态或者非静态方法），static代码块仅且执行一次</li>
+<li>非静态成员方法可以操作静态成员变量的值</li>
+<li>构造方法只在new 关键字出现，new新的对象的时候调用，<strong>使用类名直接调用静态方法的时候没有调用构造方法</strong></li>
+<li>static不能用来修饰普通内部类中的变量，如果内部类本身是static的是可以的</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StaticDemo</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String prop = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">static</span>&#123;</span><br><span class="line">        prop = <span class="string">"static"</span>;</span><br><span class="line">        System.out.println(<span class="string">"static code block......."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">StaticDemo</span><span class="params">()</span></span>&#123;</span><br><span class="line">        prop = <span class="string">"constructor"</span>;</span><br><span class="line">        System.out.println(<span class="string">"constructor......."</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sayHello</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"sayHello method print the prop="</span>+prop);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayHello2</span><span class="params">()</span></span>&#123;</span><br><span class="line">        prop = <span class="string">"sayHello2"</span>;</span><br><span class="line">        System.out.println(<span class="string">"sayHello2 method print the prop="</span>+prop);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-final"><a href="#2-final" class="headerlink" title="2 final"></a>2 final</h2><p>在java中，可能使用到final关键字修饰的有数据、方法和类。</p>
+<h3 id="2-1-final-修饰数据"><a href="#2-1-final-修饰数据" class="headerlink" title="2.1 final 修饰数据"></a>2.1 final 修饰数据</h3><p>有final修饰的数据是用来告诉编译器一块数据是恒定不变的，有时数据恒定不变是很有用的，比如：</p>
+<ol>
+<li>一个永不改变的编译时常量。</li>
+<li>一个在运行时被初始化的值，但是又不希望它被改变。</li>
+</ol>
+<p>　　<strong>编译时常量必须是基本数据类型，并且以关键字final修饰，在对这个常量进行定义的时候必须进行赋值，并且以后不能被改变。</strong></p>
+<p>　  对于基本类型，final使数值恒定不变；而对于对象引用，final使引用恒定不变，也就是说<strong>某个引用不能再指向其他对象了，但是当前指向的这个对象自身的数据是可以改变的。</strong></p>
+<p>　<br>如何理解上面的解释呢，看如下示例：　<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">final</span> Student student)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 这种写法就会报错，因为改变了student的指向，但是student是个final的。</span></span><br><span class="line">    <span class="comment">// student = new Student() </span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 这种操作是可以的，并且student的name会被成功修改</span></span><br><span class="line">    student.setName(<span class="string">"123"</span>);</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-2-final修饰方法"><a href="#2-2-final修饰方法" class="headerlink" title="2.2 final修饰方法"></a>2.2 final修饰方法</h3><p>　　使用final修饰方法的作用是把方法锁定，以防止任何继承类修改它的含义。<strong>在继承类中，使用了与父类用final修饰的方法同名的方法时，并没有覆盖父类的该方法，而是生成了一个新的方法。也就是说final修饰的方法不能被重写</strong>。</p>
+<h3 id="2-3-final修饰类"><a href="#2-3-final修饰类" class="headerlink" title="2.3 final修饰类"></a>2.3 final修饰类</h3><p>　　当将某个类定义为final时，就表明了你不打算继承该类，也不允许别人继承。
+　　</p>
+<h2 id="3-transient"><a href="#3-transient" class="headerlink" title="3 transient"></a>3 transient</h2><p>使用transient 关键字，标记变量不被序列化和反序列化</p>
+<p>谈到序列化，static 变量也是不会被序列化的</p>
+<h2 id="4-volatile"><a href="#4-volatile" class="headerlink" title="4 volatile"></a>4 volatile</h2><p>volatile 可以保证变量对所有线程的可见性，但是不能说是完全的线程，例如++ 操作是个非原子操作，就有可能出现问题</p>
+<p>volatile只保证了可见性，在<strong>不满足</strong>以下情况的时候，需要加锁（synchronized 或者 java.util.concurrent中的原子类）来保证原子性</p>
+<ol>
+<li>运算结果并不依赖变量的当前值，后者能够确保只有单一线程修改变量的值</li>
+<li>变量不需要同其他的状态变量一起参与不变约束</li>
+</ol>
+<p>volatile 修饰long / double 在多线程的时候可以把他们的读写变成原子的操作(现代的虚拟机已经把64位数据读写作为原子操作了)</p>
+<p>volatile可以防止指令重排序</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 语言基础 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> static </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Java的基础核心-集合]]></title>
+      <url>/2017/03/16/array-collection/</url>
+      <content type="html"><![CDATA[<h2 id="1-数组"><a href="#1-数组" class="headerlink" title="1. 数组"></a>1. 数组</h2><p><strong>数组是一个特殊对象</strong></p>
+<p>网上找到的学习资料，java基础总结的比较完善的一位<br><a href="http://www.cnblogs.com/chenssy/category/525010.html" target="_blank" rel="noopener">http://www.cnblogs.com/chenssy/category/525010.html</a></p>
+<blockquote>
+<ol>
+<li>数组性能比起list和set,效率高，单操作没有他们方便</li>
+<li>ArrayList的扩容的方式中使用copyOf方法，按照此方法可以实现数据的动态长度</li>
+<li>Arrays的方法中 copyOf 和asList 需要注意 .</li>
+</ol>
+</blockquote>
+<p> asList的返回值是 Arrays.ArrayList 其父类是 AbstractList ,其中对 add()/remove等方法都是没有实现的。所以都是直接返回UnsupportedOperationException</p>
+<p> 这个内部类ArrayList并没有提高add的实现方法。在ArrayList中，它主要提供了如下几个方法：</p>
+<blockquote>
+<ol>
+<li>size：元素数量</li>
+<li>toArray：转换为数组，实现了数组的浅拷贝。</li>
+<li>get：获得指定元素。</li>
+<li>contains：是否包含某元素。</li>
+</ol>
+</blockquote>
+<p> 所以综上所述，asList返回的是一个长度不可变的列表。数组是多长，转换成的列表是多长，我们是无法通过add、remove来增加或者减少其长度的。</p>
+<h2 id="2-集合"><a href="#2-集合" class="headerlink" title="2.集合"></a>2.集合</h2><p>关于集合的整体上面的理解，参考<br><a href="http://www.cnblogs.com/chenssy/p/3495238.html" target="_blank" rel="noopener">http://www.cnblogs.com/chenssy/p/3495238.html</a></p>
+<p><img src="http://images.cnitblog.com/blog/381060/201312/28124707-3a873160808e457686d67c118af6fa70.png" alt="集合"></p>
+<p>图片来自<a href="http://images.cnitblog.com/blog/381060/201312/28124706-794c0dc2df43446c85b93d7864119334.png" target="_blank" rel="noopener">http://images.cnitblog.com/blog/381060/201312/28124706-794c0dc2df43446c85b93d7864119334.png</a></p>
+<h3 id="2-1-List接口"><a href="#2-1-List接口" class="headerlink" title="2.1 List接口"></a>2.1 List接口</h3><p> List接口为Collection直接接口。List所代表的是有序的Collection，即它用某种特定的插入顺序来维护元素顺序。用户可以对列表中每个元素的插入位置进行精确地控制，同时可以根据元素的整数索引（在列表中的位置）访问元素，并搜索列表中的元素。实现List接口的集合主要有：ArrayList、LinkedList、Vector、Stack。</p>
+<h4 id="2-1-1-ArrayList"><a href="#2-1-1-ArrayList" class="headerlink" title="2.1.1 ArrayList"></a>2.1.1 ArrayList</h4><ol>
+<li>初始大小为10，没已1.5进行扩容，扩容的时候使用的是Arrays.copyOf (System.arraycopy),所有指定大小可以避免不必要的扩容操作，同时可以避免扩容的时候空间多余</li>
+<li>数组形式，适合快速定位查找。</li>
+<li>非线程安全</li>
+</ol>
+<h4 id="2-1-2-LinkedList"><a href="#2-1-2-LinkedList" class="headerlink" title="2.1.2 LinkedList"></a>2.1.2 LinkedList</h4><ol>
+<li>双向的链表。</li>
+<li>非线程安全 </li>
+<li><strong>首尾添加操作</strong>时候速度快，里面保存了最后一个节点(last)和第一个节点(first)的引用</li>
+</ol>
+<h4 id="2-1-3-Vector"><a href="#2-1-3-Vector" class="headerlink" title="2.1.3 Vector"></a>2.1.3 Vector</h4><p>类似ArrayList 但是操作都是在方法加了同步锁的，所以的线程安全的，同样是因为加了同步锁，整体效率会较ArrayList弱点 </p>
+<h4 id="2-1-4-Stack"><a href="#2-1-4-Stack" class="headerlink" title="2.1.4 Stack"></a>2.1.4 Stack</h4><p> Stack继承自Vector，实现一个后进先出的堆栈。Stack提供5个额外的方法使得Vector得以被当作堆栈使用。基本的push和pop 方法，还有peek方法得到栈顶的元素，empty方法测试堆栈是否为空，search方法检测一个元素在堆栈中的位置。Stack刚创建后是空栈。</p>
+<h3 id="2-2-Map接口"><a href="#2-2-Map接口" class="headerlink" title="2.2 Map接口"></a>2.2 Map接口</h3><p>Map与List、Set接口不同，它是由一系列键值对组成的集合，提供了key到Value的映射。同时它也没有继承Collection。在Map中它保证了key与value之间的一一对应关系。也就是说一个key对应一个value，所以它不能存在相同的key值，当然value值可以相同。实现map的有：HashMap、TreeMap、HashTable、Properties、EnumMap。</p>
+<h4 id="2-2-1-HashMap"><a href="#2-2-1-HashMap" class="headerlink" title="2.2.1 HashMap"></a>2.2.1 HashMap</h4><p>HashMap 非线程安全，访问快</p>
+<h5 id="2-2-1-1-内部结构"><a href="#2-2-1-1-内部结构" class="headerlink" title="2.2.1.1 内部结构"></a>2.2.1.1 内部结构</h5><p><strong>1. Entry<k,v> table</k,v></strong></p>
+<p>内部是一个实现了Map.Entry<k,v>接口的静态内部类的数组。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * An empty table instance to share when the table is not inflated.</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="keyword">static</span> <span class="keyword">final</span> Entry&lt;?,?&gt;[] EMPTY_TABLE = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">   <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * The table, resized as necessary. Length MUST Always be a power of two.</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="keyword">transient</span> Entry&lt;K,V&gt;[] table = (Entry&lt;K,V&gt;[]) EMPTY_TABLE;</span><br></pre></td></tr></table></figure></k,v></p>
+<p><em>值得注意的是，Entry<k,v>实际上是一个链表，所以HashMap可以看做一个链表数组</k,v></em><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">Map</span>.<span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; </span>&#123;</span><br><span class="line">     <span class="keyword">final</span> K key;</span><br><span class="line">     V value;</span><br><span class="line">     Entry&lt;K,V&gt; next;</span><br><span class="line">     <span class="keyword">int</span> hash;</span><br></pre></td></tr></table></figure></p>
+<p><strong>2. 关键概念</strong></p>
+<ol>
+<li>size : map中key-value的数量</li>
+<li>loadFactor：加载因子 ,其中默认加载因子  DEFAULT_LOAD_FACTOR=0.75f</li>
+<li>threshold：阀值，超过阀值的时候需要扩容，默认Integer.MAX_VALUE</li>
+<li>capacity: 容量,构造方法传入或者默认值16，上限 (1 &lt;&lt; 30)</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">threshold = (<span class="keyword">int</span>) Math.min(capacity * loadFactor, MAXIMUM_CAPACITY + <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<p><strong>3. 关于扩容</strong></p>
+<p>每次加入数据的时候会计算Hash值，并检测是否超过阀值而要扩容。当size&gt;=threshold的时候就会扩容，每次扩大2倍的table.length。扩容的时候实际是遍历原来的table数据<strong>重新计算hash</strong>后放到新的size的table中。</p>
+<h5 id="2-2-1-2-定位存放位子（table中的下标）"><a href="#2-2-1-2-定位存放位子（table中的下标）" class="headerlink" title="2.2.1.2 定位存放位子（table中的下标）"></a>2.2.1.2 定位存放位子（table中的下标）</h5><p>元素在table数组中的下标计算方式是使用hash() 方法的值与table的length-1进行&amp;运算（indexFor()方法）</p>
+<p>插入数据的时候，要检测key时候重复，没有重复的时候，如果index的位子有元素，则新的元素插入在链表头部。</p>
+<p>get(Object key) 方法的实现，其实就是对key做hash处理之后，在调用indexFor得到在table中的下标。在往后找，找到equals的值返回。</p>
+<h4 id="2-2-2-TreeMap"><a href="#2-2-2-TreeMap" class="headerlink" title="2.2.2 TreeMap"></a>2.2.2 TreeMap</h4><p>红黑树实现，内部是有序的，在要求一个有序的map的是时候用比较的合适，效率上比HashMap弱一点。毕竟构建红黑的树的过程不是很简单</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// todo: 源码分析，待完善</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-2-3-Hashtable"><a href="#2-2-3-Hashtable" class="headerlink" title="2.2.3 Hashtable"></a>2.2.3 Hashtable</h4><p>继承的是Dictionary<k,v> ,HashMap继承是AbstractMap，实现的接口都一样</k,v></p>
+<p>基本思想和HashMap差不多，但是put和get等操作方法上加了同步锁，所以是相对线程安全的，但是效率较HashMap弱</p>
+<h3 id="2-3-Set接口"><a href="#2-3-Set接口" class="headerlink" title="2.3 Set接口"></a>2.3 Set接口</h3><p>Set元素不重复，可以是null,自己维护内部顺序</p>
+<h4 id="2-3-1-EnumSet"><a href="#2-3-1-EnumSet" class="headerlink" title="2.3.1 EnumSet"></a>2.3.1 EnumSet</h4><p>内部元素必须是enum 类型</p>
+<h4 id="2-3-2-HashSet"><a href="#2-3-2-HashSet" class="headerlink" title="2.3.2 HashSet"></a>2.3.2 HashSet</h4><p>内部其实就一个HashMap , set里面的每个元素被作为HashMap的key,set的操作其实就是对内部的HashMap的key的操作。</p>
+<h4 id="2-3-3-TreeSet"><a href="#2-3-3-TreeSet" class="headerlink" title="2.3.3 TreeSet"></a>2.3.3 TreeSet</h4><p>TreeSet 里面就是一个实现了 NavigableMap<e,object>接口的map,通常就是TreeMap。</e,object></p>
+<p>它是使用元素的自然顺序对元素进行排序，或者根据创建Set 时提供的 Comparator 进行排序，具体取决于使用的构造方法。</p>
+<h3 id="2-4-Queue接口"><a href="#2-4-Queue接口" class="headerlink" title="2.4 Queue接口"></a>2.4 Queue接口</h3><blockquote>
+<p>队列，它主要分为两大类，一类是阻塞式队列，队列满了以后再插入元素则会抛出异常，主要包括ArrayBlockQueue、PriorityBlockingQueue、LinkedBlockingQueue。另一种队列则是双端队列，支持在头、尾两端插入和移除元素，主要包括：ArrayDeque、LinkedBlockingDeque、LinkedList。</p>
+</blockquote>
+<p>源自 <a href="http://www.cnblogs.com/chenssy/p/3495238.html" target="_blank" rel="noopener">http://www.cnblogs.com/chenssy/p/3495238.html</a></p>
+<p>其中ArrayBlockQueue、PriorityBlockingQueue、LinkedBlockingQueue 为java.util.concurrent 包中的类</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 语言基础 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 集合类 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[变幻莫测的Java内部类]]></title>
+      <url>/2017/02/13/inner-class/</url>
+      <content type="html"><![CDATA[<h2 id="1-1-内部类【特点】："><a href="#1-1-内部类【特点】：" class="headerlink" title="1.1 内部类【特点】："></a>1.1 内部类【特点】：</h2><ol>
+<li><p>普通内部类中不能有static修饰的成员变量和方法</p>
+</li>
+<li><p>使用内部类最吸引人的原因是：每个内部类都能独立地继承一个（接口的）实现，所以无论外围类是否已经继承了某个（接口的）实现，对于内部类都没有影响。<strong>利用内部类可以间接实现多继承</strong>。 (利用多个内部类实现继承过个类，思想是组合)。</p>
+</li>
+<li>内部类可以用多个实例，每个实例都有自己的状态信息，并且与其他外围对象的信息相互独立。</li>
+<li>在单个外围类中，<strong>可以让多个内部类以不同的方式实现同一个接口，或者继承同一个类</strong>。</li>
+<li>创建内部类对象的时刻并不依赖于外围类对象的创建。</li>
+<li>内部类并没有令人迷惑的“is-a”关系，他就是一个独立的实体。</li>
+<li>内部类提供了更好的封装，除了该外围类，其他类都不能访问。</li>
+</ol>
+<h2 id="1-2内部类【使用-this与-new】"><a href="#1-2内部类【使用-this与-new】" class="headerlink" title="1.2内部类【使用.this与.new】"></a>1.2内部类【使用.this与.new】</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OuterClass</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name ;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**省略getter和setter方法**/</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InnerClass</span></span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">InnerClass</span><span class="params">()</span></span>&#123;</span><br><span class="line">            name = <span class="string">"chenssy"</span>;</span><br><span class="line">            age = <span class="number">23</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span></span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"name："</span> + getName() +<span class="string">"   ;age："</span> + getAge());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        OuterClass outerClass = <span class="keyword">new</span> OuterClass();</span><br><span class="line">        OuterClass.InnerClass innerClass = outerClass.new InnerClass();</span><br><span class="line">        innerClass.display();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">--------------</span><br><span class="line">Output：</span><br><span class="line">name：chenssy   ;age：<span class="number">23</span></span><br></pre></td></tr></table></figure>
+<p>引用内部类我们需要指明这个对象的类型：OuterClasName.InnerClassName。同时如果我们需要创建某个内部类对象，必须要利用外部类的对象通过.new来创建内部类： OuterClass.InnerClass innerClass = outerClass.new InnerClass();</p>
+<p>如果我们需要生成对外部类对象的引用，可以使用OuterClassName.this</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OuterClass</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"OuterClass..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InnerClass</span></span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> OuterClass <span class="title">getOuterClass</span><span class="params">()</span></span>&#123;</span><br><span class="line">            <span class="keyword">return</span> OuterClass.<span class="keyword">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        OuterClass outerClass = <span class="keyword">new</span> OuterClass();</span><br><span class="line">        OuterClass.InnerClass innerClass = outerClass.new InnerClass();</span><br><span class="line">        innerClass.getOuterClass().display();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">-------------</span><br><span class="line">Output:</span><br><span class="line">OuterClass...</span><br></pre></td></tr></table></figure>
+<h2 id="1-3-内部类【分类】"><a href="#1-3-内部类【分类】" class="headerlink" title="1.3 内部类【分类】"></a>1.3 内部类【分类】</h2><h3 id="1-3-1-成员内部类"><a href="#1-3-1-成员内部类" class="headerlink" title="1.3.1 成员内部类"></a>1.3.1 成员内部类</h3><p>成员内部类也是最普通的内部类，它是外围类的一个成员</p>
+<p>【特点】：</p>
+<ol>
+<li>成员内部类中不能存在任何static的变量和方法；</li>
+<li>成员内部类是依附于外围类的，所以只有先创建了外围类才能够创建内部类</li>
+</ol>
+<h3 id="1-3-2-局部内部类"><a href="#1-3-2-局部内部类" class="headerlink" title="1.3.2 局部内部类"></a>1.3.2 局部内部类</h3><p>在方法和属性内部定义的类，作用域在方法和属性内部</p>
+<h3 id="1-3-3-匿名内部类"><a href="#1-3-3-匿名内部类" class="headerlink" title="1.3.3 匿名内部类"></a>1.3.3 匿名内部类</h3><p>比较常见</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OuterClass</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> InnerClass <span class="title">getInnerClass</span><span class="params">(<span class="keyword">final</span> <span class="keyword">int</span> num,String str2)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> InnerClass()&#123;</span><br><span class="line">            <span class="keyword">int</span> number = num + <span class="number">3</span>;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getNumber</span><span class="params">()</span></span>&#123;</span><br><span class="line">                <span class="keyword">return</span> number;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;        <span class="comment">/* 注意：分号不能省 */</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        OuterClass out = <span class="keyword">new</span> OuterClass();</span><br><span class="line">        InnerClass inner = out.getInnerClass(<span class="number">2</span>, <span class="string">"chenssy"</span>);</span><br><span class="line">        System.out.println(inner.getNumber());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">InnerClass</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getNumber</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">----------------</span><br><span class="line">Output:</span><br><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure>
+<p>【特点】：</p>
+<ol>
+<li>匿名内部类是没有访问修饰符的。</li>
+<li>new 匿名内部类，这个类首先是要存在的。如果我们将那个InnerClass接口注释掉，就会出现编译出错。</li>
+<li>注意getInnerClass()方法的形参，第一个形参是用final修饰的，而第二个却没有。同时我们也发现第二个形参在匿名内部类中没有使用过，所以当所在方法的形参需要被匿名内部类使用，那么这个形参就必须为final。</li>
+<li>匿名内部类是没有构造方法的。因为它连名字都没有何来构造方法。</li>
+<li>使用匿名内部类时，我们必须是继承一个类或者实现一个接口，但是两者不可兼得，同时也只能继承一个类或者实现一个接口。</li>
+<li>匿名内部类不能是抽象的，它必须要实现继承的类或者实现的接口的所有抽象方法</li>
+</ol>
+<h4 id="1-3-3-1-使用的形参为何要final"><a href="#1-3-3-1-使用的形参为何要final" class="headerlink" title="1.3.3.1 使用的形参为何要final"></a>1.3.3.1 使用的形参为何要final</h4><p>内部类并不是直接调用方法传递的参数，而是利用自身的构造器对传入的参数进行备份，<strong>自己内部方法调用的实际上时自己的属性而不是外部方法传递进来的参数</strong></p>
+<p>在内部类中的属性和外部方法的参数两者从外表上看是同一个东西，但实际上却不是，所以他们两者是可以任意变化的，也就是说在内部类中我对属性的改变并不会影响到外部的形参，而然这从程序员的角度来看这是不可行的，毕竟站在程序的角度来看这两个根本就是同一个，如果内部类该变了，而外部方法的形参却没有改变这是难以理解和不可接受的，所以为了保持参数的一致性，就规定使用final来避免形参的不改变。</p>
+<h4 id="1-3-3-2-匿名内部类初始化"><a href="#1-3-3-2-匿名内部类初始化" class="headerlink" title="1.3.3.2 匿名内部类初始化"></a>1.3.3.2 匿名内部类初始化</h4><p>没有构造方法，所以使用<strong>构造代码块</strong>来创建达到构造方法的效果</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OuterClass</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> InnerClass <span class="title">getInnerClass</span><span class="params">(<span class="keyword">final</span> String name, <span class="keyword">final</span> <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> InnerClass() &#123;</span><br><span class="line"></span><br><span class="line">			String innerName;</span><br><span class="line">			<span class="keyword">int</span> innerAge;</span><br><span class="line">			<span class="comment">// 构造代码块初始化</span></span><br><span class="line">			&#123;</span><br><span class="line">				innerName = name;</span><br><span class="line">				innerAge = age;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="function"><span class="keyword">public</span> String <span class="title">getInnerName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">				<span class="keyword">return</span> innerName;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getInnerAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">				<span class="keyword">return</span> innerAge;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		OuterClass outerClass = <span class="keyword">new</span> OuterClass();</span><br><span class="line"></span><br><span class="line">		InnerClass innerClass = outerClass.getInnerClass(<span class="string">"fun"</span>,<span class="number">26</span>);</span><br><span class="line">		System.out.println(innerClass.getInnerName());</span><br><span class="line"></span><br><span class="line">		InnerClass innerClass2 = outerClass.getInnerClass(<span class="string">"BruceLee"</span>,<span class="number">26</span>);</span><br><span class="line">		System.out.println(innerClass2.getInnerName());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">InnerClass</span></span>&#123;</span><br><span class="line">	<span class="function">String <span class="title">getInnerName</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">getInnerAge</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="1-3-4-静态内部类"><a href="#1-3-4-静态内部类" class="headerlink" title="1.3.4 静态内部类"></a>1.3.4 静态内部类</h3><p>使用static修饰的内部类我们称之为静态内部类，不过我们更喜欢称之为嵌套内部类</p>
+<p>静态内部类与非静态内部类之间存在一个最大的区别，我们知道非静态内部类在编译完成之后会隐含地保存着一个引用，该引用是指向创建它的外围内，但是静态内部类却没有。 </p>
+<p>所以有以下【特点】：</p>
+<ol>
+<li>它的创建是不需要依赖于外围类的。</li>
+<li>它不能使用任何外围类的非static成员变量和方法</li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category> 语言基础 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 内部类 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+  
+  
+</search>

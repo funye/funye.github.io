@@ -1,0 +1,375 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>你以为你熟悉的java关键字 | 独一无二</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="独一无二" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+    
+                <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+    
+    <div class="hide">
+    	<script src="https://s4.cnzz.com/z_stat.php?id=1263868967&web_id=1263868967" language="JavaScript"></script>
+    </div>
+
+
+
+
+
+
+    
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(
+    http://7xpw2b.com1.z0.glb.clouddn.com/hexo-sinppet/img/banner2.jpg)"
+         >
+            <div class="main-header-box">
+                <a class="header-avatar" href="/" title="">
+                    <img src="/img/avatar.jpg" alt="logo头像">
+                </a>
+                <div class="branding">
+                    <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+                    
+                            <img src="/img/branding2.png" alt="Snippet 博客主题">
+                                
+                </div>
+            </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars"></i>
+                    </span>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" path=""><a href="/"><i class="fa fa-fw "></i>首页</a>
+                            </li>
+                            
+                            <li role="presentation" path="/前端/"><a href="/categories/"><i class="fa fa-fw "></i>前端</a>
+                            </li>
+                            
+                            <li role="presentation" path="/后端/"><a href="/categories/"><i class="fa fa-fw "></i>后端</a>
+                            </li>
+                            
+                            <li role="presentation" path="/工具/"><a href="/categories/工具/"><i class="fa fa-fw "></i>资源工具</a>
+                            </li>
+                            
+                            <li role="presentation" path="/about/"><a href="/about/"><i class="fa fa-fw "></i>关于作者</a>
+                            </li>
+                            
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="你以为你熟悉的java关键字">
+            
+            你以为你熟悉的java关键字
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <span>语言基础</span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            static
+            
+        </span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2017/03/17</span>
+    </span>
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h2 id="1-static"><a href="#1-static" class="headerlink" title="1 static"></a>1 static</h2><ol>
+<li>使用StaticDemo的任何方法（静态或者非静态方法），static代码块仅且执行一次</li>
+<li>非静态成员方法可以操作静态成员变量的值</li>
+<li>构造方法只在new 关键字出现，new新的对象的时候调用，<strong>使用类名直接调用静态方法的时候没有调用构造方法</strong></li>
+<li>static不能用来修饰普通内部类中的变量，如果内部类本身是static的是可以的</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StaticDemo</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String prop = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">static</span>&#123;</span><br><span class="line">        prop = <span class="string">"static"</span>;</span><br><span class="line">        System.out.println(<span class="string">"static code block......."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">StaticDemo</span><span class="params">()</span></span>&#123;</span><br><span class="line">        prop = <span class="string">"constructor"</span>;</span><br><span class="line">        System.out.println(<span class="string">"constructor......."</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sayHello</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"sayHello method print the prop="</span>+prop);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayHello2</span><span class="params">()</span></span>&#123;</span><br><span class="line">        prop = <span class="string">"sayHello2"</span>;</span><br><span class="line">        System.out.println(<span class="string">"sayHello2 method print the prop="</span>+prop);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-final"><a href="#2-final" class="headerlink" title="2 final"></a>2 final</h2><p>在java中，可能使用到final关键字修饰的有数据、方法和类。</p>
+<h3 id="2-1-final-修饰数据"><a href="#2-1-final-修饰数据" class="headerlink" title="2.1 final 修饰数据"></a>2.1 final 修饰数据</h3><p>有final修饰的数据是用来告诉编译器一块数据是恒定不变的，有时数据恒定不变是很有用的，比如：</p>
+<ol>
+<li>一个永不改变的编译时常量。</li>
+<li>一个在运行时被初始化的值，但是又不希望它被改变。</li>
+</ol>
+<p>　　<strong>编译时常量必须是基本数据类型，并且以关键字final修饰，在对这个常量进行定义的时候必须进行赋值，并且以后不能被改变。</strong></p>
+<p>　  对于基本类型，final使数值恒定不变；而对于对象引用，final使引用恒定不变，也就是说<strong>某个引用不能再指向其他对象了，但是当前指向的这个对象自身的数据是可以改变的。</strong></p>
+<p>　<br>如何理解上面的解释呢，看如下示例：　<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">final</span> Student student)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 这种写法就会报错，因为改变了student的指向，但是student是个final的。</span></span><br><span class="line">    <span class="comment">// student = new Student() </span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 这种操作是可以的，并且student的name会被成功修改</span></span><br><span class="line">    student.setName(<span class="string">"123"</span>);</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-2-final修饰方法"><a href="#2-2-final修饰方法" class="headerlink" title="2.2 final修饰方法"></a>2.2 final修饰方法</h3><p>　　使用final修饰方法的作用是把方法锁定，以防止任何继承类修改它的含义。<strong>在继承类中，使用了与父类用final修饰的方法同名的方法时，并没有覆盖父类的该方法，而是生成了一个新的方法。也就是说final修饰的方法不能被重写</strong>。</p>
+<h3 id="2-3-final修饰类"><a href="#2-3-final修饰类" class="headerlink" title="2.3 final修饰类"></a>2.3 final修饰类</h3><p>　　当将某个类定义为final时，就表明了你不打算继承该类，也不允许别人继承。
+　　</p>
+<h2 id="3-transient"><a href="#3-transient" class="headerlink" title="3 transient"></a>3 transient</h2><p>使用transient 关键字，标记变量不被序列化和反序列化</p>
+<p>谈到序列化，static 变量也是不会被序列化的</p>
+<h2 id="4-volatile"><a href="#4-volatile" class="headerlink" title="4 volatile"></a>4 volatile</h2><p>volatile 可以保证变量对所有线程的可见性，但是不能说是完全的线程，例如++ 操作是个非原子操作，就有可能出现问题</p>
+<p>volatile只保证了可见性，在<strong>不满足</strong>以下情况的时候，需要加锁（synchronized 或者 java.util.concurrent中的原子类）来保证原子性</p>
+<ol>
+<li>运算结果并不依赖变量的当前值，后者能够确保只有单一线程修改变量的值</li>
+<li>变量不需要同其他的状态变量一起参与不变约束</li>
+</ol>
+<p>volatile 修饰long / double 在多线程的时候可以把他们的读写变成原子的操作(现代的虚拟机已经把64位数据读写作为原子操作了)</p>
+<p>volatile可以防止指令重排序</p>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2017/03/29/serializable/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇</a>
+    
+    
+        <a href="/2017/03/16/array-collection/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    <div id="uyan_frame"></div>
+    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2154669"></script>
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+    <aside class="col-md-4 sidebar">
+        
+        
+    <div class="widget">    
+        <h3 class="title">搜索</h3>
+        <div id="search-form">
+            <div id="result-mask" class="hide"></div>
+            <div class="search-area">
+                
+                    <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢?">
+                    <button type="button" class="search-form-submit" id="search-local">站内搜索</button>
+                
+                
+            </div>
+            <div id="result-wrap" class="hide">
+                <div id="search-result"></div>
+            </div>
+            <div class="hide">
+                <template id="search-tpl">
+                    <div class="item">
+                        <a href="/{path}" title="{title}">
+                            <div class="title">{title}</div>
+                            <div class="content">{content}</div>
+                        </a>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+
+        
+        
+    <div class="widget">
+        <h3 class="title">分类</h3>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link current" href="/categories/工具/"><i class="fa" aria-hidden="true">工具</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/语言基础/"><i class="fa" aria-hidden="true">语言基础</i></a><span class="category-list-count">6</span></li></ul>
+    </div>
+
+
+        
+        
+    <div class="widget">
+      <h3 class="title">归档</h3>
+        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/"><i class="fa" aria-hidden="true">一月 2018</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/"><i class="fa" aria-hidden="true">四月 2017</i></a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/"><i class="fa" aria-hidden="true">三月 2017</i></a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/"><i class="fa" aria-hidden="true">二月 2017</i></a><span class="archive-list-count">1</span></li></ul>
+    </div>
+
+
+        
+        
+  <div class="widget">
+    <h3 class="title">标签云</h3>
+    <div class="content tag-cloud">
+        <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/static/" style="font-size: 10px;">static</a> <a href="/tags/内部类/" style="font-size: 10px;">内部类</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a> <a href="/tags/序列化/" style="font-size: 10px;">序列化</a> <a href="/tags/集合类/" style="font-size: 10px;">集合类</a>
+    </div>
+  </div>
+
+
+        
+        
+    <div class="widget">
+      <h3 class="title">社交</h3> 
+        <div class="content social">
+            
+	            <a href="//github.com/funye" rel="external nofollow" title="Github" target="_blank">
+			    	<i class="git fa fa-git"></i>
+			    </a>
+            
+	            <a href="mailto:fun913510024@163.com" rel="external nofollow" title="邮箱" target="_blank">
+			    	<i class="envelope-o fa fa-envelope-o"></i>
+			    </a>
+            
+	            <a href="/" rel="external nofollow" title="联系QQ" target="_blank">
+			    	<i class="qq fa fa-qq"></i>
+			    </a>
+            
+	            <a href="/" rel="external nofollow" title="微博" target="_blank">
+			    	<i class="weibo fa fa-weibo"></i>
+			    </a>
+            
+	            <a href="/" rel="external nofollow" title="QQ群" target="_blank">
+			    	<i class="users fa fa-users"></i>
+			    </a>
+            
+	            <a href="/atom.xml" rel="external nofollow" title="RSS" target="_blank">
+			    	<i class="feed fa fa-feed"></i>
+			    </a>
+            
+        </div>
+    </div>
+
+
+        
+        
+    <div class="widget">
+        <h3 class="title">友链</h3>
+        <div class="content friends-link">
+        
+            <a href="https://github.funye.io" class="fa" target="_blank">个人博客</a>
+        
+        </div>
+    </div>
+
+
+        
+    </aside>
+
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2018
+                </span> | 
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> | 
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <script src="/js/search.js?rev=@@hash"></script>
+        
+
+            <script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>
