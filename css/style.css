@@ -979,6 +979,11 @@ pre {
     float: right;
 }
 
+.sidebar {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
 .sidebar .widget {
     background: #fff;
     padding: 16px 25px;
@@ -1400,7 +1405,7 @@ figure.highlight .gutter,
 .codeblock .gutter {
     background: #f7f8f8;
     border-right: 1px solid #e6e6e6;
-    padding: 0.3em 15px;
+    padding: 0.3em 5px;
 }
 
 figure.highlight .gutter .line,
@@ -1410,13 +1415,13 @@ figure.highlight .gutter .line,
 
 figure.highlight .code,
 .codeblock .code {
-    padding: 0.3em 15px 0.3em 1em;
+    padding: 0.3em 0.3em 0.3em 0.3em;
     width: 100%;
 }
 
 figure.highlight .code pre,
 .codeblock .code pre {
-    max-width: 700px;
+    max-width: 780px;
     overflow-x: auto;
     overflow-y: hidden;
 }

@@ -64,9 +64,9 @@
       <category term="语言基础" scheme="http://yoursite.com/categories/%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/"/>
     
     
-      <category term="线程池" scheme="http://yoursite.com/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/"/>
-    
       <category term="多线程" scheme="http://yoursite.com/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+    
+      <category term="线程池" scheme="http://yoursite.com/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/"/>
     
   </entry>
   
