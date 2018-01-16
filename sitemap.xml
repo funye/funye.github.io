@@ -2,6 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/01/16/thread-04/</loc>
+    
+    <lastmod>2018-01-16T03:06:11.947Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/01/15/thread-03/</loc>
+    
+    <lastmod>2018-01-16T03:05:47.026Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/01/10/thread-01/</loc>
+    
+    <lastmod>2018-01-16T03:03:06.058Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/01/14/thread-02/</loc>
+    
+    <lastmod>2018-01-16T03:02:10.780Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/02/13/inner-class/</loc>
+    
+    <lastmod>2018-01-16T02:44:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/03/16/array-collection/</loc>
+    
+    <lastmod>2018-01-16T02:34:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/04/01/jvm/</loc>
+    
+    <lastmod>2018-01-16T02:27:10.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/01/03/hello-world/</loc>
     
     <lastmod>2018-01-08T02:54:28.776Z</lastmod>
@@ -9,37 +58,9 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/04/03/thread-01/</loc>
-    
-    <lastmod>2018-01-05T17:25:00.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/04/01/jvm/</loc>
-    
-    <lastmod>2018-01-05T17:20:38.182Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2017/03/29/serializable/</loc>
     
     <lastmod>2018-01-05T17:09:02.453Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/02/13/inner-class/</loc>
-    
-    <lastmod>2018-01-05T17:08:58.810Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/03/16/array-collection/</loc>
-    
-    <lastmod>2018-01-05T17:08:55.436Z</lastmod>
     
   </url>
   
