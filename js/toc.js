@@ -30,7 +30,9 @@ function titleOfContent() {
     });
     // 最后是H2结尾处理一下
     if (stack.length > 0) {
-        toc.push({ "item": stack.shift(), "childs": [] });
+        var $h2 = stack.shift();
+        var childs = stack;
+        toc.push({ "item": $h2, "childs": childs });
     }
     // console.log(toc);
 
