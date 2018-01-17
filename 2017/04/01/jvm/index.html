@@ -120,8 +120,8 @@
     <div class="post-head">
         <h1 id="Java不得不提的内存模型">
             
-            Java不得不提的内存模型
-            
+                    Java不得不提的内存模型
+                        
         </h1>
         <div class="post-meta">
     
@@ -149,11 +149,11 @@
 </div>
 
             
-            
+                
     </div>
     
-    <div class="post-body post-content">
-        <h2 id="1-认识JVM"><a href="#1-认识JVM" class="headerlink" title="1 认识JVM"></a>1 认识JVM</h2><p><img src="http://img.blog.csdn.net/20131231175136859?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQva2luZ29md29ybGQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="JVM内存模型图"></p>
+        <div class="post-body post-content">
+            <h2 id="1-认识JVM"><a href="#1-认识JVM" class="headerlink" title="1 认识JVM"></a>1 认识JVM</h2><p><img src="http://img.blog.csdn.net/20131231175136859?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQva2luZ29md29ybGQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="JVM内存模型图"></p>
 <h3 id="1-1-程序计数器（program-count-register）"><a href="#1-1-程序计数器（program-count-register）" class="headerlink" title="1.1 程序计数器（program count register）"></a>1.1 程序计数器（program count register）</h3><p><strong>当前线程</strong>执行的字节码的行号指示器。多线程时，当线程数超过CPU数量或CPU内核数量，线程之间就要根据时间片轮询抢夺CPU时间资源，因此每个线程有要有一个独立的程序计数器，记录下一条要运行的指令</p>
 <p>程序计数器内存区域又称“线程私有”内存。</p>
 <p>线程执行java方法，program count register 记录正在执行的虚拟机字节码指令的地址。程序执行Native方法，program count register 的值为空（Undefined），program count register是<strong>唯一一个</strong>在java虚拟机规范中没有定义<strong>OutOfMemoryError</strong>情况的区域</p>
@@ -265,27 +265,29 @@
 <p>直接方式就是直接访问，速度快</p>
 <hr>
 
-    </div>
-
-    <div class="post-footer">   
-        <div>
-            
-                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
-            
         </div>
-        <div>
-            
-        </div>  
-    </div>
+
+        <div class="post-footer">
+            <div>
+                
+                    转载声明：
+                        商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+                            
+                                
+            </div>
+            <div>
+                
+            </div>
+        </div>
 </article>
 
 <div class="article-nav prev-next-wrap clearfix">
     
         <a href="/2018/01/03/hello-world/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇</a>
-    
-    
-        <a href="/2017/03/29/serializable/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
-    
+        
+            
+                <a href="/2017/03/29/serializable/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
+                
 </div>
 
 
@@ -295,14 +297,12 @@
     <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2154669"></script>
     
     </div>
-
-
-
-
-
+    
+        <script src="/js/toc.js?rev=@@hash"></script>
                                 </main>
                                 
     <aside class="col-md-3 sidebar">
+
         
             
     <div class="widget">    
@@ -405,6 +405,10 @@
 
 
                 
+                    <div class='widget toc-widget'>
+                        <h3 class='title'>文章目录</h3>
+                        <div id='toc'>toc</div>
+                    </div>
     </aside>
     
                             </div>
@@ -427,14 +431,14 @@
                         <div class="copyright">
     <div class="container">
         <div class="row">
-            <div class="col-sm-12"> 
+            <div class="col-sm-12">
                 <span>Copyright &copy; 2018
-                </span> | 
+                </span> |
                 <span>
                     Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
-                </span> | 
+                </span> |
                 <span>
-                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                    Theme by <a href="https://github.com/funye/hexo-theme-snippet" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
                 </span>
             </div>
         </div>
@@ -446,7 +450,6 @@
         
 
             <script src="/js/app.js?rev=@@hash"></script>
-
         </body>
 
         </html>

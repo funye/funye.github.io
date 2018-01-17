@@ -120,8 +120,8 @@
     <div class="post-head">
         <h1 id="Java线程、线程池、并发包(4)">
             
-            Java线程、线程池、并发包(4)
-            
+                    Java线程、线程池、并发包(4)
+                        
         </h1>
         <div class="post-meta">
     
@@ -149,11 +149,11 @@
 </div>
 
             
-            
+                
     </div>
     
-    <div class="post-body post-content">
-        <h2 id="1-Future与Callable"><a href="#1-Future与Callable" class="headerlink" title="1 Future与Callable"></a>1 Future与Callable</h2><p>使用Runnable接口有很大的局限性，他不能够返回一个值或者一个受检查的异常。这种情况下，可以使用Callable<v>接口，其中V就是返回的结果。</v></p>
+        <div class="post-body post-content">
+            <h2 id="1-Future与Callable"><a href="#1-Future与Callable" class="headerlink" title="1 Future与Callable"></a>1 Future与Callable</h2><p>使用Runnable接口有很大的局限性，他不能够返回一个值或者一个受检查的异常。这种情况下，可以使用Callable<v>接口，其中V就是返回的结果。</v></p>
 <p>Future<v>用来接收callable结束后返回的结果。ExecuteService 的submit方法都是返回一个Future,可以利用Future获取执行的结果，同时可以利用Future取消任务。任务生命周期 创建，提交，执行，结束。如果任务提交，但是没有执行，可以使用Future 取消。</v></p>
 <p>使用线程池(ThreadPoolExecute)的时候，ExecuteService的submit方法实际上使用的是AbstractExecutorService的submit。查看源码可以看到提交任务后返回的是 FutureTask<t></t></p>
 <p>示例：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.fun.concurrent;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * callable示例</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> fun</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2017-04-01 10:59</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FutureCallableDemo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		FutureCallableDemo test = <span class="keyword">new</span> FutureCallableDemo();</span><br><span class="line"></span><br><span class="line">		ExecutorService executorService = Executors.newFixedThreadPool(<span class="number">2</span>);</span><br><span class="line">		<span class="comment">//do test</span></span><br><span class="line"><span class="comment">//		test.testCallableTask(executorService);</span></span><br><span class="line">		test.testRunableTask(executorService);</span><br><span class="line">		executorService.shutdown();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testCallableTask</span><span class="params">(ExecutorService executorService)</span> </span>&#123;</span><br><span class="line">		Callable&lt;String&gt; task = <span class="keyword">new</span> Callable&lt;String&gt;() &#123;</span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="function"><span class="keyword">public</span> String <span class="title">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">				System.out.println(<span class="string">"invoke method call, "</span> + System.currentTimeMillis());</span><br><span class="line">				Thread.sleep(<span class="number">3000</span>);</span><br><span class="line">				System.out.println(<span class="string">"method call is going to return, "</span> + System.currentTimeMillis());</span><br><span class="line">				<span class="keyword">return</span> <span class="string">"SUCCESS"</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;;</span><br><span class="line">		Future&lt;String&gt; future = executorService.submit(task);</span><br><span class="line"></span><br><span class="line">		System.out.println(<span class="string">"main is going to get callable future result, "</span> + System.currentTimeMillis());</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			System.out.println(<span class="string">"callable result = "</span> + future.get());</span><br><span class="line">		&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (ExecutionException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">"main got the future result, "</span> + System.currentTimeMillis());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testRunableTask</span><span class="params">(ExecutorService executorService)</span> </span>&#123;</span><br><span class="line">		Runnable runTask = <span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">				System.out.println(<span class="string">"invoke method run, "</span> + System.currentTimeMillis());</span><br><span class="line">				<span class="keyword">try</span> &#123;</span><br><span class="line">					Thread.sleep(<span class="number">3000</span>);</span><br><span class="line">				&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">					e.printStackTrace();</span><br><span class="line">				&#125;</span><br><span class="line">				System.out.println(<span class="string">"method run is going to end, "</span> + System.currentTimeMillis());</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;;</span><br><span class="line"></span><br><span class="line">		Future&lt;Integer&gt; runFuture = executorService.submit(runTask,<span class="keyword">new</span> Integer(<span class="number">100</span>));</span><br><span class="line"><span class="comment">//		Future&lt;?&gt; runFuture = executorService.submit(runTask); // 这两种方式区别，打开注释观察</span></span><br><span class="line"></span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			System.out.println(<span class="string">"main is going to get runnable future result, "</span> + System.currentTimeMillis());</span><br><span class="line">			System.out.println(<span class="string">"runnable result = "</span> + runFuture.get());</span><br><span class="line">			System.out.println(<span class="string">"main got the future result, "</span> + System.currentTimeMillis());</span><br><span class="line">		&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (ExecutionException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -213,25 +213,27 @@
 <p>例如： 在concurrentHashMap 中使用一个包含16个锁的数组，每个锁保护一个散列桶，其中第N个散列桶由第（N mod 16）个锁来写入。假设散列函数具有合理性，并且关键字分布均匀，那么这大约能都把对于锁的请求减少到原来1/16。正是这项技术使得ConcurrentHashMap能够支持多大16个并发的写入器。</p>
 <p>锁分段劣势： 与采用单个锁来实现独占访问相比，要获取多个锁来实现独占访问将更加困难并且开销更高。例如：ConcurrentHashMap在扩容的时候，以及重新计算Hash并且重新散列分布时候，都需要获取所有锁，实现整个Map的独占访问。</p>
 
-    </div>
-
-    <div class="post-footer">   
-        <div>
-            
-                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
-            
         </div>
-        <div>
-            
-        </div>  
-    </div>
+
+        <div class="post-footer">
+            <div>
+                
+                    转载声明：
+                        商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+                            
+                                
+            </div>
+            <div>
+                
+            </div>
+        </div>
 </article>
 
 <div class="article-nav prev-next-wrap clearfix">
     
-    
-        <a href="/2018/01/15/thread-03/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
-    
+            
+                <a href="/2018/01/15/thread-03/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
+                
 </div>
 
 
@@ -241,14 +243,12 @@
     <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2154669"></script>
     
     </div>
-
-
-
-
-
+    
+        <script src="/js/toc.js?rev=@@hash"></script>
                                 </main>
                                 
     <aside class="col-md-3 sidebar">
+
         
             
     <div class="widget">    
@@ -351,6 +351,10 @@
 
 
                 
+                    <div class='widget toc-widget'>
+                        <h3 class='title'>文章目录</h3>
+                        <div id='toc'>toc</div>
+                    </div>
     </aside>
     
                             </div>
@@ -373,14 +377,14 @@
                         <div class="copyright">
     <div class="container">
         <div class="row">
-            <div class="col-sm-12"> 
+            <div class="col-sm-12">
                 <span>Copyright &copy; 2018
-                </span> | 
+                </span> |
                 <span>
                     Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
-                </span> | 
+                </span> |
                 <span>
-                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                    Theme by <a href="https://github.com/funye/hexo-theme-snippet" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
                 </span>
             </div>
         </div>
@@ -392,7 +396,6 @@
         
 
             <script src="/js/app.js?rev=@@hash"></script>
-
         </body>
 
         </html>

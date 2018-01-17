@@ -120,8 +120,8 @@
     <div class="post-head">
         <h1 id="浅析Java序列化问题">
             
-            浅析Java序列化问题
-            
+                    浅析Java序列化问题
+                        
         </h1>
         <div class="post-meta">
     
@@ -149,11 +149,11 @@
 </div>
 
             
-            
+                
     </div>
     
-    <div class="post-body post-content">
-        <h2 id="1-为什么要序列化"><a href="#1-为什么要序列化" class="headerlink" title="1. 为什么要序列化"></a>1. 为什么要序列化</h2><p>java序列化的目的就是把一个对象转换成流，并通过网络发送，或将其存入文件或者数据库以便未来使用。反序列则是把流转化成实际程序中使用的java。</p>
+        <div class="post-body post-content">
+            <h2 id="1-为什么要序列化"><a href="#1-为什么要序列化" class="headerlink" title="1. 为什么要序列化"></a>1. 为什么要序列化</h2><p>java序列化的目的就是把一个对象转换成流，并通过网络发送，或将其存入文件或者数据库以便未来使用。反序列则是把流转化成实际程序中使用的java。</p>
 <p>Java的”对象序列化”能让你将一个实现了Serializable接口的对象转换成一组byte，这样日后要用这个对象时候，你就能把这些byte数据恢复出来，并据此重新构建那个对象了。这一点甚至在跨网络的环境下也是如此，这就意味着序列化机制能自动补偿操作系统方面的差异。也就是说，你可以在Windows机器上创键一个对象，序列化之后，再通过网络传到Unix机器上，然后在那里进行重建。你不用担心在不同的平台上数据是怎样表示的，byte顺序怎样，或者别的什么细节。之所以需要对象序列化，是因为有时候对象需要在网络上传输，传输的时候需要这种序列化处理，从服务器硬盘上把序列化的对象取出，然后通过网络传到客户端，再由客户端把序列化的对象读入内存，执行相应的处理。</p>
 <h2 id="2-序列化实现及原理"><a href="#2-序列化实现及原理" class="headerlink" title="2. 序列化实现及原理"></a>2. 序列化实现及原理</h2><p>在java jdk1.1中就引入了序列化api。如果你希望一个类对象是可序列化的，你所要做的是实现java.io.Serializable接口。序列化一种标记接口，不需要实现任何字段和方法，这就像是一种选择性加入的处理，通过它可以使类对象成为可序列化的对象。</p>
 <p>序列化处理是通过ObjectInputStream和ObjectOutputStream实现的，因此我们所要做的是基于它们进行一层封装，要么将其保存为文件，要么将其通过网络发送</p>
@@ -171,27 +171,29 @@
 <p>上面的示例，第一次直接执行，第二字只做反序列化，并且修改了序列化对象的版本号，即操作注释①的uid=-2L ,注释掉 注释②出的代码。只反序列化。这个时候就提提示异常了：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java.io.InvalidClassException: com.fun.lang.Foo; local class incompatible: stream classdesc serialVersionUID = -1, local class serialVersionUID = -2</span><br></pre></td></tr></table></figure>
 
-    </div>
-
-    <div class="post-footer">   
-        <div>
-            
-                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
-            
         </div>
-        <div>
-            
-        </div>  
-    </div>
+
+        <div class="post-footer">
+            <div>
+                
+                    转载声明：
+                        商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+                            
+                                
+            </div>
+            <div>
+                
+            </div>
+        </div>
 </article>
 
 <div class="article-nav prev-next-wrap clearfix">
     
         <a href="/2017/04/01/jvm/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇</a>
-    
-    
-        <a href="/2017/03/17/java关键字/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
-    
+        
+            
+                <a href="/2017/03/17/java关键字/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
+                
 </div>
 
 
@@ -201,14 +203,12 @@
     <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2154669"></script>
     
     </div>
-
-
-
-
-
+    
+        <script src="/js/toc.js?rev=@@hash"></script>
                                 </main>
                                 
     <aside class="col-md-3 sidebar">
+
         
             
     <div class="widget">    
@@ -311,6 +311,10 @@
 
 
                 
+                    <div class='widget toc-widget'>
+                        <h3 class='title'>文章目录</h3>
+                        <div id='toc'>toc</div>
+                    </div>
     </aside>
     
                             </div>
@@ -333,14 +337,14 @@
                         <div class="copyright">
     <div class="container">
         <div class="row">
-            <div class="col-sm-12"> 
+            <div class="col-sm-12">
                 <span>Copyright &copy; 2018
-                </span> | 
+                </span> |
                 <span>
                     Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
-                </span> | 
+                </span> |
                 <span>
-                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                    Theme by <a href="https://github.com/funye/hexo-theme-snippet" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
                 </span>
             </div>
         </div>
@@ -352,7 +356,6 @@
         
 
             <script src="/js/app.js?rev=@@hash"></script>
-
         </body>
 
         </html>

@@ -120,8 +120,8 @@
     <div class="post-head">
         <h1 id="Java线程、线程池、并发包(2)">
             
-            Java线程、线程池、并发包(2)
-            
+                    Java线程、线程池、并发包(2)
+                        
         </h1>
         <div class="post-meta">
     
@@ -149,11 +149,11 @@
 </div>
 
             
-            
+                
     </div>
     
-    <div class="post-body post-content">
-        <h2 id="java的线程Thread"><a href="#java的线程Thread" class="headerlink" title="java的线程Thread"></a>java的线程Thread</h2><blockquote>
+        <div class="post-body post-content">
+            <h2 id="java的线程Thread"><a href="#java的线程Thread" class="headerlink" title="java的线程Thread"></a>java的线程Thread</h2><blockquote>
 <p>现在的操作系统是多任务操作系统。多线程是实现多任务的一种方式。</p>
 <p>进程是指一个内存中运行的应用程序，每个进程都有自己独立的一块内存空间，一个进程中可以启动多个线程。比如在Windows系统中，一个运行的exe就是一个进程。</p>
 <p>线程是指进程中的一个执行流程，一个进程中可以运行多个线程。比如java.exe进程中可以运行很多线程。线程总是属于某个进程，进程中的多个线程共享进程的内存。</p>
@@ -276,27 +276,29 @@
 <p>那么这两种有什么区别呢 ？ 如果没有区别，是不是wait-notify岂不是没有存在意义 ？</p>
 <p>原因就在于：处于wait()中的线程是中断的，被挂起的，不会抢占cpu的计算时间；而相反的，无线循环保证了线程的就绪态，会占用cpu时间。占用cpu即会减少其他线程的计算资源，导致性能下降</p>
 
-    </div>
-
-    <div class="post-footer">   
-        <div>
-            
-                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
-            
         </div>
-        <div>
-            
-        </div>  
-    </div>
+
+        <div class="post-footer">
+            <div>
+                
+                    转载声明：
+                        商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+                            
+                                
+            </div>
+            <div>
+                
+            </div>
+        </div>
 </article>
 
 <div class="article-nav prev-next-wrap clearfix">
     
         <a href="/2018/01/15/thread-03/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇</a>
-    
-    
-        <a href="/2018/01/10/thread-01/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
-    
+        
+            
+                <a href="/2018/01/10/thread-01/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
+                
 </div>
 
 
@@ -306,14 +308,12 @@
     <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2154669"></script>
     
     </div>
-
-
-
-
-
+    
+        <script src="/js/toc.js?rev=@@hash"></script>
                                 </main>
                                 
     <aside class="col-md-3 sidebar">
+
         
             
     <div class="widget">    
@@ -416,6 +416,10 @@
 
 
                 
+                    <div class='widget toc-widget'>
+                        <h3 class='title'>文章目录</h3>
+                        <div id='toc'>toc</div>
+                    </div>
     </aside>
     
                             </div>
@@ -438,14 +442,14 @@
                         <div class="copyright">
     <div class="container">
         <div class="row">
-            <div class="col-sm-12"> 
+            <div class="col-sm-12">
                 <span>Copyright &copy; 2018
-                </span> | 
+                </span> |
                 <span>
                     Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
-                </span> | 
+                </span> |
                 <span>
-                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                    Theme by <a href="https://github.com/funye/hexo-theme-snippet" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
                 </span>
             </div>
         </div>
@@ -457,7 +461,6 @@
         
 
             <script src="/js/app.js?rev=@@hash"></script>
-
         </body>
 
         </html>
