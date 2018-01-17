@@ -108,4 +108,6 @@ window.onload = function() {
             }
         });
     };
+
+    titleOfContent();
 };
