@@ -31,7 +31,7 @@ function titleOfContent() {
     // 最后是H2结尾处理一下
     if (stack.length > 0) {
         stack.forEach(element => {
-            toc.push({ "item": $h2, "childs": childs });
+            toc.push({ "item": element, "childs": childs });
         });
     }
     // console.log(toc);
