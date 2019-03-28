@@ -1,0 +1,27 @@
+{
+    "title": "java知识总结",
+    "description": "在后端开发学习和工作中总结的知识点和一些基础知识积累。",
+    "author": "funye",
+    "language": "zh-hans",
+    "plugins": [
+        "prism",
+        "-highlight",
+        "prism-themes",
+        "mermaid",
+        "anchor-navigation-ex-toc",
+        "expandable-chapters-small"
+    ],
+    "pluginsConfig": {
+        "prism": {
+            "css": [
+                "prism-themes/themes/prism-ghcolors.css"
+            ]
+        },
+        "anchor-navigation-ex": {
+            "associatedWithSummary": true
+        },
+        "theme-default": {
+            "showLevel": false
+        }
+    }
+}

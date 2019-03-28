@@ -1,0 +1,786 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>消息服务 · java知识总结</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="funye">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-ghcolors.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex-toc/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="kafka.html" />
+    
+    
+    <link rel="prev" href="../cache/redis.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../thread/thread-concurrent.html">
+            
+                <a href="../thread/thread-concurrent.html">
+            
+                    
+                    多线程及并发
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../thread/thread-1.html">
+            
+                <a href="../thread/thread-1.html">
+            
+                    
+                    线程、线程池、并发包（1）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../thread/thread-2.html">
+            
+                <a href="../thread/thread-2.html">
+            
+                    
+                    线程、线程池、并发包（2）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../thread/thread-3.html">
+            
+                <a href="../thread/thread-3.html">
+            
+                    
+                    线程、线程池、并发包（3）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../thread/thread-4.html">
+            
+                <a href="../thread/thread-4.html">
+            
+                    
+                    线程、线程池、并发包（4）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../thread/concurrent-compare.html">
+            
+                <a href="../thread/concurrent-compare.html">
+            
+                    
+                    volatile-synchronized-Lock
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../data-structure/data-structure.html">
+            
+                <a href="../data-structure/data-structure.html">
+            
+                    
+                    数据结构
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../data-structure/binary-tree.md">
+            
+                <span>
+            
+                    
+                    二叉树
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../design-pattern/design-pattern.html">
+            
+                <a href="../design-pattern/design-pattern.html">
+            
+                    
+                    设计模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../data-access-layer/data-access-layer.html">
+            
+                <a href="../data-access-layer/data-access-layer.html">
+            
+                    
+                    数据访问层
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../data-access-layer/mybatis-jpa.html">
+            
+                <a href="../data-access-layer/mybatis-jpa.html">
+            
+                    
+                    数据层-mybatis/jpa
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../data-access-layer/mycat.html">
+            
+                <a href="../data-access-layer/mycat.html">
+            
+                    
+                    数据层-mycat
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../cache/cache.html">
+            
+                <a href="../cache/cache.html">
+            
+                    
+                    缓存服务
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../cache/redis.html">
+            
+                <a href="../cache/redis.html">
+            
+                    
+                    redis缓存服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7" data-path="message.html">
+            
+                <a href="message.html">
+            
+                    
+                    消息服务
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="kafka.html">
+            
+                <a href="kafka.html">
+            
+                    
+                    kafka
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../search/search.html">
+            
+                <a href="../search/search.html">
+            
+                    
+                    搜索服务
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../search/elasticsearch.html">
+            
+                <a href="../search/elasticsearch.html">
+            
+                    
+                    es搜索服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../netty/netty.html">
+            
+                <a href="../netty/netty.html">
+            
+                    
+                    网络编程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../netty/nio.html">
+            
+                <a href="../netty/nio.html">
+            
+                    
+                    nio入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../netty/netty-in-action.html">
+            
+                <a href="../netty/netty-in-action.html">
+            
+                    
+                    netty实战
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../microservice/microservice.html">
+            
+                <a href="../microservice/microservice.html">
+            
+                    
+                    分布式与微服务
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../microservice/zookeeper.html">
+            
+                <a href="../microservice/zookeeper.html">
+            
+                    
+                    中间件-zookeeper
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../microservice/dubbo.html">
+            
+                <a href="../microservice/dubbo.html">
+            
+                    
+                    微服务-dubbo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../microservice/springcloud.html">
+            
+                <a href="../microservice/springcloud.html">
+            
+                    
+                    微服务-SpringCloud
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="../microservice/servicemesh.html">
+            
+                <a href="../microservice/servicemesh.html">
+            
+                    
+                    微服务-servicemesh
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5" data-path="../microservice/job.html">
+            
+                <a href="../microservice/job.html">
+            
+                    
+                    分布式任务调度
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.6" data-path="../microservice/distribution-transaction.md">
+            
+                <span>
+            
+                    
+                    分布式事务
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../server/server-maintain.html">
+            
+                <a href="../server/server-maintain.html">
+            
+                    
+                    服务器运维
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../server/docker.html">
+            
+                <a href="../server/docker.html">
+            
+                    
+                    部署-docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../server/nginx.html">
+            
+                <a href="../server/nginx.html">
+            
+                    
+                    部署-nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../server/shell.html">
+            
+                <a href="../server/shell.html">
+            
+                    
+                    shell脚本
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../interview/interview.html">
+            
+                <a href="../interview/interview.html">
+            
+                    
+                    面试记录
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../interview/ali-20180821.html">
+            
+                <a href="../interview/ali-20180821.html">
+            
+                    
+                    阿里-20180821
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >消息服务</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#&#x6D88;&#x606F;&#x670D;&#x52A1;"><b>1. </b>&#x6D88;&#x606F;&#x670D;&#x52A1;</a></li><ul><li><span class="title-icon "></span><a href="#&#x4EC0;&#x4E48;&#x662F;&#x6D88;&#x606F;&#x7CFB;&#x7EDF;"><b>1.1. </b>&#x4EC0;&#x4E48;&#x662F;&#x6D88;&#x606F;&#x7CFB;&#x7EDF;</a></li><li><span class="title-icon "></span><a href="#&#x4E3A;&#x4EC0;&#x4E48;&#x4F7F;&#x7528;&#x6D88;&#x606F;&#x7CFB;&#x7EDF;"><b>1.2. </b>&#x4E3A;&#x4EC0;&#x4E48;&#x4F7F;&#x7528;&#x6D88;&#x606F;&#x7CFB;&#x7EDF;</a></li><ul><li><span class="title-icon "></span><a href="#&#x89E3;&#x8026;"><b>1.2.1. </b>&#x89E3;&#x8026;</a></li><li><span class="title-icon "></span><a href="#&#x5F02;&#x6B65;"><b>1.2.2. </b>&#x5F02;&#x6B65;</a></li><li><span class="title-icon "></span><a href="#&#x524A;&#x5CF0;"><b>1.2.3. </b>&#x524A;&#x5CF0;</a></li><li><span class="title-icon "></span><a href="#&#x4F18;&#x7F3A;&#x70B9;"><b>1.2.4. </b>&#x4F18;&#x7F3A;&#x70B9;</a></li></ul><li><span class="title-icon "></span><a href="#&#x600E;&#x4E48;&#x4F7F;&#x7528;&#x6D88;&#x606F;&#x7CFB;&#x7EDF;"><b>1.3. </b>&#x600E;&#x4E48;&#x4F7F;&#x7528;&#x6D88;&#x606F;&#x7CFB;&#x7EDF;</a></li></ul></ul></div><a href="#&#x6D88;&#x606F;&#x670D;&#x52A1;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x6D88;&#x606F;&#x670D;&#x52A1;"><a name="&#x6D88;&#x606F;&#x670D;&#x52A1;" class="anchor-navigation-ex-anchor" href="#&#x6D88;&#x606F;&#x670D;&#x52A1;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x6D88;&#x606F;&#x670D;&#x52A1;</h1>
+<p>&#x7814;&#x7A76;&#x6D88;&#x606F;&#x7CFB;&#x7EDF;&#xFF0C;&#x4ECE;&#x4E09;&#x4E2A;&#x95EE;&#x9898;&#x51FA;&#x53D1;</p>
+<ol>
+<li>W(what) &#x4EC0;&#x4E48;&#x662F;&#x6D88;&#x606F;&#x7CFB;&#x7EDF;</li>
+<li>W(why) &#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x4F7F;&#x7528;&#x6D88;&#x606F;&#x7CFB;&#x7EDF;</li>
+<li>H(how) &#x600E;&#x4E48;&#x4F7F;&#x7528;&#x6D88;&#x606F;&#x7CFB;&#x7EDF;</li>
+</ol>
+<h2 id="&#x4EC0;&#x4E48;&#x662F;&#x6D88;&#x606F;&#x7CFB;&#x7EDF;"><a name="&#x4EC0;&#x4E48;&#x662F;&#x6D88;&#x606F;&#x7CFB;&#x7EDF;" class="anchor-navigation-ex-anchor" href="#&#x4EC0;&#x4E48;&#x662F;&#x6D88;&#x606F;&#x7CFB;&#x7EDF;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. &#x4EC0;&#x4E48;&#x662F;&#x6D88;&#x606F;&#x7CFB;&#x7EDF;</h2>
+<p><strong>&#x751F;&#x4EA7;&#x8005;&#x6D88;&#x8D39;&#x8005;&#x6A21;&#x5F0F;</strong></p>
+<ul>
+<li>Producer&#xFF1A;&#x6D88;&#x606F;&#x751F;&#x4EA7;&#x8005;&#xFF0C;&#x8D1F;&#x8D23;&#x4EA7;&#x751F;&#x548C;&#x53D1;&#x9001;&#x6D88;&#x606F;&#x5230; Broker&#xFF1B;</li>
+<li>Broker&#xFF1A;&#x6D88;&#x606F;&#x5904;&#x7406;&#x4E2D;&#x5FC3;&#x3002;&#x8D1F;&#x8D23;&#x6D88;&#x606F;&#x5B58;&#x50A8;&#x3001;&#x786E;&#x8BA4;&#x3001;&#x91CD;&#x8BD5;&#x7B49;&#xFF0C;&#x4E00;&#x822C;&#x5176;&#x4E2D;&#x4F1A;&#x5305;&#x542B;&#x591A;&#x4E2A; queue&#xFF1B;</li>
+<li>Consumer&#xFF1A;&#x6D88;&#x606F;&#x6D88;&#x8D39;&#x8005;&#xFF0C;&#x8D1F;&#x8D23;&#x4ECE; Broker &#x4E2D;&#x83B7;&#x53D6;&#x6D88;&#x606F;&#xFF0C;&#x5E76;&#x8FDB;&#x884C;&#x76F8;&#x5E94;&#x5904;&#x7406;</li>
+</ul>
+<h2 id="&#x4E3A;&#x4EC0;&#x4E48;&#x4F7F;&#x7528;&#x6D88;&#x606F;&#x7CFB;&#x7EDF;"><a name="&#x4E3A;&#x4EC0;&#x4E48;&#x4F7F;&#x7528;&#x6D88;&#x606F;&#x7CFB;&#x7EDF;" class="anchor-navigation-ex-anchor" href="#&#x4E3A;&#x4EC0;&#x4E48;&#x4F7F;&#x7528;&#x6D88;&#x606F;&#x7CFB;&#x7EDF;"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. &#x4E3A;&#x4EC0;&#x4E48;&#x4F7F;&#x7528;&#x6D88;&#x606F;&#x7CFB;&#x7EDF;</h2>
+<p>&#x9009;&#x62E9;&#x4F7F;&#x7528;&#x6D88;&#x606F;&#x7CFB;&#x7EDF;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5148;&#x601D;&#x8003;&#x4E24;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;1.&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x4F7F;&#x7528;&#x6D88;&#x606F;&#x7CFB;&#x7EDF;&#xFF1F; 2.&#x4F7F;&#x7528;&#x6D88;&#x606F;&#x7CFB;&#x7EDF;&#x4F1A;&#x6709;&#x4EC0;&#x4E48;&#x4F18;&#x7F3A;&#x70B9;&#xFF1F;</p>
+<p>&#x5148;&#x6765;&#x8BF4;&#x8BF4;&#x7B2C;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x4F7F;&#x7528;&#x6D88;&#x606F;&#x7CFB;&#x7EDF;&#x3002;&#x7EFC;&#x5408;&#x6765;&#x770B;&#x7684;&#x8BDD;&#xFF0C;&#x6D88;&#x606F;&#x7CFB;&#x7EDF;&#xFF0C;&#x6700;&#x7EC8;&#x8FBE;&#x5230;&#x7684;&#x5C31;&#x662F; <strong>&#x89E3;&#x8026;</strong>&#x3001;<strong>&#x5F02;&#x6B65;</strong>&#x3001;<strong>&#x524A;&#x5CF0;</strong> &#x7684;&#x76EE;&#x7684;</p>
+<h3 id="&#x89E3;&#x8026;"><a name="&#x89E3;&#x8026;" class="anchor-navigation-ex-anchor" href="#&#x89E3;&#x8026;"><i class="fa fa-link" aria-hidden="true"></i></a>1.2.1. &#x89E3;&#x8026;</h3>
+<h3 id="&#x5F02;&#x6B65;"><a name="&#x5F02;&#x6B65;" class="anchor-navigation-ex-anchor" href="#&#x5F02;&#x6B65;"><i class="fa fa-link" aria-hidden="true"></i></a>1.2.2. &#x5F02;&#x6B65;</h3>
+<h3 id="&#x524A;&#x5CF0;"><a name="&#x524A;&#x5CF0;" class="anchor-navigation-ex-anchor" href="#&#x524A;&#x5CF0;"><i class="fa fa-link" aria-hidden="true"></i></a>1.2.3. &#x524A;&#x5CF0;</h3>
+<h3 id="&#x4F18;&#x7F3A;&#x70B9;"><a name="&#x4F18;&#x7F3A;&#x70B9;" class="anchor-navigation-ex-anchor" href="#&#x4F18;&#x7F3A;&#x70B9;"><i class="fa fa-link" aria-hidden="true"></i></a>1.2.4. &#x4F18;&#x7F3A;&#x70B9;</h3>
+<h2 id="&#x600E;&#x4E48;&#x4F7F;&#x7528;&#x6D88;&#x606F;&#x7CFB;&#x7EDF;"><a name="&#x600E;&#x4E48;&#x4F7F;&#x7528;&#x6D88;&#x606F;&#x7CFB;&#x7EDF;" class="anchor-navigation-ex-anchor" href="#&#x600E;&#x4E48;&#x4F7F;&#x7528;&#x6D88;&#x606F;&#x7CFB;&#x7EDF;"><i class="fa fa-link" aria-hidden="true"></i></a>1.3. &#x600E;&#x4E48;&#x4F7F;&#x7528;&#x6D88;&#x606F;&#x7CFB;&#x7EDF;</h2>
+<ol>
+<li><p>&#x5982;&#x4F55;&#x4FDD;&#x8BC1;&#x6D88;&#x606F;&#x7684;&#x987A;&#x5E8F;&#x6027;&#xFF1F;</p>
+</li>
+<li><p>&#x5982;&#x4F55;&#x4FDD;&#x8BC1;&#x6D88;&#x606F;&#x4E0D;&#x88AB;&#x91CD;&#x590D;&#x6D88;&#x8D39;?</p>
+</li>
+<li><p>&#x5982;&#x4F55;&#x4FDD;&#x8BC1;&#x6D88;&#x606F;&#x961F;&#x5217;&#x662F;&#x9AD8;&#x53EF;&#x7528;&#x7684;&#xFF1F;</p>
+</li>
+<li><p>&#x5982;&#x4F55;&#x4FDD;&#x8BC1;&#x6D88;&#x8D39;&#x7684;&#x53EF;&#x9760;&#x6027;&#x4F20;&#x8F93;?</p>
+</li>
+</ol>
+<p>&#x53C2;&#x8003;&#x8D44;&#x6599;&#xFF1A;</p>
+<ol>
+<li><a href="https://mp.weixin.qq.com/s/rzEX0wQCoDBxuFmws9f7Lw" target="_blank">&#x5206;&#x5E03;&#x5F0F;&#x4E4B;&#x6D88;&#x606F;&#x961F;&#x5217;&#x590D;&#x4E60;&#x7CBE;&#x8BB2;</a></li>
+<li><a href="https://blog.csdn.net/suifeng3051/article/details/48053965?spm=a2c4e.11153940.blogcont54747.3.57632bb2I0S4Hw" target="_blank">Kafka &#x8BBE;&#x8BA1;&#x4E0E;&#x539F;&#x7406;&#x8BE6;&#x89E3;</a></li>
+<li><a href="http://cmsblogs.com/?p=3846" target="_blank">&#x6D88;&#x606F;&#x4E2D;&#x95F4;&#x4EF6;&#x4F60;&#x9009;&#x5BF9;&#x4E86;&#x5417;&#xFF1F;Kafka&#x4E0E;RabbitMQ&#x8C01;&#x66F4;&#x80DC;&#x4E00;&#x7B79;&#xFF1F;</a></li>
+<li><a href="http://www.thinkyixia.com/2017/10/25/kafka-2/" target="_blank">Kafka&#x53F2;&#x4E0A;&#x6700;&#x8BE6;&#x7EC6;&#x539F;&#x7406;&#x603B;&#x7ED3;</a></li>
+</ol>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../cache/redis.html" class="navigation navigation-prev " aria-label="Previous page: redis缓存服务">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="kafka.html" class="navigation navigation-next " aria-label="Next page: kafka">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"消息服务","level":"1.7","depth":1,"next":{"title":"kafka","level":"1.7.1","depth":2,"path":"message/kafka.md","ref":"message/kafka.md","articles":[]},"previous":{"title":"redis缓存服务","level":"1.6.1","depth":2,"path":"cache/redis.md","ref":"cache/redis.md","articles":[]},"dir":"ltr"},"config":{"plugins":["prism","-highlight","prism-themes","mermaid","anchor-navigation-ex-toc","expandable-chapters-small","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prism-themes/themes/prism-ghcolors.css"]},"livereload":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"anchor-navigation-ex-toc":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"fontsettings":{"theme":"white","family":"sans","size":2},"anchor-navigation-ex":{"associatedWithSummary":true},"prism-themes":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"funye","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"java知识总结","language":"zh-hans","gitbook":"*","description":"在后端开发学习和工作中总结的知识点和一些基础知识积累。"},"file":{"path":"message/message.md","mtime":"2019-03-28T14:43:31.688Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-28T14:56:06.713Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
