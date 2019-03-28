@@ -1,8 +1,3 @@
-```
-docsify init docs
-docsify serve docs  
-```
-
 ##  多线程及并发
 - [多线程及并发](thread/thread-concurrent.md)
 - [线程、线程池、并发包（1）](thread/thread-1.md)
