@@ -1,5 +1,4 @@
 ##  多线程及并发
-- [多线程及并发](thread/thread-concurrent.md)
 - [线程、线程池、并发包（1）](thread/thread-1.md)
 - [线程、线程池、并发包（2）](thread/thread-2.md)
 - [线程、线程池、并发包（3）](thread/thread-3.md)
@@ -13,10 +12,9 @@
 - [五大算法思想](data-structure/algorithm_thinking.md)
 
 ## 设计模式
-- [设计模式](design-pattern/design-pattern.md)
+- [常见设计模式](design-pattern/design-pattern.md)
 
 ## 数据访问层
-- [数据访问层](data-access-layer/data-access-layer.md)
 - [数据层-mybatis/jpa](data-access-layer/mybatis-jpa.md)
 - [数据层-mycat](data-access-layer/mycat.md)
 
@@ -26,7 +24,7 @@
 
 ## 消息服务
 - [消息服务](message/message.md)
-- [kafka](message/kafka.md)
+- [kafka原理](message/kafka.md)
 
 ## 搜索服务
 - [搜索服务](search/search.md)
@@ -53,7 +51,6 @@
 - [shell脚本](server/shell.md)
 
 ## 面试记录
-- [面试记录](interview/interview.md)
 - [阿里-20180821](interview/ali-20180821.md)
 
 
