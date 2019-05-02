@@ -15,6 +15,7 @@
   * [数据层-mycat](data-access-layer/mycat.md)
 * [缓存服务](cache/cache.md)
   * [redis缓存服务](cache/redis.md)
+  * [高可用redis服务](cache/redis-high-available.md)
 * [消息服务](message/message.md)
   * [kafka](message/kafka.md)
 * [搜索服务](search/search.md)

@@ -21,6 +21,7 @@
 ## 缓存服务
 - [缓存服务](cache/cache.md)
 - [redis缓存服务](cache/redis.md)
+- [打造高可用的redis服务](cache/redis-high-available.md)
 
 ## 消息服务
 - [消息服务](message/message.md)
