@@ -34,6 +34,5 @@
   * [部署-docker](server/docker.md)
   * [部署-nginx](server/nginx.md)
   * [shell脚本](server/shell.md)
-* [面试记录](interview/interview.md)
-  * [阿里-20180821](interview/ali-20180821.md)
+
 
