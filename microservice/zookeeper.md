@@ -70,7 +70,7 @@ server.3=zoo3:2888:3888
 了解zookeeper的时候，四个最重要的元素一定要知道 ，数据结构(node/Sate)，Session, Watcher, ACL，从这开始，依次来了解这些东西
 
 ## 3.1 zookeeper的数据结构
-zookeeper是一个分成的命名空间(hierarchal name space) ,非常像一个分布式文件系统。命令空间的每个节点可以有自己的数据和子节点。zookeeper的子节点称之为znode,znode维护了一个stat的数据结构
+zookeeper是一个分层的命名空间(hierarchal name space) ,非常像一个分布式文件系统。命令空间的每个节点可以有自己的数据和子节点。zookeeper的子节点称之为znode,znode维护了一个stat的数据结构
 
 ### 3.1.1 zookeeper计时
 
@@ -82,7 +82,7 @@ Zookeeper通过多种方式追踪计时：
 
 **版本号**
 
-节点的每个变化都会引起那个节点的版本号的其中之一增加。这三个版本号是version(znode的数据变化版本号),cversion(子目录的变化版本号)，和aversion(访问控制列表的变化版本号)。
+节点的每个变化都会引起那个节点的版本号的其中之一增加。这三个版本号是dataVersion(znode的数据变化版本号),cversion(子目录的变化版本号)，和aclVersion(访问控制列表的变化版本号)。
 
 **Ticks**
 

@@ -24,7 +24,7 @@
 
 **传统模式**
 
-<img src='../assets/message/message_01_jieou_01.png' alt='传统模式' width='500' height='300' />
+<img src='../assets/message/message_01_jieou_01.png' alt='传统模式' width='450' />
 
 
 *传统模式的缺点*
@@ -32,7 +32,7 @@
 
 
 **中间件模式**
-<img src='../assets/message/message_01_jieou_02.png' alt='中间件模式' width='600' height='300' />
+<img src='../assets/message/message_01_jieou_02.png' alt='中间件模式' width='450' />
 
 
 *中间件模式好处*
@@ -52,7 +52,7 @@
 ### 2.2 利用消息系统来异步操作
 
 **传统模式**
-<img src='../assets/message/message_01_yibu_01.png' alt='传统模式' width='600' height='100' />
+<img src='../assets/message/message_01_yibu_01.png' alt='传统模式' width='550' />
 
 
 *传统模式的缺点*
@@ -60,7 +60,7 @@
 
 
 **中间件模式**
-<img src='../assets/message/message_01_yibu_02.png' alt='中间件模式' width='600' height='300' />
+<img src='../assets/message/message_01_yibu_02.png' alt='中间件模式' width='500' />
 
 
 *中间件模式好处*
@@ -78,7 +78,7 @@
 ### 2.3 利用消息系统来削峰
 
 **传统模式**
-<img src='../assets/message/message_01_xiaofeng_01.png' alt='传统模式' width='800' height='300' />
+<img src='../assets/message/message_01_xiaofeng_01.png' alt='传统模式' width='450' />
 
 
 *传统模式的缺点*
@@ -87,7 +87,7 @@
 
 
 **中间件模式**
-<img src='../assets/message/message_01_xiaofeng_02.png' alt='中间件模式' width='800' height='300' />
+<img src='../assets/message/message_01_xiaofeng_02.png' alt='中间件模式' width='600' />
 
 
 *中间件模式好处*
