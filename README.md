@@ -32,7 +32,6 @@
 - [es搜索服务](search/elasticsearch.md)
 
 ## 网络编程
-- [网络编程](netty/netty.md)
 - [nio入门](netty/nio.md)
 - [netty实战](netty/netty-in-action.md)
 
