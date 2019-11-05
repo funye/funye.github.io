@@ -20,7 +20,7 @@
    生产者，负责向kafka broker发送消息(push方式)
 
 - **Consumer**
-    
+  
    消费者，负责从kafka broker拉去消息(pull方式), 多个消费者组成一个consumer group
 
 - **Topic**
@@ -30,7 +30,6 @@
 - **Partition**
 
    同一个topic上面的消息，进行分区来存储，一个topic被有序分分成若干个分区，相当于topic的细分。
-
 
 ### 2 Topic、Broker、Partition 的关系
 

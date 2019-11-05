@@ -67,3 +67,8 @@
 
 参考资料：[五大常用算法系列](https://www.cnblogs.com/steven_oyj/archive/2010/05/22/1741370.html)
 
+**其他资料**
+
+- [《编程之法：面试和算法心得》](https://wizardforcel.gitbooks.io/the-art-of-programming-by-july/content/index.html)
+
+
