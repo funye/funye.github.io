@@ -5,11 +5,8 @@
   * [Java多线程利器——线程池](thread/thread-3.md)
   * [Java多线程利器——JUC](thread/thread-4.md)
   * [java常见锁方式浅析](thread/concurrent-compare.md)
-* **数据结构**
-  * [数据结构与算法](data-structure/data-structure_and_algorithm.md)
-  * [查找排序算法](data-structure/algorithm_sort_search.md)
-  * [算法思想](data-structure/algorithm_thinking.md)
-* [**设计模式**](design-pattern/design-pattern.md)
+* **Spring**
+  * [SpringMVC异步请求——DeferredResult](microservice/spring.md)
 * [**数据访问层**](data-access-layer/data-access-layer.md)
   * [数据层-mybatis/jpa](data-access-layer/mybatis-jpa.md)
   * [数据层-mycat](data-access-layer/mycat.md)
@@ -33,8 +30,13 @@
   * [微服务-SpringCloud](microservice/springcloud.md)
   * [微服务-servicemesh](microservice/servicemesh.md)
   * [分布式任务调度](microservice/job.md)
-  * [分布式事务](microservice/distribution-transaction.md)
-  * [Spring](microservice/spring.md)
+  * [分布式事务](microservice/distribution_transaction.md)
+* [**设计模式**](design-pattern/design-pattern.md)
+* **数据结构**
+  * [数据结构与算法](data-structure/data-structure_and_algorithm.md)
+  * [查找排序算法](data-structure/algorithm_sort_search.md)
+  * [算法思想](data-structure/algorithm_thinking.md)
+
 * [**服务器运维**](server/server-maintain.md)
   * [部署-docker](server/docker.md)
   * [部署-nginx](server/nginx.md)
