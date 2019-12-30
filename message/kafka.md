@@ -1,7 +1,4 @@
-## kafka原理总结
-
-
-### 1 架构图
+## 1 架构图
 
 ![kafka结构图](../assets/message/kafka.png)
 
@@ -31,7 +28,7 @@
 
    同一个topic上面的消息，进行分区来存储，一个topic被有序分分成若干个分区，相当于topic的细分。
 
-### 2 Topic、Broker、Partition 的关系
+## 2 Topic、Broker、Partition 的关系
 
 在理解Tpoic、Broker、Partition之前，我们先看一下他们之前的关系图
 
@@ -42,7 +39,7 @@
 从上图可以发现。由于partition leader会分布在不同分区（zookeeper根据节点情况，做负载均衡，选举leader），broker节点越多，kafka的吞吐也就越高。
 
 
-### 3 Consumer & Consumer Group 的关系
+## 3 Consumer & Consumer Group 的关系
 
 kafka官网给出一个关于kafka消费者和消费者group的关系，如下：
 
@@ -57,7 +54,7 @@ kafka官网给出一个关于kafka消费者和消费者group的关系，如下�
 3. **同一个Consumer Group中**，消费者和分区的关系是 1对多。
 
 
-### 4 Kafka数据的存储
+## 4 Kafka数据的存储
 
 1. **kafka数据的存储**
 
@@ -102,7 +99,7 @@ kafka采用分区的概念，把topic分为多个分区，生产者push的数据
   > topic的consumer也在zookeeper中注册自己，以便相互协调和平衡数据的消耗。consumer也可以通过设置offsets.storage = zookeeper将他们的偏移量存储在zookeeper中。但是，这个偏移存储机制将在未来的版本中被弃用。因此，建议将数据迁移到kafka中。
 
 
-### 5 消息的发送和消费
+## 5 消息的发送和消费
 
 1. push 和 pull 机制的原理
 
@@ -135,7 +132,7 @@ kafka在发送消息时候，Producer直连broker，从broker获取当前存活�
 
 Consumer消费消息的时候，通过zookeeper获取到消费topic的partition的位置offset，然后一次拉取直连的broker中从offset开始的之后所有的数据进行消费
 
-### 6 关于消息交付
+## 6 关于消息交付
 
 - At most once——消息可能会丢失但绝不重传。
 - At least once——消息可以重传但绝不丢失。

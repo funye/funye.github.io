@@ -1,8 +1,6 @@
 
 总结关于mysql的索引，查询优化，SQL技巧等
 
-# 1 mysql的索引
-
 ## 1.1 索引类型
 - B-Tree索引
 - Hash索引  （自定义hash索引  CRC32 ）
