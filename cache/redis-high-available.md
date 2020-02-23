@@ -1,3 +1,4 @@
+# 
 # 1. 高可用性
 
 [redis sentinel 官方文档](https://redis.io/topics/sentinel)

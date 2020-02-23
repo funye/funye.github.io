@@ -1,6 +1,4 @@
-[toc]
-
-# 1.线程池(java.util.concurrent)
+## 1.0 线程池(java.util.concurrent)
 
 为什么要有线程池 ？
 

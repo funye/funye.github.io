@@ -1,6 +1,4 @@
-## JAVA NIO
-
-### Channel
+## Channel
 
 - 既可以从通道中读取数据，又可以写数据到通道。但流的读写通常是单向的。
 - 通道可以异步地读写。
@@ -36,7 +34,7 @@ Scattering Reads在移动下一个buffer前，必须填满当前的buffer，这�
 buffers数组是write()方法的入参，write()方法会按照buffer在数组中的顺序，将数据写入到channel，注意只有position和limit之间的数据才会被写入。因此，如果一个buffer的容量为128byte，但是仅仅包含58byte的数据，那么这58byte的数据将被写入到channel中。因此与Scattering Reads相反，Gathering Writes能较好的处理动态消息。
 
 
-### Buffer
+## Buffer
 
 数据是从通道读入缓冲区，从缓冲区写入到通道中的
 
@@ -63,7 +61,7 @@ buffer的三个重要概念
 - compact() 与clear() 不同的是，未读数据会放到缓存的开头，position从未读数据末尾开始，可以保留之前未读的数据
 - mark()/ reset() 配合使用，标识一个位子，然后reset的时候，游标回到标记的位子
 
-### Selector
+## Selector
 
 使用selector之后，一个selector可以同时处理多个channel，这样就是可以做到一个线程处理多个通讯信道了，减少线程数。（但是现在CPU都是多核，利用多线程也是对CPU的充分利用）
 
