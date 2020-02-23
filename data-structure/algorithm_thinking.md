@@ -140,6 +140,8 @@
 参考： 
 - [动态规划经典五题](https://blog.csdn.net/zmazon/article/details/8247015)
 - [动态规划经典问题](https://www.jianshu.com/p/7ffba3910997)
+- [五大常用算法系列](https://www.cnblogs.com/steven_oyj/archive/2010/05/22/1741370.html)
+- [《编程之法：面试和算法心得》](https://wizardforcel.gitbooks.io/the-art-of-programming-by-july/content/index.html)
 
 
 
