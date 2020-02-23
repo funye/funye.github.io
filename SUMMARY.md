@@ -1,18 +1,48 @@
 # Summary
 
 * [简介](README.md)
-* [多线程及并发](thread/thread-concurrent.md)
-  * [线程、线程池、并发包（1）](thread/thread-1.md)
-  * [线程、线程池、并发包（2）](thread/thread-2.md)
-  * [线程、线程池、并发包（3）](thread/thread-3.md)
-  * [线程、线程池、并发包（4）](thread/thread-4.md)
-  * [volatile-synchronized-Lock](thread/concurrent-compare.md)
+* JVM及调优
+  * JVM内存模型
+  * GC算法
+  * JVM参数调优案例
+  * 类加载原理
+* JAVA语言基础
+  * 内部类
+  * static关键字
+  * 泛型
+  * 反射
+  * JAVA集合类
+    * LIST
+    * SET
+    * MAP
+* JAVA并发
+  * JAVA的锁
+  * [多线程](thread/thread-concurrent.md)
+    * [线程、线程池、并发包（1）](thread/thread-1.md)
+    * [线程、线程池、并发包（2）](thread/thread-2.md)
+    * [线程、线程池、并发包（3）](thread/thread-3.md)
+    * [线程、线程池、并发包（4）](thread/thread-4.md)
+    * [volatile-synchronized-Lock](thread/concurrent-compare.md)
+  * 并发包
 * [数据结构](data-structure/data-structure.md)
+  * 数组
+  * 链表结构
   * [二叉树](data-structure/binary-tree.md)
+  * 图
 * [设计模式](design-pattern/design-pattern.md)
-* [数据访问层](data-access-layer/data-access-layer.md)
+* [Spring](microservice/spring.md)
+  * Spring IoC
+  * Spring AOP
+  * Spring MVC
+  * spring 事务
+  * Springboot
+* [数据库](data-access-layer/data-access-layer.md)
+  * [mysql索引及优化](database/mysql.md)
+  * mysql主从同步
   * [数据层-mybatis/jpa](data-access-layer/mybatis-jpa.md)
   * [数据层-mycat](data-access-layer/mycat.md)
+  * mysql读写分离
+  * mysql分库分表
 * [缓存服务](cache/cache.md)
   * [redis缓存服务](cache/redis.md)
   * [高可用redis服务](cache/redis-high-available.md)
@@ -23,16 +53,15 @@
 * [网络编程](netty/netty.md)
   * [nio入门](netty/nio.md)
   * [netty实战](netty/netty-in-action.md)
-* [数据库](netty/netty.md)
-  * [mysql索引及优化](database/mysql.md)
-* [分布式与微服务](microservice/microservice.md)
+* [分布式中间件](microservice/microservice.md)
   * [中间件-zookeeper](microservice/zookeeper.md)
   * [微服务-dubbo](microservice/dubbo.md)
   * [微服务-SpringCloud](microservice/springcloud.md)
   * [微服务-servicemesh](microservice/servicemesh.md)
   * [分布式任务调度](microservice/job.md)
   * [分布式事务](microservice/distribution-transaction.md)
-  * [Spring](microservice/spring.md)
+* 分布式常见问题及解决方案
+  * 分布式环境缓存与数据库不一样问题如何解决
 * [服务器运维](server/server-maintain.md)
   * [部署-docker](server/docker.md)
   * [部署-nginx](server/nginx.md)
