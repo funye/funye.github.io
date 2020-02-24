@@ -4,9 +4,9 @@
 	width: 180px;
 }
 </style>
-![logo](assets/logo.jpeg)
+![logo](logo.jpeg)
 
-# Java技术积累
+# Fun Notes
 
 > 不积跬步，无以至千里；不积小流，无以成江海。
 
