@@ -5,13 +5,13 @@
 
 * [简介](README.md)
 
-* JVM及调优
+* [JVM及性能调优](java/jvm/readme.md)
   * [JVM内存模型](java/jvm/jmm.md)
   * GC算法
   * JVM参数调优案例
   * 类加载原理
 
-* JAVA语言基础
+* [JAVA语言基础](java/lang_base/readme.md)
   * 内部类
   * static关键字
   * 泛型
