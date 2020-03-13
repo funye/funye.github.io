@@ -1,4 +1,4 @@
-## 1 Future与Callable
+## Future与Callable
 使用Runnable接口有很大的局限性，他不能够返回一个值或者一个受检查的异常。这种情况下，可以使用Callable<V>接口，其中V就是返回的结果。
 
 Future<V>用来接收callable结束后返回的结果。ExecuteService 的submit方法都是返回一个Future,可以利用Future获取执行的结果，同时可以利用Future取消任务。任务生命周期 创建，提交，执行，结束。如果任务提交，但是没有执行，可以使用Future 取消。
@@ -91,7 +91,7 @@ public class FutureCallableDemo {
 
 但是Runable的返回结果只是提前定义的一个结果，可预期正确执行后的一个结果。他的结果在任务提交的时候已经决定了具体的值。
 
-## 2 原子类 atomic
+## 原子类 atomic
 
 原子类是如何保证原子操作的？
 
@@ -179,11 +179,11 @@ public class AtomicClassDemo {
  */
 ```
 
-## 3 lock与ReentrantLock
+## lock与ReentrantLock
 
 此小节重点学习下ReentrantLock,区别于内置锁，ReentrantLock是一个显示锁。他那有那些特性呢？
 
-### 3.1 轮询锁和定时锁
+### 轮询锁和定时锁
 使用tryLock() 方法可以在不能获取到锁的情况下，使用定时或者轮询的方式获取所，执行时间内没有完成就释放锁，平滑的退出任务。而内置锁会阻塞在获取锁的地方，一旦操作不当就可能发生死锁，如果出现死锁了，唯一的解决办法就是重启程序。**使用定时或者轮询锁可以有效的避免死锁的问题**。
 
 转账示例：
@@ -290,7 +290,7 @@ public class ReentrantLockDemo {
 *注意：但是使用显示锁人的时候，很容易在编写程序的时候忘记了释放锁，切记，在使用显示锁的时候一定要在try-finally 的finally里面对锁进行释放。*
 
 
-### 3.2 可中断的锁操作
+### 可中断的锁操作
 lockInterruptibly()方法,可中断的获取锁的方式，在获取锁的过程中可能被中断，方法本身是可以抛出InterruptException的
 ```
 // 此方法源码
@@ -300,18 +300,18 @@ lockInterruptibly()方法,可中断的获取锁的方式，在获取锁的过程
 ```
 他的使用和不同lock和tryLock一样，只是需要在外面处理lockInterruptibly的InterruptException.
 
-### 3.3 非块结构加锁
+### 非块结构加锁
 对链表上的每个节点单独建立锁，使不同的线程可以独立的对链表的不同部分进行操作。所得很模糊，需要结合ConcurrentHashMap理解
 
-### 3.4 公平性
+### 公平性
 
 公平性是在竞争资源时候的一种策略，大部分情况都是使用公平原则来获取锁，例如：FIFO 队列。但是，有时候前面的操作比较耗时的时候，会拖慢整个处理速率，这个时候不公平原则可以提前获得锁。例如，线程A获得一个对象的锁，现线程B和C都在等待这个锁，当A释放锁的时候，如果B唤醒的时间比较的久，此时C先获得锁，使用了并释放了，B刚好唤醒，获得锁。这个过程B的时间没有耽误。同时C也处理了，增加了吞吐量。但是，我还要说但是。使用不公平性的时候同样会有问题，不公平的比较极端的情况就是找出一个线程一直拿不到锁，一直等待。所以使用时候需要权衡和控制。
 
 ReentrantLock 可以设置不保证公平性。
 
-## 4 CountDownLatch & Semaphore
+## CountDownLatch & Semaphore
 
-### 4.1 CountDownLatch
+### CountDownLatch
 
 CountDownLatch 有什么作用呢 ？它就是一个同步助手，它能够让一个或者多个线程等到另外的线程完成一系列的操作之后再执行。
 
@@ -432,7 +432,7 @@ protected boolean tryReleaseShared(int releases) {
 
 **思考**： 其实看了CountDownLatch 之后，发现和volatile+synchronized效果很像。完全可以控制一个volatile的count变量等于任务数，完成一个任务，count-1,主线程wait,等到count=0。 效果差不多。但是代码实现上就较CountDownLatch 复杂点。所有有类似这样的功能，应该优先想到CountDownLatch
 
-### 4.2 Semaphore
+### Semaphore
 
 使用信号量的时候，一个线程想要获得一个item,必须要先从Semaphore那里获得许可(permit)，保证item是可用的。当线程完成任务的时候，在向pool归还item同时还需要向Semaphore归还许可，以便其他线程可以使用item。需要注意的是，**当调用acquire的时候，不需要额外加锁限制，因为这样将会阻止item被归还到pool。** 实际上Semaphore已经封装了同步锁来保证item的获取，并且pool对每个item有单独的维护。
 
@@ -478,7 +478,7 @@ protected final boolean tryReleaseShared(int releases) {
 2. **释放锁**：释放锁的过程时间就是归还permit可用数量的过程。当前可用数量+归还数量 < 当前数量的是时候，或者已经溢出，归还数量为负数了，如果current + releases >=cuurent,执行CAS 设置状态值。
  
 
-## 5 ConcurrentHashMap
+## ConcurrentHashMap
 使用分段锁(Lock striping)的方式，使锁的粒度更细来实现更大程度的共享，提高并发性和伸缩性。
 
 >锁分段(Lock striping)：在某些情况下，可以将锁分解技术进一步扩展为对一组独立对象上的锁进行分解。这种情况被称为锁分段。

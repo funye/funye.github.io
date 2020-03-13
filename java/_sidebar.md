@@ -7,9 +7,9 @@
 
 * [JVM及性能调优](java/jvm/index.md)
   * [JVM内存结构](java/jvm/jvm-structure.md)
-  * [JVM内存模型](java/jvm/jmm.md)
   * [GC算法与垃圾收集器](java/jvm/gc.md)
   * [JVM调优实战](java/jvm/jvm-in-action.md)
+  * [Java内存模型](java/jvm/jmm.md)
   * [java的类加载机制](java/jvm/classloader.md)
 
 * [JAVA语言基础](java/lang_base/index.md)
@@ -57,7 +57,6 @@
   * [mycat](java/database/mycat.md)
 
 * [缓存服务](java/cache/index.md)
-  * [关于缓存](java/cache/cache.md)
   * [redis缓存服务](java/cache/redis.md)
   * [高可用redis服务](java/cache/redis-high-available.md)
 

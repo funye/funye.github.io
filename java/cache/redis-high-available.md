@@ -1,5 +1,4 @@
-# 
-# 1. 高可用性
+## redis的高可用性
 
 [redis sentinel 官方文档](https://redis.io/topics/sentinel)
 [redis sentinel 中文文档](http://www.redis.cn/topics/sentinel.html)
@@ -17,7 +16,7 @@ sentinel具有分布式的特性，他被设计成多个Sentinel 进行一起协
 1. 故障检测的时候，多个进程认为出现故障的时候才认为出现故障。避免wupan
 2. 多个sentinel进程一起工作，当有部分sentinel死掉的时候，系统仍然能够继续工作。sentinel不一定要求所有的sentinel一起工作
 
-# 2. 启动和配置
+## 启动和配置
 
 在主从配置的时候把slave配置bind ，因为他有可能成为master。
 
@@ -63,7 +62,7 @@ sentinel <option_name> <master_name> <option_value>
 **parallel-syncs**：故障迁移的时候，最多同时几台和master数据同步。数字越小，故障迁移越耗时，但是如果slave配置了master迁移继续使用old data提供服务的话。建议配置此项为1。
 
 
-# 3. 部署架构
+## 部署架构
 
 在redis得官方文档中，建议不用使用只有两个sentinel的实例的方式部署，可用不高，建议知道要3个实例。示例的部署方案如下：
 
@@ -121,11 +120,11 @@ Configuration: quorum = 2
       Configuration: quorum = 3
 ```
 
-# 4. 高级概念
+## 高级概念
 
 大部分概念在文章开头提到的中英文文档中都有介绍。这里简单说下几个最基本的
 
-## 4.1. 主观下线和客观下线
+### 主观下线和客观下线
 
 1. 主观下线（Subjectively Down， 简称 SDOWN）指的是单个 Sentinel 实例对服务器做出的下线判断。
 2. 客观下线（Objectively Down， 简称 ODOWN）指的是多个 Sentinel 实例在对同一个服务器做出 SDOWN 判断， 并且通过 SENTINEL is-master-down-by-addr 命令互相交流之后， 得出的服务器下线判断。 （一个 Sentinel 可以通过向另一个 Sentinel 发送 SENTINEL is-master-down-by-addr 命令来询问对方是否认为给定的服务器已下线。）
@@ -133,7 +132,7 @@ Configuration: quorum = 2
 
 客观下线条件只适用于主服务器
 
-## 4.2. 每个 Sentinel 都需要定期执行的任务
+### 每个 Sentinel 都需要定期执行的任务
 
 >1. 每个 Sentinel 以每秒钟一次的频率向它所知的主服务器、从服务器以及其他 Sentinel 实例发送一个 PING 命令。
 >2. 如果一个实例（instance）距离最后一次有效回复 PING 命令的时间超过 down-after-milliseconds 选项所指定的值， 那么这个实例会被 Sentinel 标记为主观下线。 一个有效回复可以是： +PONG 、 -LOADING 或者 -MASTERDOWN 。
@@ -142,11 +141,11 @@ Configuration: quorum = 2
 >5. 在一般情况下， 每个 Sentinel 会以每 10 秒一次的频率向它已知的所有主服务器和从服务器发送 INFO 命令。 当一个主服务器被 Sentinel 标记为客观下线时， Sentinel 向下线主服务器的所有从服务器发送 INFO 命令的频率会从 10 秒一次改为每秒一次。
 >6. 当没有足够数量的 Sentinel 同意主服务器已经下线， 主服务器的客观下线状态就会被移除。 当主服务器重新向 Sentinel 的 PING 命令返回有效回复时， 主服务器的主管下线状态就会被移除。
 
-## 4.3 自动发现sentinel和slave
+### 自动发现sentinel和slave
 
 sentinel可以自动的发现其他的sentinel服务和slave节点。具体概念，官网有非常详细的解释
 
-# 5. 代码实现 Jedis示例
+## 代码实现 Jedis示例
 
 部署架构如上面提到的第一种方式，当前环境：
 
@@ -248,7 +247,7 @@ press enter to continue
 ```
 
 
-# 6. 问题延伸
+## 问题延伸
 
 在实际生产中，如果业务量比较大的情况，一台redis实例作为缓存很有可能回出现不够使用的情况，这个时候就需要做集群方式，但是redis的官方的说法是集群模式目前还处在验证阶段，没有statble的版本出现。
 
