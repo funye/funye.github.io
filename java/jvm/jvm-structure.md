@@ -17,20 +17,23 @@
 
 以下这个图，帮忙理解jvm的一些参数控制  
 
-![java内存结构详情](../assets/jvm/jvm-detail.jpg)
-
-todo:// 图形优化 PermGen 和 metaspace 的概念
-
+![jvm](../assets/jvm/jvm.jpg)
 
 ### 堆
 
-堆的作用是存放对象实例和数组。从结构上来分，可以分为新生代和老年代。而新生代又可以分为Eden 空间、From Survivor 空间（s0）、To Survivor 空间（s1）。 所有新生成的对象首先都是放在新生代的。需要注意，Survivor的两个区是对称的，没先后关系，所以同一个区中可能同时存在从Eden复制过来的对象，和从前一个Survivor复制过来的对象，而复制到老年代的只有从第一个Survivor区过来的对象。而且，Survivor区总有一个是空的。
+堆的作用是存放对象实例和数组。从结构上来分，可以分为新生代和老年代。而新生代又可以分为Eden 空间、From Survivor 空间（s0）、To Survivor 空间（s1）。 所有新生成的对象首先都是放在新生代的。需要注意，Survivor的两个区是对称的，没先后关系，所以同一个区中可能同时存在从Eden复制过来的对象，和从前一个Survivor复制过来的对象。而且，Survivor区总有一个是空的。
 
+- **新生代：** 新生代由 Eden 与 Survivor Space（S0，S1）构成，大小通过-Xmn参数指定，Eden 与 Survivor Space 的内存大小比例默认为8:1，可以通过-XX:SurvivorRatio 参数指定，比如新生代为10M 时，Eden分配8M，S0和S1各分配1M。
+- **Eden：** 希腊语，意思为伊甸园，在圣经中，伊甸园含有乐园的意思，根据《旧约·创世纪》记载，上帝耶和华照自己的形像造了第一个男人亚当，再用亚当的一个肋骨创造了一个女人夏娃，并安置他们住在了伊甸园。
+大多数情况下，对象在Eden中分配，当Eden没有足够空间时，会触发一次Minor GC，虚拟机提供了-XX:+PrintGCDetails/-Xlog:gc*参数，告诉虚拟机在发生垃圾回收时打印内存回收日志。
+- **Survivor：** 意思为幸存者，是新生代和老年代的缓冲区域。当新生代发生GC（Minor GC）时，会将存活的对象移动到S0内存区域，并清空Eden区域，当再次发生Minor GC时，将Eden和S0中存活的对象移动到S1内存区域。
+存活对象会反复在S0和S1之间移动，当对象从Eden移动到Survivor或者在Survivor之间移动时，对象的GC年龄自动累加，当GC年龄超过默认阈值15时，会将该对象移动到老年代，可以通过参数-XX:MaxTenuringThreshold 对GC年龄的阈值进行设置。
+
+- **老年代**: 老年代的空间大小即-Xmx 与-Xmn 两个参数之差，用于存放经过几次Minor GC之后依旧存活的对象。当老年代的空间不足时，会触发Major GC/Full GC，速度一般比Minor GC慢10倍以上。
 
 **控制参数**
 
--Xms设置堆的最小空间大小。-Xmx设置堆的最大空间大小。-XX:NewSize设置新生代最小空间大小。-XX:MaxNewSize设置新生代最小空间大小。
-
+-Xms设置堆的最小空间大小。-Xmx设置堆的最大空间大小。-XX:NewSize设置新生代最小空间大小，-XX:MaxNewSize设置新生代最小空间大小，jdk1.4之后使用 -Xmn控制新生代大小。
 
 **垃圾回收**
 
@@ -54,6 +57,9 @@ todo:// 图形优化 PermGen 和 metaspace 的概念
 -XX:PermSize 设置最小空间 -XX:MaxPermSize 设置最大空间。
 
 -XX:MetaspceSize 控制metaspace的大小
+
+关于PermGen 和 metaspace, 请一定看看，请参考 [深入理解堆外内存 Metaspace](https://www.javadoop.com/post/metaspace)，
+ [聊聊jvm的PermGen与Metaspace](https://segmentfault.com/a/1190000012577387)
 
 
 **垃圾回收**
@@ -110,5 +116,7 @@ todo:// 图形优化 PermGen 和 metaspace 的概念
 参考链接
   - [InfoQ-程晓明](https://www.infoq.cn/profile/1278512/publish)
   - [JVM内存结构和Java内存模型](https://zhuanlan.zhihu.com/p/38348646)
+  - [深入理解堆外内存 Metaspace](https://www.javadoop.com/post/metaspace)
+  - [聊聊jvm的PermGen与Metaspace](https://segmentfault.com/a/1190000012577387)
  
 创建时间：2020-03-12
