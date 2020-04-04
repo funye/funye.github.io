@@ -90,6 +90,7 @@
   * [Docker](java/maintain/docker.md)
   * [10分钟学会nginx常见配置](java/maintain/nginx.md)
   * [使用人机交互shell完成自动化发布](java/maintain/shell.md)
+  * [十分钟解惑，让你真正用好MAVEN](java/maintain/maven.md)
 
   
 
