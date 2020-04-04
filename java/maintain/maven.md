@@ -6,7 +6,7 @@
 
 ## MAVEN的关于依赖的基本配置
 
-1. 坐标（定位三要素）
+### 1. 坐标（定位三要素）
 
 ```xml
 <project>
@@ -18,7 +18,7 @@
 </project>
 ```
 
-2. 定义属性
+### 2. 定义属性
 
 ```xml
 <project>
@@ -29,7 +29,7 @@
 </project>
 ```
 
-3. 申明依赖
+### 3. 申明依赖
 
 ```xml
 <project>
@@ -48,7 +48,7 @@
 </project>
 ```
 
-4. 使用依赖
+### 4. 使用依赖
 
 ```xml
 <project>
@@ -64,7 +64,7 @@
 </project>
 ```
 
-5. 排除依赖
+### 5. 排除依赖
 
 ```xml
 <project>
@@ -93,7 +93,7 @@
 
 ## MAVEN依赖特性
 
-1. maven的依赖存在传递性
+### 1. maven的依赖存在传递性
 
 如下：
 ```text
@@ -102,7 +102,7 @@ A --> B , B-->C 则 A -- > B --> C
 A 依赖了B包 ， B中依赖C包 ，则 A如果自动会导入C ( 这个原因也是为什会有 排除依赖的存在，有时候A只想依赖B，而不想要C的时候。)
 ```
 
-2. 依赖顺序原则
+### 2. 依赖顺序原则
 
 依赖的顺序决定了最终使用的是哪个jar包，maven在解析依赖的时候的顺序是。**先按最短路径，再按申明顺序**
 
@@ -137,7 +137,7 @@ A 依赖了B包 ， B中依赖C包 ，则 A如果自动会导入C ( 这个原因
 ```
 
 
-## MAVEN集合特性（module）
+## MAVEN聚合特性（module）
 module可以看做是项目结构的描述，通过`<modules><module>...</module></modules>` 来定义，可以一起来打包的一个整体。
 
 ```xml
@@ -165,12 +165,13 @@ learn
 ## MAVEN继承与聚合的区别
 继承和聚合没有绝对要求的对应关系，他们目的上是不同。
 
-继承讲究的是提炼统一公共的部分，子项目都使用，统一管理公共部分。（使用时候，可以单独定义一个父pom给所有的项目使用，统一项目中的jar包）
+- **继承** 讲究的是提炼统一公共的部分，子项目都使用，统一管理公共部分。（使用时候，可以单独定义一个父pom给所有的项目使用，统一项目中的jar包）
 
-聚合更像是定义项目的结构，哪些作为一个整理。
+- **聚合** 更像是定义项目的结构，哪些作为一个整理。
 
 ## MAVEN最佳实践
 
+### 实践场景
 假设有下面一个实例，一个系统(fun-mall)有 用户服务(user)、订单服务(order)、支付服务(pay)、商品服务(product)， 他们之间通过dubbo调用。那么我们的使用maven可以统一成如下结构
 
 ```text
@@ -192,6 +193,8 @@ fun-mall
         |-- product-server
 ```
 针对上面的接口，我们创建项目的时候有两种比较合理的方式
+
+### 实现方式1
 
 1. 创建一个项目 fun-mall 一个git仓库地址，fun-mall下面包含四个module， 每个module下面有包含xxx-api,xxx-server 两个module， 所有模块的父pom都使用fun-mall（继承和聚合的区别） 
 
@@ -223,7 +226,8 @@ fun-mall
 ```
 具体配置
 
-fun-mall的 pom.xml
+**fun-mall的 pom.xml**
+
 ```xml
 <project>
     <groupId>com.fun</groupId>
@@ -254,7 +258,8 @@ fun-mall的 pom.xml
 </project>
 ```
 
-user 的pom.xml
+**user 的pom.xml**
+
 ```xml
 <project>
     <parent>
@@ -282,7 +287,8 @@ user 的pom.xml
 </project>
 ```
 
-user-api 的pom.xml
+**user-api 的pom.xml**
+
 ```xml
 <project>
     <parent>
@@ -304,7 +310,9 @@ user-api 的pom.xml
     <!-- 其他配置 -->
 </project>
 ```
-user-server的pom.xml
+
+**user-server的pom.xml**
+
 ```xml
 <project>
     <parent>
@@ -329,6 +337,8 @@ user-server的pom.xml
 </project>
 ```
 order、pay、product的配置，同user模块类似即可。
+
+### 实现方式2
 
 2. 创建一个fun-mall 做个父项目，没有模块。 然后分别创建四个 项目 user、order、pay、product 继承这个fun-mall 拱为5个git地址，所有项目的parent都是 fun-mall（继承和聚合的区别）
 
