@@ -175,7 +175,7 @@ learn
 假设有下面一个实例，一个系统(fun-mall)有 用户服务(user)、订单服务(order)、支付服务(pay)、商品服务(product)， 他们之间通过dubbo调用。那么我们的使用maven可以统一成如下结构
 
 ```text
-xxx-api 提供dubbo调用的一些接口定义
+xxx-api 提供dubbo调用的一些接口定义，**建议尽量少的依赖第三方的包。理论上他只是定义接口的和数据模型的。不然，当别人引用你的时候，可能出现第三方包的冲突，需要排除依赖**
 xxx-server 启动jvm的进程
 
 fun-mall
@@ -299,7 +299,7 @@ fun-mall
 
     <artifactId>user-api</artifactId>
     <description>user server api define </description>
-    <packaging>jar</packaging> <!-- 打包成jar提供出去给别的服务使用 -->
+    <packaging>jar</packaging> <!-- 打包成jar提供出去给别的服务使用，另外groupId和version继承父类，也可自己指定新的 -->
 
     <dependencies>
         <dependency>
@@ -323,7 +323,7 @@ fun-mall
 
     <artifactId>user-server</artifactId>
     <description>user server impl</description>
-    <packaging>jar</packaging> <!-- 打包成可运行的jar或者war，或者zip等格式 -->
+    <packaging>jar</packaging> <!-- 打包成可运行的jar或者war，或者zip等格式 。另外groupId和version继承父类，也可自己指定新的-->
 
     <dependencies>
         <dependency>
@@ -386,3 +386,21 @@ fun-mall
 考虑到不同模块迭代速度不同，每个服务有自己的代码和分支进行开发，相比上面在整个一个git而言，更加灵活，不用对其他的服务产生分支。
 
 其次，如果涉及到不同服务给不同团队开发，或者不同服务不需要看别人的实现的。只关心自己，则分开仓库很好的满足了
+
+## MAVEN deploy时父pom的问题
+
+我们在deploy jar的时候，经常遇到一些因为父pom没有推导致推包失败的情况。所有一般推包看分为两种情况来处理
+
+### 子pom未使用父pom的变量
+
+这种情况下
+
+- 方式1：因为子pom没有使用父pom的变量，可能考虑单独deploy, 注释掉<parent>, 然后确保自己有artfactId和version ，直接deploy.
+
+- 方式2：先推一下父pom，在推子模块。如果pom有很多子模块（fun-mall的第一种），可考虑只推父pom（`mvn clean deploy -N`），
+不要推子模块（所有的模块都推，连实现server可能都推了，没必要），然后再推需要的jar(如，user-spi，)
+
+
+### 子pom有使用父pom的变量
+这种情况下, 因为使用父模块的变量，不能使用注释parent（不然不识别），所有只能先推一下父pom, 再推当前jar, 如上面的方式二
+
