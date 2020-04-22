@@ -34,10 +34,9 @@
 ---
 参考资料
 
-- https://www.cnblogs.com/QG-whz/p/9647614.html
-- https://www.analysys.cn/article/detail/20019016
-- https://zhuanlan.zhihu.com/p/36597907
+- [JVM内存模型分析04篇-调优工具使用介绍](https://zhuanlan.zhihu.com/p/36597907)
+- [从一次线上故障思考Java问题定位思路](https://www.cnblogs.com/QG-whz/p/9647614.html)
+- [jvm疯狂吞占内存，罪魁祸首是谁？](https://www.analysys.cn/article/detail/20019016)
 - [记一次生产频繁出现 Full GC 的 GC日志图文详解](https://cloud.tencent.com/developer/article/1552089)
 - [一步步优化JVM四：决定Java堆的大小以及内存占用](https://my.oschina.net/u/347386/blog/1552781)
 - [每天百万交易的支付系统，生产环境该怎么设置JVM堆内存大小](https://youyou-tech.com/2019/11/22/%E6%AF%8F%E5%A4%A9%E7%99%BE%E4%B8%87%E4%BA%A4%E6%98%93%E7%9A%84%E6%94%AF%E4%BB%98%E7%B3%BB%E7%BB%9F%EF%BC%8C%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%E8%AF%A5%E6%80%8E%E4%B9%88%E8%AE%BE/)
-- http://www.51gjie.com/java/551.html
