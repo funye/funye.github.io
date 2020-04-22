@@ -1,4 +1,9 @@
-## java内存结构图
+## 1 java内存结构图
+
+
+创建时间：2020-03-12
+
+---
 
 理解学习java虚拟机内存结构，能够帮助我们更加清楚知道java程序在操作的时候如果存储数据，是java虚拟机的性能优化（GC调优）的基础。
 
@@ -13,13 +18,13 @@
 - 本地方法栈（Native Method Stack）：线程私有。为虚拟机使用到的Native 方法服务。如Java使用c或者c++编写的接口服务时，代码在此区运行。
 - 程序计数器（Program Counter Register）：线程私有。有些文章也翻译成PC寄存器（PC Register），同一个东西。它可以看作是当前线程所执行的字节码的行号指示器。指向下一条要执行的指令。
 
-## java内存模块分析
+## 2 java内存模块分析
 
 以下这个图，帮忙理解jvm的一些参数控制  
 
 ![jvm](../assets/jvm/jvm.jpg)
 
-### 堆
+### 2.1 堆
 
 堆的作用是存放对象实例和数组。从结构上来分，可以分为新生代和老年代。而新生代又可以分为Eden 空间、From Survivor 空间（s0）、To Survivor 空间（s1）。 所有新生成的对象首先都是放在新生代的。需要注意，Survivor的两个区是对称的，没先后关系，所以同一个区中可能同时存在从Eden复制过来的对象，和从前一个Survivor复制过来的对象。而且，Survivor区总有一个是空的。
 
@@ -33,7 +38,11 @@
 
 **控制参数**
 
--Xms设置堆的最小空间大小。-Xmx设置堆的最大空间大小。-XX:NewSize设置新生代最小空间大小，-XX:MaxNewSize设置新生代最小空间大小，jdk1.4之后使用 -Xmn控制新生代大小。
+- -Xms设置堆的最小空间大小。
+- -Xmx设置堆的最大空间大小。
+- -XX:SurvivorRatio 设置Survivor区占新生代的比例
+- -XX:NewSize设置新生代最小空间大小，-XX:MaxNewSize设置新生代最小空间大小，-XX:NewRatio 设置新生代占堆的比例、
+- -Xmn控制新生代大小。（jdk1.4之后使用） 
 
 **垃圾回收**
 
@@ -45,7 +54,7 @@
 如果在堆中没有内存完成实例分配，并且堆也无法再扩展时，将会抛出OutOfMemoryError 异常
 
 
-### 方法区
+### 2.2 方法区
 
 方法区（Method Area）与Java 堆一样，是各个线程共享的内存区域，它用于存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。虽然Java 虚拟机规范把方法区描述为堆的一个逻辑部分，但是它却有一个别名叫做Non-Heap（非堆），目的应该是与Java 堆区分开来。
 
@@ -54,13 +63,23 @@
 
 **控制参数**
 
--XX:PermSize 设置最小空间 -XX:MaxPermSize 设置最大空间。
+- -XX:PermSize 设置最小空间 
+- -XX:MaxPermSize 设置最大空间。
 
--XX:MetaspceSize 控制metaspace的大小
+- -XX:MetaspaceSize=8m （1.8之后去掉方法区，使用元数据区）
+- -XX:MaxMetaspaceSize=80m（1.8之后去掉方法区，使用元数据区）
+- -XX:CompressedClassSpaceSize（1.8之后去掉方法区，使用元数据区）
+
+>在JDK8后，方法区被移除了，引入了新的空间Metaspace来存放类的信息。
+>
+>Metaspace不在虚拟机中，而是使用本地内存，这样困扰我们的PermenGen的内存就不存在了，其上限变成了物理内存，当然可以通过参数进行设置。
+>
+>-XX:MetaspaceSize=8m -XX:MaxMetaspaceSize=80m 
+>
+>那么曾经在其中的常量池被转移到哪里了？答案是在堆中。
 
 关于PermGen 和 metaspace, 请一定看看，请参考 [深入理解堆外内存 Metaspace](https://www.javadoop.com/post/metaspace)，
- [聊聊jvm的PermGen与Metaspace](https://segmentfault.com/a/1190000012577387)
-
+  [聊聊jvm的PermGen与Metaspace](https://segmentfault.com/a/1190000012577387)
 
 **垃圾回收**
 
@@ -72,7 +91,7 @@
 根据Java 虚拟机规范的规定， 当方法区无法满足内存分配需求时，将抛出OutOfMemoryError。
 
 
-### 方法栈
+### 2.3 方法栈
 
 每个线程会有一个私有的栈。每个线程中方法的调用又会在本栈中创建一个栈帧。在方法栈中会存放编译期可知的各种基本数据类型（boolean、byte、char、short、int、float、long、double）、对象引用（reference 类型，它不等同于对象本身。局部变量表所需的内存空间在编译期间完成分配，当进入一个方法时，这个方法需要在帧中分配多大的局部变量空间是完全确定的，在方法运行期间不会改变局部变量表的大小。
 
@@ -88,7 +107,7 @@
 - StackOverflowError： 异常线程请求的栈深度大于虚拟机所允许的深度时抛出；
 - OutOfMemoryError 异常： 虚拟机栈可以动态扩展，当扩展时无法申请到足够的内存时会抛出。
 
-### 本地方法栈
+### 2.4 本地方法栈
 
 本地方法栈（Native Method Stacks）与虚拟机栈所发挥的作用是非常相似的，其区别不过是虚拟机栈为虚拟机执行Java 方法（也就是字节码）服务，而本地方法栈则是为虚拟机使用到的Native 方法服务。
 
@@ -103,7 +122,7 @@
 与虚拟机栈一样，本地方法栈区域也会抛出StackOverflowError 和OutOfMemoryError异常。
 
 
-### 程序计数器
+### 2.5 程序计数器
 
 它的作用可以看做是当前线程所执行的字节码的行号指示器。
 
@@ -118,5 +137,4 @@
   - [JVM内存结构和Java内存模型](https://zhuanlan.zhihu.com/p/38348646)
   - [深入理解堆外内存 Metaspace](https://www.javadoop.com/post/metaspace)
   - [聊聊jvm的PermGen与Metaspace](https://segmentfault.com/a/1190000012577387)
- 
-创建时间：2020-03-12
+

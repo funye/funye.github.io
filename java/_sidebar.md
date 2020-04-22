@@ -51,7 +51,7 @@
 * [数据库](java/database/index.md)
   * [mybatis](java/database/mybatis.md)
   * [mysql索引及优化](java/database/mysql.md)
-  * mysql主从同步
+  * [mysql主从同步](java/database/mysql-replication.md)
   * mysql读写分离
   * mysql分库分表
   * [mycat](java/database/mycat.md)

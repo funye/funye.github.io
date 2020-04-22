@@ -1,5 +1,5 @@
 
-## java的线程Thread
+# java的线程Thread
 
 >现在的操作系统是多任务操作系统。多线程是实现多任务的一种方式。
 >
@@ -9,9 +9,9 @@
 
 引用网上对线程的一个说法，个人觉得比较的形象
 
-## 线程的创建和启动
+## 1 线程的创建和启动
 
-### 线程创建
+### 1.1 线程创建
 创建线程方式主要有两个：
 1. 继承Thread类，利用构造方法创建一个线程
 2. 实现Runnable接口。在利用带Runnable参数的构造方法
@@ -58,7 +58,7 @@ PrimeRun p = new PrimeRun(143);
 
 ```
 
-### Thread和Runnable
+### 1.2 Thread和Runnable
 
 看了上面分别使用继承的方式和runnable接口的方式，那他们又有何不同呢
 
@@ -134,7 +134,7 @@ public class TestTask implements Runnable {
 
 所以这里可以利用这个特点处理共享资源，只要合理加锁，就可以处理好共享资源，如上面count加上volatile 保证可见性，再count-- 加块级锁就ok
 
-### 线程启动
+### 1.3 线程启动
 
 之前也有代码使用过线程，线程启动一般使用 start() 或者 run() 但是一般建议是start()
 
@@ -195,9 +195,9 @@ start()之前会先判断线程状态,但是如果用 t.run() 是可以多次调
 
 说到线程状态，那么来看看线程的状态到底有哪些？
 
-## 线程状态
+## 2 线程状态
 
-### 线程状态分析
+### 2.1 线程状态分析
 ```java
 public enum State {
         /**
@@ -282,14 +282,14 @@ public enum State {
     5. LockSupport.parkUntil
 6. **TERMINATED** 线程结束，完成执行
 
-### 线程状态转换图
+### 2.2 线程状态转换图
 
 线程状态之间的转换图
 
 ![线程状态转换图](http://7xsv3u.com1.z0.glb.clouddn.com/210219518789897.jpg)
 
 
-## 关于守护线程 Daemon Thread
+## 3 关于守护线程 Daemon Thread
 
 java中的线程分为两类：**用户线程(User Thread)、守护线程(Daemon Thread)**
 
@@ -303,9 +303,9 @@ java中的线程分为两类：**用户线程(User Thread)、守护线程(Daemon
 >2.  在Daemon线程中产生的新线程也是Daemon的
 >3.  守护线程应该永远不去访问固有资源，如文件、数据库，因为它会在任何时候甚至在一个操作的中间发生中断(如：非守护线程都停止了)。
 
-## Thread类常用方法
+## 4 Thread类常用方法
 
-### start()
+### 4.1 start()
 
 start作用就是启动一个线程，他和run()的区别在前面也有说过
 
@@ -323,7 +323,7 @@ t3.start();
 ```
 实际的启动顺序是随机，和cpu的调度有关
 
-### sleep()
+### 4.2 sleep()
 sleep(long mills) 是Thread 类的一个今天native的方法，调用sleep线程进入阻塞。参数为0则一直等待。
 
 需要注意的是，**如果线程中获得某个对象的内置锁，在sleep的时候是不会释放锁的，这点和后面要说的wait()不同，wait()是会释放锁的**
@@ -333,10 +333,10 @@ sleep(long mills) 是Thread 类的一个今天native的方法，调用sleep线�
 以上引用自sleep方法源码上面的解释，最后一句说明了，sleep不释放锁
 
 
-### interrupt()
+### 4.3 interrupt()
 调用线程打断，如果线程正因为调用了wait() ,sleep(),join等方法阻塞的时候，就会抛出一个InterruptedException
 
-### wait、notify()/notifyAll()
+### 4.4 wait、notify()/notifyAll()
 
 这三个方法都是Object类实例的方法，**由于这三个方法在使用的时候都涉及到锁的操作(获取和释放)，因此，这三个方法必须要在同步代码块中执行**，否则抛出IllegalMonitorStateException异常。
 
@@ -430,11 +430,11 @@ if (millis == 0) {
 
 结合上面的例子就是，t2中调用o.wait的时候，t2线程被挂起，不在执行，需要等待唤醒。o.wait() 释放掉t2对o的锁，使t1能够获得o的锁，执行o.notify唤醒t2,然后t2继续执行完成。
 
-### yield()
+### 4.5 yield()
 
 简单讲就是告诉cpu我可以让出资源，注意是可以，也就是说，具体会不会让出，看cpu的调度了。此方法一般少用
 
-### join()
+### 4.6 join()
 
 join方法的实质是wait, 理解join单词的字面意思，也许会更好理解join做的事情。join就是加入，如果线程A里面执行了线程b.join() 就是A线程进入等待，等b线程执行完。再接着执行。 换个角度就像是A在完成一件事的时候，把另外一件事B加进来，所以join就很形象。
 
@@ -584,7 +584,7 @@ static void ensure_join(JavaThread* thread) {
 这样整个过程就清晰了。t1执行完了之后，对t1内置锁执行了notifyAll(),所有t2被唤醒，执行完成。
 
 
-## wait-notify/notifyAll 和 循环检测等待的区别
+## 5 wait-notify/notifyAll 和 循环检测等待的区别
 
 之前有说过，wait和notify可以类似个等待通知，其实不用wait-notify模式也是可以做的，例如现有如下场景：
 

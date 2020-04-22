@@ -1,4 +1,4 @@
-## 线程池(java.util.concurrent)
+# 线程池(java.util.concurrent)
 
 为什么要有线程池 ？
 
@@ -12,9 +12,9 @@
 所以，使用线程池，用它来管理线程，可以有效的减少因为线程创建和线程数量过多导致的问题
 
 
-## Executor框架
+## 1 Executor框架
 
-### 框架基础
+### 1.1 框架基础
 先来看看住基本的框架结构图：
 
 ![executor](http://7xsv3u.com1.z0.glb.clouddn.com/executor.png)
@@ -116,9 +116,9 @@ ExecutorService接口继承自Executor 接口，主要增加了线程生命周�
 
 具体使用查看Executors.newXXX() 相关文档
 
-### ThreadPoolExecutor & ScheduledThreadPoolExecutor
+### 1.2 ThreadPoolExecutor & ScheduledThreadPoolExecutor
 ThreadPoolExecutor 和 ScheduledThreadPoolExecutor 都是executorService的实现类，他们关系从之前类图已经可以清楚地看出来。基本使用差不多，却别就在于定位或者延时功能。所以本文只分析ThreadPoolExecutor的源码，来看看线程池的工作大致流程。
-#### ThreadPoolExecutor源码分析
+#### 1.2.1 ThreadPoolExecutor源码分析
 
 在分析源码前，我根据个人的理解，先简单说明线程池工作的流程，在进入代码查看。
 
@@ -296,7 +296,7 @@ public ThreadPoolExecutor(int corePoolSize,
 其中ThreadFactory 是用来创建Worker的thread用的，管理所有的线程。
 RejectedExecutionHandler handler是在addWorker的时候如果添加失败，执行的饱和策略。JUC(java.util.concurrent)包中有提供几种实现。也可以根据需要自己实现自己的饱和策略。
 
-#### Exexutors.newXXX的参数意义和是使用时候注意的问题
+#### 1.2.2 Exexutors.newXXX的参数意义和是使用时候注意的问题
 
 1. **newFixedThreadPool**
 创建一个固定长度的线程池，每次提交任务就会创建线程，知道达到最大线程数。如果线程发生Exception死掉，会新补充线程进来。默认工作队列最大长度是Integer.MXA_VALUE。认为是一个无界的队列
@@ -311,7 +311,7 @@ RejectedExecutionHandler handler是在addWorker的时候如果添加失败，执
 4. **newSingleThreadExecutor、newSingleThreadScheduledExecutor**
 创建一个单线程的Executor，如果单个线程出现Exeception死掉，就是创建一个线程来替代。他可以确保任务队列中的任务是顺序执行的。
 
-## 线程池任务管理Queue&Deque
+## 2 线程池任务管理Queue&Deque
 ThreadPoolExecutor提供了三中队列方式：无界队列、有界对列、同步移交。队列的选择与其他的参数有关，例如：线程池的大小。
 
 **无界、有界队列**。使用无界队列当线程池中的线程都处于忙碌状态的时候，工作队列就会无限制的增长。一种更加稳妥的方式使用有界队列，例如：ArrayBlockingQueue，有界LinkedBlockingQueue，PriorityBlockingQueue。有界队列有助于避免资源耗尽情况的发生，但是就需要考虑队列填满时候的饱和策略问题。
@@ -322,7 +322,7 @@ ThreadPoolExecutor提供了三中队列方式：无界队列、有界对列、�
 
 **注意：只有当任务相互独立是，为线程池或者工作队列设置界限才是合理的，如果任务之间存在依赖，那么有界的线程池或者队列就可能导致“饥饿”死锁问题**
 
-## 线程池饱和策略RejectedExecutionHandler
+## 3 线程池饱和策略RejectedExecutionHandler
 当有界队列被填满的时候，饱和策略就开始发挥作用了。ThreadPoolExecutor的饱和策略可以通过调用setRejectedExecutionHandler来修改。JDK提供了四种默认的饱和策略。
 
 **AbortPolicy** 默认策略，抛出一个未经检测的RejectedExecutionException,调用者捕获这个异常，根据自己的需求编写自己的代码。
@@ -353,9 +353,9 @@ public void rejectedExecution(Runnable r, ThreadPoolExecutor e) {
 以上四种是JDK提供的策略，我们还可以根据自己的需要，自己实现RejectedExecutionHandler，实现我们自己的饱和策略。
 
 
-## 线程池如何重复利用线程的？
+## 4 线程池如何重复利用线程的？
 
-### ThreadFactory
+### 4.1 ThreadFactory
 
 线程工厂是创建线程的地方，实际就是创建工作线程。
 
@@ -373,7 +373,7 @@ public Thread newThread(Runnable r) {
 }
 ```
 
-### 线程池如何重复利用线程？
+### 4.2 线程池如何重复利用线程？
 
 通过前面对线程池的理解，线程池的实现思路基本有一定的了解，那么线程池究竟如何重复利用线程的呢？
 
