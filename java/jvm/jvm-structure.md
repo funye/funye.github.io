@@ -38,11 +38,13 @@
 
 **控制参数**
 
-- -Xms设置堆的最小空间大小。
+- -Xms设置堆的初始空间大小。
 - -Xmx设置堆的最大空间大小。
-- -XX:SurvivorRatio 设置Survivor区占新生代的比例
-- -XX:NewSize设置新生代最小空间大小，-XX:MaxNewSize设置新生代最小空间大小，-XX:NewRatio 设置新生代占堆的比例、
 - -Xmn控制新生代大小。（jdk1.4之后使用） 
+- -XX:NewSize设置新生代最小空间大小
+- -XX:MaxNewSize设置新生代最小空间大小，
+- -XX:NewRatio 老年代:年轻代的比例， 如2 代表 young:old = 1:2 
+- -XX:SurvivorRatio Eden:Survivor的比例  如8 代表 eden:s0:s1 = 8:1:1
 
 **垃圾回收**
 
