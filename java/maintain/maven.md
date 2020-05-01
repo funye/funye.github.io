@@ -404,3 +404,10 @@ fun-mall
 ### 子pom有使用父pom的变量
 这种情况下, 因为使用父模块的变量，不能使用注释parent（不然不识别），所有只能先推一下父pom, 再推当前jar, 如上面的方式二
 
+### 记录
+
+- 跳过Assembly：`clean deploy -DskipAssembly=true`
+- 只推父pom: `mvn clean package deploy -Dmaven.test.skip=true -Drepository:snapshots -N`
+- 分析maven的依赖树: `mvn dependency:tree >text.txt`
+
+
