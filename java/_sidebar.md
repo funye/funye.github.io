@@ -52,9 +52,8 @@
   * [mybatis](java/database/mybatis.md)
   * [mysql索引及优化](java/database/mysql.md)
   * [mysql主从同步](java/database/mysql-replication.md)
-  * mysql读写分离
-  * mysql分库分表
-  * [mycat](java/database/mycat.md)
+  * [MySQL中间件-MyCat](java/database/mycat.md)
+  * [MySQL中间件-Sharding-jdbc](java/database/sharding-jdbc.md)
 
 * [缓存服务](java/cache/index.md)
   * [redis缓存服务](java/cache/redis.md)
