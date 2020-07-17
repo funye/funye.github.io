@@ -183,7 +183,7 @@ sentinel parallel-syncs mymaster 1
 
 redis客户端配置情况
 ```
-package com.fun.redis;
+package com.fun.cache.redis;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisSentinelPool;
