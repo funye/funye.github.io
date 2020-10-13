@@ -2,17 +2,9 @@
 > java技术积累及笔记，如有纰漏，欢迎指正。
 
 
+* [简介](readme.md)
 
-* [简介](README.md)
-
-* [JVM及性能调优](java/jvm/index.md)
-  * [JVM内存结构](java/jvm/jvm-structure.md)
-  * [GC算法与垃圾收集器](java/jvm/gc.md)
-  * [JVM调优实战](java/jvm/jvm-in-action.md)
-  * [Java内存模型](java/jvm/jmm.md)
-  * [java的类加载机制](java/jvm/classloader.md)
-
-* [JAVA语言基础](java/lang_base/index.md)
+* [语言基础](java/lang_base/index.md)
   * 内部类
   * static关键字
   * 泛型
@@ -29,7 +21,14 @@
   * [Java并发包JUC](java/concurrency/thread-4.md)
   * [volatile-synchronized-Lock](java/concurrency/concurrent-compare.md)
   * 并发包
-
+  
+* [JVM调优](java/jvm/index.md)
+  * [JVM内存结构](java/jvm/jvm-structure.md)
+  * [GC算法与垃圾收集器](java/jvm/gc.md)
+  * [JVM调优实战](java/jvm/jvm-in-action.md)
+  * [Java内存模型](java/jvm/jmm.md)
+  * [java的类加载机制](java/jvm/classloader.md)
+  
 * [数据结构](/java/data-structure/index.md)
   * [数组](java/data-structure/array.md)
   * [链表](java/data-structure/linklist.md)
@@ -41,7 +40,7 @@
 * [设计模式](java/design-pattern/index.md)
   * [几种常见的设计模式](java/design-pattern/design-pattern.md)
 
-* [Spring](java/spring/index.md)
+* [基础框架](java/spring/index.md)
   * Spring IoC
   * Spring AOP
   * [Spring MVC](java/spring/spring.md)
@@ -68,7 +67,7 @@
   * [es搜索服务](java/search/elasticsearch.md)
 
 * [网络编程](java/network/index.md)
-  * [nio基础入门](java/network/nio.md)
+  * [NIO基础入门](java/network/nio.md)
   * [netty知识梳理](java/network/netty.md)
   * [netty实战](java/network/netty-in-action.md)
 

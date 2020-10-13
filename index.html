@@ -22,18 +22,14 @@
        color:#42b983 !important;
     }
 
-    .sidebar ul li p a, .sidebar ul li p {
-      font-size: 15px !important;
-      font-weight: 600 !important;
-    }
-
-    .sidebar ul li {
-      font-size: 14px !important;
+    .sidebar ul li p>a, .sidebar ul li>p {
+        font-weight: 600 !important;
     }
 
     p.active a {
       color: #42b983 !important;
     }
+
 
     </style>
 </head>
@@ -42,7 +38,7 @@
 <script>
     window.$docsify = {
       name: 'Fun Notes',
-      repo: '',
+      repo: 'https://github.com/funye/funye.github.io',
       search: {
         paths: 'auto',
         placeholder: '🔍 搜素',
@@ -53,7 +49,7 @@
       subMaxLevel: 3, // 设置左侧的目录栏显示到几级标题
       loadSidebar: true,
       alias: {
-        // '/.*/_sidebar.md': '/_sidebar.md'
+        '/_sidebar.md': '/java/_sidebar.md',
         '/java/.*/_sidebar.md': '/java/_sidebar.md',
         '/.*/_navbar.md': '/_navbar.md'
       },
@@ -62,11 +58,12 @@
     }
 
 
+
 </script>
 <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
 <!-- plugins -->
 <script src="https://cdn.bootcss.com/docsify/4.5.9/plugins/search.min.js"></script>
-<script src="//unpkg.com/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"/>
+<!--<script src="//unpkg.com/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"/>-->
 <script src="https://cyc-1256109796.cos.ap-guangzhou.myqcloud.com/docsify-copy-code.min.js"></script>
 <script src="https://cyc-1256109796.cos.ap-guangzhou.myqcloud.com/prism-java.min.js"></script>
 <script src="https://cyc-1256109796.cos.ap-guangzhou.myqcloud.com/prism-c.min.js"></script>

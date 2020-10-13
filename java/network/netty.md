@@ -1,42 +1,53 @@
-# netty详解
+# netty 知识梳理与总结
 
-# I/O模型
+本文主要梳理下netty相关的知识体系，并对关键知识点进行总结
 
-## 阻塞I/O - BIO
+# 1 常见I/O模型
 
-## 异步IO - NIO
 
-# 线程模型
+## 1.1 阻塞I/O - BIO
 
-## 事件驱动模型
 
-## reactor线程模型
+## 1.2 异步IO - NIO
 
-## netty的线程模型
 
-本文主要梳理下netty相关的知识体系
+# 2 线程模型
 
-# netty的重要组件
+## 2.1 事件驱动模型
 
-## Bootstrap/ServerBootstrap
 
-## Future/ChannelFuture
+## 2.2 reactor线程模型
 
-## Channel
 
-## Selector
+## 2.3 netty的线程模型
 
-## NioEventLoop
 
-## NioEventLoopGroup
+# 3 netty的工作原理架构
 
-## ChannelHandler
 
-## ChannelHandlerContext
+# 4 netty的重要组件
 
-## ChannelPipline
+## 4.1 Bootstrap/ServerBootstrap
 
-# netty的工作原理架构	
+## 4.2 ChannelFuture、Channel
+
+## 4.3 NioEventLoop、NioEventLoopGroup
+
+## 4.4 ChannelHandler、ChannelPipline、ChannelHandlerContext
+
+## 4.5 编解码器
+
+# 5 netty的传输
+
+- OIO——阻塞传输
+- NIO——异步传输
+- Local——JVM 内部的异步通信
+- Embedded——测试你的ChannelHandler
+
+
+
+
+
 
 
 

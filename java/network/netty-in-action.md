@@ -1,4 +1,6 @@
-# netty实战总结
+# netty实战示例
+
+一个偏实战的netty应用示例
 
 - [netty 4.x 用户指南(中文)](https://www.w3cschool.cn/netty_4_user_guide/6worbozt.html) 
 - [netty 4.x 用户指南(英文)](https://netty.io/wiki/user-guide-for-4.x.html)
