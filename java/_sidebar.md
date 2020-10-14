@@ -2,7 +2,7 @@
 > java技术积累及笔记，如有纰漏，欢迎指正。
 
 
-* [简介](readme.md)
+* [简介](README.md)
 
 * [语言基础](java/lang_base/index.md)
   * 内部类
