@@ -1,6 +1,6 @@
 ## 架构图
 
-![kafka结构图](../assets/message/kafka.png)
+![kafka结构图](../../assets/message/kafka.png)
 
 如上图所示，kafka架构组成为 一个kafka broker集群（多个broker组成），一个zookeeper集群，若干个 生成者和消费者直连broker进行生产和消费。
 
@@ -32,7 +32,7 @@
 
 在理解Tpoic、Broker、Partition之前，我们先看一下他们之前的关系图
 
-![broker-topic-partition](../assets/message/broker-topic-partition.png)
+![broker-topic-partition](../../assets/message/broker-topic-partition.png)
 
 如上图所有，一个topic创建4个分区的情况下，在每个broker有4个分区。zookeeper会在这些分区中选择一个分区作为主分区，即分区leader。Producer在生产消息时候，直连broker。broker从zookeeper获取当前哪些节点存活，主分区在哪个服务，producer就把消息发送给对应的主分区。主分区同步到各个follower分区。
 

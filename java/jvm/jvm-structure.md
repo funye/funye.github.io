@@ -9,7 +9,7 @@
 
 谈到JVM内存结构，当然少不了这个经典的结构图
 
-![java内存结构图](../assets/jvm/jvm-structure.jpg)
+![java内存结构图](../../assets/jvm/jvm-structure.jpg)
 
 上图清晰描述了JVM的内存结构，分别有以下几个部分组成
 - 堆（Heap）：线程共享。所有的对象实例以及数组都要在堆上分配。回收器主要管理的对象。
@@ -22,7 +22,7 @@
 
 以下这个图，帮忙理解jvm的一些参数控制  
 
-![jvm](../assets/jvm/jvm.jpg)
+![jvm](../../assets/jvm/jvm.jpg)
 
 ### 2.1 堆
 
