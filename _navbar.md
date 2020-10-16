@@ -1,4 +1,4 @@
-* [Java基础](README.md)
+* Java基础
   * [语言基础](java/lang_base/index.md)
   * [JAVA并发](java/concurrency/index.md)
   * [JVM调优](java/jvm/index.md)
@@ -9,15 +9,16 @@
   * [网络编程](java/network/index.md)  
   
 * 通用基础
-  * [数据结构与算法](/common/data-structure/index.md)
+  * [数据结构](/common/data-structure/index.md)
+  * [算法设计](/common/algorithm/index.md)
   * [设计模式](common/design-pattern/index.md)
   * [数据库](common/database/index.md)
-  * [工具与运维](common/maintain/index.md)
+  * [工具运维](common/maintain/index.md)
 
-* [进阶提升](advance/solutions/index.md)
+* 进阶提升
   * [分布式](advance/solutions/index.md)
-  * [高并发](advance/solutions/index.md)
   * [高可用](advance/solutions/index.md)
+  * [高并发](advance/concurrency/index.md)
   * [微服务](advance/solutions/index.md)
   * [大数据](advance/solutions/index.md)
   

@@ -19,8 +19,8 @@
 
 * [进阶提升](advance/solutions/index.md)
   * [分布式](advance/solutions/index.md)
-  * [高并发](advance/solutions/index.md)
   * [高可用](advance/solutions/index.md)
+  * [高并发](advance/concurrency/index.md)
   * [微服务](advance/solutions/index.md)
   * [大数据](advance/solutions/index.md)
 

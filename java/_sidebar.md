@@ -35,7 +35,8 @@
 
 * [缓存服务](java/cache/index.md)
   * [redis缓存服务](java/cache/redis.md)
-  * [高可用redis服务](java/cache/redis-high-available.md)
+  * [构建高可用的redis服务](java/cache/redis-high-available.md)  
+  * [redis的常见使用场景与用法](java/cache/redis-use.md)
 
 * [消息服务](java/message/index.md)
   * [换个角度看消息服务](java/message/message.md)

@@ -220,7 +220,7 @@ Slave_SQL_Running: Yes
 
 ## 3 MySQl主从同步原理
 
-<img src="java/assets/mysql/mysql-master-slave.jpg" width="800"/>
+<img src="assets/mysql/mysql-master-slave.jpg" width="800"/>
 
 1. 在master机器上的操作：
     

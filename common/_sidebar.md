@@ -3,8 +3,10 @@
   * [链表](common/data-structure/linklist.md)
   * [树](common/data-structure/tree.md)
   * [图](common/data-structure/graph.md)
-  * [查找排序算法](common/data-structure/algorithm_sort_search.md)
-  * [算法思想](common/data-structure/algorithm_thinking.md)
+  
+* [算法设计](/common/algorithm/index.md)
+  * [查找排序算法](common/algorithm/algorithm_sort_search.md)
+  * [算法思想](common/algorithm/algorithm_thinking.md)
 
 * [设计模式](common/design-pattern/index.md)
   * [几种常见的设计模式](common/design-pattern/design-pattern.md)

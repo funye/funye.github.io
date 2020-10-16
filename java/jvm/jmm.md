@@ -15,7 +15,7 @@ Java虚拟机规范中定义了Java内存模型（Java Memory Model，JMM），�
 
 物理硬件架构如下图。
 
-<img src="java/assets/jvm/jmm-hardware.jpg" width="800"/>
+<img src="assets/jvm/jmm-hardware.jpg" width="800"/>
 
 
 > - **多CPU：** 一个现代计算机通常由两个或者多个CPU。其中一些CPU还有多核。从这一点可以看出，在一个有两个或者多个CPU的现代计算机上同时运行多个线程是可能的。每个CPU在某一时刻运行一个线程是没有问题的。这意味着，如果你的Java程序是多线程的，在你的Java程序中每个CPU上一个线程可能同时（并发）执行。
@@ -47,7 +47,7 @@ Java虚拟机规范中定义了Java内存模型（Java Memory Model，JMM），�
 ### 3.1 JMM的架构
 JMM为了解决上面的问题，对cpu的寄存器和高速缓存进行抽象描述，进行管理。JMM中，线程之间的通讯表现为如下图中的方式：
 
-<img src="java/assets/jvm/jmm.jpg" width="850"/>
+<img src="assets/jvm/jmm.jpg" width="850"/>
 
 - 线程之间的共享变量存储在主内存（Main Memory）中
 - 每个线程都有一个私有的本地内存（Local Memory），本地内存是JMM的一个抽象概念，并不真实存在，它涵盖了缓存、写缓冲区、寄存器以及其他的硬件和编译器优化。本地内存中存储了该线程以读/写共享变量的拷贝副本。

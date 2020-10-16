@@ -22,7 +22,7 @@
 
 **传统模式**
 
-<img src='java/assets/message/message_01_jieou_01.png' alt='传统模式' width='450' />
+<img src='assets/message/message_01_jieou_01.png' alt='传统模式' width='450' />
 
 
 *传统模式的缺点*
@@ -30,7 +30,7 @@
 
 
 **中间件模式**
-<img src='java/assets/message/message_01_jieou_02.png' alt='中间件模式' width='450' />
+<img src='assets/message/message_01_jieou_02.png' alt='中间件模式' width='450' />
 
 
 *中间件模式好处*
@@ -50,7 +50,7 @@
 ### 利用消息系统来异步操作
 
 **传统模式**
-<img src='java/assets/message/message_01_yibu_01.png' alt='传统模式' width='550' />
+<img src='assets/message/message_01_yibu_01.png' alt='传统模式' width='550' />
 
 
 *传统模式的缺点*
@@ -58,7 +58,7 @@
 
 
 **中间件模式**
-<img src='java/assets/message/message_01_yibu_02.png' alt='中间件模式' width='500' />
+<img src='assets/message/message_01_yibu_02.png' alt='中间件模式' width='500' />
 
 
 *中间件模式好处*
@@ -76,7 +76,7 @@
 ### 利用消息系统来削峰
 
 **传统模式**
-<img src='java/assets/message/message_01_xiaofeng_01.png' alt='传统模式' width='450' />
+<img src='assets/message/message_01_xiaofeng_01.png' alt='传统模式' width='450' />
 
 
 *传统模式的缺点*
@@ -85,7 +85,7 @@
 
 
 **中间件模式**
-<img src='java/assets/message/message_01_xiaofeng_02.png' alt='中间件模式' width='600' />
+<img src='assets/message/message_01_xiaofeng_02.png' alt='中间件模式' width='600' />
 
 
 *中间件模式好处*
@@ -125,7 +125,7 @@
 
 通常为了保证消息系统本身的可靠性，会采用集群部署的方式。实现集群的方式基本都是差不多，一个服务发现中心，一个消息服务集群（master-slave 或者 leader模式）。架构一般如下：
 
-<img src='java/assets/message/message_01_jiqun_01.png' alt='集群' width='800' />
+<img src='assets/message/message_01_jiqun_01.png' alt='集群' width='800' />
 
 - **Server集群**：不管是分布式RPC服务集群，还是消息服务集群，差不多都是如此。 例如， dubbo的注册中心，kafka的broker, rocketMQ的broker
 
@@ -177,7 +177,7 @@
 2. 消息发送环节
   
    我们在使用消息的时候，很多时候都是广播的方式。那么消息的传递应该是一个树形，而不该是一个环形。(这里消息可能不是用一个消息，但是在业务上是同一个时间触发。)
-   <img src='java/assets/message/message_delivery.png' alt='消息传递' width='600' />
+   <img src='assets/message/message_delivery.png' alt='消息传递' width='600' />
    
    如果消息是环形的，最终的节点就需要监听来自两个地方的不同的消息。以哪个为主，就变得很疑惑了，或者等两个消息都到达，这个等待就加大了消费者的处理难度。
 

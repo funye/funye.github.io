@@ -43,7 +43,7 @@
 
 kafka官网给出一个关于kafka消费者和消费者group的关系，如下：
 
-<img src='java/assets/message/consumer-consumer_group.png' alt='consumer-consumer_group' width='400' height='300' />
+<img src='assets/message/consumer-consumer_group.png' alt='consumer-consumer_group' width='400' height='300' />
 
 这个图可以清晰的说明Consumer 、Consumer Group 、Partition的关系。
 
