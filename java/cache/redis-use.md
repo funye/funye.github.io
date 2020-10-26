@@ -1,5 +1,17 @@
 # redis的常见使用场景与用法
 
+## string类型的使用
+
+## list类型的使用
+
+## hash类型的使用
+
+## set类型的使用
+
+## sorted set类型的使用
+
+## bitmap的使用
+
 ## 使用lua脚本完成事务
 
 语法
@@ -16,6 +28,7 @@ KEYS_NUM=1
 key=foo
 args=bar
 ```
-  
+
+
 
  

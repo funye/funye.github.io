@@ -1,4 +1,4 @@
-# redis缓存服务
+
 
 ## redis的持久化
 
@@ -124,7 +124,7 @@ appendfsync everysec
 
 ----
 
-## redis replication
+## redis主从（redis replication）
 
 ### redis主从配置方式
 

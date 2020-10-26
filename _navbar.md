@@ -3,9 +3,9 @@
   * [JAVA并发](java/concurrency/index.md)
   * [JVM调优](java/jvm/index.md)
   * [基础框架](java/spring/index.md)
-  * [缓存服务](java/cache/index.md)
-  * [消息服务](java/message/index.md)
-  * [搜索服务](java/search/index.md)
+  * [缓存](java/cache/index.md)
+  * [消息](java/message/index.md)
+  * [搜索](java/search/index.md)
   * [网络编程](java/network/index.md)  
   
 * 通用基础

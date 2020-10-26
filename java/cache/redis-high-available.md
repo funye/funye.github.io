@@ -1,9 +1,4 @@
-# 构建高可用的redis服务
-
-## redis的高可用性
-
-[redis sentinel 官方文档](https://redis.io/topics/sentinel)
-[redis sentinel 中文文档](http://www.redis.cn/topics/sentinel.html)
+## redis高可用性介绍
 
 前面说到使用主从备份的方式可以保证数据的安全性，当主节点挂了的时候，从节点可以顶上作为主节点。但是需要手动去切换，这个过程需要认为干预。那么有没有一种由程序自己监控主节点状态并在主节点挂了的时候自己选择一个从节点的方案呢？答案肯定是有的。redis sentinel(哨兵)。
 
@@ -156,7 +151,7 @@ sentinel可以自动的发现其他的sentinel服务和slave节点。具体概�
 192.168.206.202 redis slave2,sentinel3
 
 redis.conf 大部分使用默认配置，列出几个重要的配置
-```
+```conf
 bind 192.168.206.200 # 跟据master,slave对应修改
 protected-mode yes
 slave-serve-stale-data yes
@@ -173,7 +168,7 @@ appendfsync everysec
 ```
 
 sentinel.conf 三个实例一样的配置
-```
+```console
 protected-mode no 
 port 26379
 sentinel monitor mymaster 192.168.206.201 6379 2
@@ -184,7 +179,7 @@ sentinel parallel-syncs mymaster 1
 ```
 
 redis客户端配置情况
-```
+```java
 package com.fun.cache.redis;
 
 import redis.clients.jedis.Jedis;
@@ -238,7 +233,7 @@ press enter to continue
 ```
 
 查看sentinel 的日志情况 ，可以看到切换master的过程。
-```
+```console
 4440:X 17 May 13:51:18.774 # +vote-for-leader 86a01849eb3e61289300a93a12855b6483088730 11
 4440:X 17 May 13:51:19.793 # +odown master mymaster 192.168.206.201 6379 #quorum 3/2
 4440:X 17 May 13:51:19.793 # Next failover delay: I will not start a failover before Wed May 17 13:57:19 2017
@@ -248,7 +243,6 @@ press enter to continue
 4440:X 17 May 13:51:19.860 * +slave slave 192.168.206.201:6379 192.168.206.201 6379 @ mymaster 192.168.206.202 6379
 ```
 
-
 ## 问题延伸
 
 在实际生产中，如果业务量比较大的情况，一台redis实例作为缓存很有可能回出现不够使用的情况，这个时候就需要做集群方式，但是redis的官方的说法是集群模式目前还处在验证阶段，没有statble的版本出现。
@@ -256,3 +250,9 @@ press enter to continue
 大多时候我们都是使用sharding的方式的时候。Jedis中有`ShardedJedisPool` 来管理链接。但是如果我们对分片方式也做主从的话。加入sentinel之后。就要使用JedisSentinelPool方式管理。不难发现，这两种只能有一种存在。那Jedis如果做到分片情况下也能使用sentinel呢 ？ 
 
 针对项目的问题，github上面有人开发了一个 [ShardedJedisSentinelPool](https://github.com/warmbreeze/sharded-jedis-sentinel-pool) 可以用来处理这个问题。
+
+
+---
+参考资料：
+- [redis sentinel 官方文档](https://redis.io/topics/sentinel)
+- [redis sentinel 中文文档](http://www.redis.cn/topics/sentinel.html)

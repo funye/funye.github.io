@@ -33,19 +33,18 @@
   * spring 事务
   * Springboot
 
-* [缓存服务](java/cache/index.md)
-  * [redis缓存服务](java/cache/redis.md)
+* [缓存](java/cache/index.md)
+  * [redis持久化与主从同步](java/cache/redis.md)
   * [构建高可用的redis服务](java/cache/redis-high-available.md)  
   * [redis的常见使用场景与用法](java/cache/redis-use.md)
 
-* [消息服务](java/message/index.md)
+* [消息](java/message/index.md)
   * [换个角度看消息服务](java/message/message.md)
   * [kafka实现的消息服务](java/message/kafka.md)
 
-* [搜索服务](java/search/index.md)
-  * [搜索服务](java/search/search.md)
-  * [es搜索服务](java/search/elasticsearch.md)
-
+* [搜索](java/search/index.md)
+  * [ES基础实战](java/search/elasticsearch.md)
+  
 * [网络编程](java/network/index.md)
   * [NIO基础入门](java/network/nio.md)
   * [netty知识梳理](java/network/netty.md)
