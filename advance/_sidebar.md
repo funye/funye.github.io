@@ -1,3 +1,5 @@
+> 分布式微服务场景下常见的问题处理方案和思路总结。如有纰漏，欢迎指正。
+
 * [分布式](advance/solutions/index.md)
   * [分布式缓存与数据库不一样问题](advance/solutions/cache-consistency.md)
   

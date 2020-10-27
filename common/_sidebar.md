@@ -1,3 +1,5 @@
+> 编程通用知识的梳理和总结。如有纰漏，欢迎指正。
+
 * [数据结构](/common/data-structure/index.md)
   * [数组](common/data-structure/array.md)
   * [链表](common/data-structure/linklist.md)
