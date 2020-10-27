@@ -57,7 +57,22 @@
       coverpage: true,
       loadNavbar: true,
       formatUpdated: '{YYYY}-{MM}-{DD} {HH}:{mm}',
-      disqus: 'shortname'
+      disqus: 'shortname',
+      plugins: [
+        function(hook, vm) {
+          hook.init(function() {
+             // 初始化完成后调用，只调用一次，没有参数。
+
+          });
+
+          hook.beforeEach(function(content) {
+            // 每次开始解析 Markdown 内容时调用
+            // ...
+            gitalk.options.id=location.hash.substr(1);
+            return content;
+          });
+        }
+      ]
     }
 
 
@@ -85,7 +100,7 @@
     admin: ['funye'],
     // facebook-like distraction free mode
     distractionFreeMode: false,
-    id: window.location.hash
+    id: location.hash.substr(1)
   })
 </script>
 </body>
