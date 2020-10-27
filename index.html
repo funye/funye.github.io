@@ -31,6 +31,48 @@
       color: #42b983 !important;
     }
 
+    .markdown-section {
+        max-width: 60%;
+    }
+
+    .app-name-link img {
+        max-width: 230px;
+        margin-top: 0;
+    }
+
+    .top-logo > a{
+        position: fixed;
+        top: 10px;
+        left: 50px;
+        z-index: 11;
+        font-size: 24px;
+        font-weight: 700;
+        text-decoration: none;
+        color: #444d56;
+    }
+
+    .app-nav-normal {
+        width: 100%;
+        margin: 0 0;
+        padding: 10px 70px 10px 0;
+    }
+
+    .app-nav-fixed {
+        position: fixed;
+        width: 100%;
+        background: #fff;
+        box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+        margin: 0 0;
+        padding: 10px 70px 10px 0;
+    }
+
+    .github-corner {
+        z-index: 11;
+    }
+    .sidebar {
+        padding-top: 52px !important;
+    }
+
 
     </style>
 </head>
@@ -39,10 +81,11 @@
 <script>
     window.$docsify = {
       name: 'Fun Notes',
+      logo: 'logo.jpeg',
       repo: 'https://github.com/funye/funye.github.io',
       search: {
         paths: 'auto',
-        placeholder: '🔍 搜素',
+        placeholder: '搜索',
         noData: '😞 No Results! ',
         // Headline depth, 1 - 6
         depth: 6
@@ -56,22 +99,47 @@
       },
       coverpage: true,
       loadNavbar: true,
+      topMargin: 90,
+      auto2top: true,
       formatUpdated: '{YYYY}-{MM}-{DD} {HH}:{mm}',
       disqus: 'shortname',
       plugins: [
         function(hook, vm) {
+           var logo = [
+            '<hr/>',
+            '<footer>',
+            '<span><a href="https://github.com/QingWei-Li">cinwell</a> &copy;2017.</span>',
+            '<span>Proudly published with <a href="https://github.com/docsifyjs/docsify" target="_blank">docsify</a>.</span>',
+            '</footer>'
+          ].join('');
+
           hook.init(function() {
-             // 初始化完成后调用，只调用一次，没有参数。
+            var body = document.querySelector("body");
+            var logo = document.createElement("div");
+            logo.className='top-logo';
+            logo.innerHTML="<a href=''>FunNotes</a>";
+            body.appendChild(logo);
 
           });
 
           hook.beforeEach(function(content) {
-            // 每次开始解析 Markdown 内容时调用
-            // ...
             gitalk.options.id=location.hash.substr(1);
-            console.log(gitalk.options.id)
             return content;
           });
+
+          hook.afterEach(function(html, next) {
+            // 处理导航栏样式
+            var hash = location.hash;
+            var appNav = document.querySelector(".app-nav");
+            if ('#/' === hash) {
+                appNav.className='app-nav app-nav-normal';
+            }else {
+                appNav.className='app-nav app-nav-fixed';
+            }
+
+            next(html);
+          });
+
         }
       ]
     }
