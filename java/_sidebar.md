@@ -39,7 +39,7 @@
   * [redis的常见使用场景与用法](java/cache/redis-use.md)
 
 * [消息](java/message/index.md)
-  * [换个角度看消息服务](java/message/message.md)
+  * [分布式之消息队列复习](java/message/message.md)
   * [kafka实现的消息服务](java/message/kafka.md)
 
 * [搜索](java/search/index.md)
