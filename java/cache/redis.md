@@ -1,4 +1,8 @@
+# redis基础总结
 
+`时间`：`{docsify-updated}` <br>
+
+---
 
 ## redis的持久化
 
@@ -182,4 +186,4 @@ slave-announce-port 1234
 下一节，总结下如何建立高可用（High Availability）的redis服务
 
 
-
+{{comment}}

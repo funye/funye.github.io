@@ -1,5 +1,9 @@
 ## 架构图
 
+`时间`：`{docsify-updated}` <br>
+
+---
+
 ![kafka结构图](../../assets/message/kafka.png)
 
 如上图所示，kafka架构组成为 一个kafka broker集群（多个broker组成），一个zookeeper集群，若干个 生成者和消费者直连broker进行生产和消费。
@@ -142,7 +146,7 @@ Consumer消费消息的时候，通过zookeeper获取到消费topic的partition�
 
 >那么 exactly once 语义（即你真正想要的东西）呢？当从一个 kafka topic 中消费并输出到另一个 topic 时 (正如在一个Kafka Streams 应用中所做的那样)，我们可以使用我们上文提到的 0.11.0.0 版本中的新事务型 producer，并将 consumer 的位置存储为一个 topic 中的消息，所以我们可以在输出 topic 接收已经被处理的数据的时候，在同一个事务中向 Kafka 写入 offset。如果事务被中断，则消费者的位置将恢复到原来的值，而输出 topic 上产生的数据对其他消费者是否可见，取决于事务的“隔离级别”。 在默认的“read_uncommitted”隔离级别中，所有消息对 consumer 都是可见的，即使它们是中止的事务的一部分，但是在“read_committed”的隔离级别中，消费者只能访问已提交的事务中的消息（以及任何不属于事务的消息）。
 
-
+---
 
 参考资料：
 - [kafka中文社区-文档-设计思想](http://kafka.apachecn.org/documentation.html#design)
@@ -150,3 +154,5 @@ Consumer消费消息的时候，通过zookeeper获取到消费topic的partition�
 - [kafka与zookeeper间的关联](https://blog.csdn.net/nankiao/article/details/78553635)
 - [Zookeeper在Kafka中的应用](https://blog.csdn.net/eric_sunah/article/details/46891901)
 
+
+{{comment}}

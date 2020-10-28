@@ -1,5 +1,9 @@
 # redis的常见使用场景与用法
 
+`时间`：`{docsify-updated}` <br>
+
+---
+
 ## string类型的使用
 
 ## list类型的使用

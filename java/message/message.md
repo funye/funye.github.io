@@ -1,3 +1,8 @@
+# 消息系统小结
+
+`时间`：`{docsify-updated}` <br>
+
+---
 
 研究消息系统，从三个问题出发
 1. W(what) 什么是消息系统
@@ -212,3 +217,5 @@
 2. [Kafka 设计与原理详解](https://blog.csdn.net/suifeng3051/article/details/48053965?spm=a2c4e.11153940.blogcont54747.3.57632bb2I0S4Hw)
 3. [消息中间件你选对了吗？Kafka与RabbitMQ谁更胜一筹？](http://cmsblogs.com/?p=3846)
 4. [Kafka史上最详细原理总结](http://www.thinkyixia.com/2017/10/25/kafka-2/)
+
+{{comment}}

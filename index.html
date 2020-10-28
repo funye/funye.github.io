@@ -42,10 +42,10 @@
 
     .top-logo > a{
         position: fixed;
-        top: 10px;
+        top: 12px;
         left: 50px;
         z-index: 11;
-        font-size: 24px;
+        font-size: 26px;
         font-weight: 700;
         text-decoration: none;
         color: #444d56;
@@ -54,7 +54,7 @@
     .app-nav-normal {
         width: 100%;
         margin: 0 0;
-        padding: 10px 70px 10px 0;
+        padding: 13px 80px 13px 0;
     }
 
     .app-nav-fixed {
@@ -63,7 +63,7 @@
         background: #fff;
         box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
         margin: 0 0;
-        padding: 10px 70px 10px 0;
+        padding: 13px 80px 13px 0;
     }
 
     .github-corner {
@@ -78,6 +78,8 @@
 </head>
 <body>
 <div id="app"></div>
+<script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+<!-- plugins -->
 <script>
     window.$docsify = {
       name: 'Fun Notes',
@@ -102,16 +104,11 @@
       topMargin: 90,
       auto2top: true,
       formatUpdated: '{YYYY}-{MM}-{DD} {HH}:{mm}',
-      disqus: 'shortname',
+      notFoundPage: '404.md',
       plugins: [
         function(hook, vm) {
-           var logo = [
-            '<hr/>',
-            '<footer>',
-            '<span><a href="https://github.com/QingWei-Li">cinwell</a> &copy;2017.</span>',
-            '<span>Proudly published with <a href="https://github.com/docsifyjs/docsify" target="_blank">docsify</a>.</span>',
-            '</footer>'
-          ].join('');
+
+          var isShowComment = false;
 
           hook.init(function() {
             var body = document.querySelector("body");
@@ -119,12 +116,18 @@
             logo.className='top-logo';
             logo.innerHTML="<a href=''>FunNotes</a>";
             body.appendChild(logo);
-
           });
 
           hook.beforeEach(function(content) {
+            // 设置gitalk的id
             gitalk.options.id=location.hash.substr(1);
-            return content;
+
+            // 解析评论配置
+            var index = content.indexOf("{{comment}}");
+            isShowComment = index < 0 ? false : true;
+
+            // 内容删除评论配置字符
+            return content.replace("{{comment}}", '');
           });
 
           hook.afterEach(function(html, next) {
@@ -137,6 +140,13 @@
                 appNav.className='app-nav app-nav-fixed';
             }
 
+            // 设置是否展示评论
+            var gitalkContainer = document.querySelector("#gitalk-container");
+            if (isShowComment == true) {
+                gitalkContainer.style.display='block';
+            } else {
+                gitalkContainer.style.display='none';
+            }
             next(html);
           });
 
@@ -147,8 +157,6 @@
 
 
 </script>
-<script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
-<!-- plugins -->
 <script src="https://cdn.bootcss.com/docsify/4.5.9/plugins/search.min.js"></script>
 <!--<script src="//unpkg.com/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"/>-->
 <script src="https://cyc-1256109796.cos.ap-guangzhou.myqcloud.com/docsify-copy-code.min.js"></script>
@@ -161,7 +169,7 @@
 <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
 <script>
-  const gitalk = new Gitalk({
+  gitalk = new Gitalk({
     clientID: 'c5d55354b553e4147e41',
     clientSecret: 'adcdc97172e83ba2fba7ab54884e9d3b0c84d3df',
     repo: 'funye.github.io',

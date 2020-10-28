@@ -1,5 +1,9 @@
 # GC算法及收集器
 
+`时间`：`{docsify-updated}` <br>
+
+---
+
 ## 1 GC的概念
 垃圾收集 Garbage Collection 通常被称为“GC”，它诞生于1960年 MIT 的 Lisp 语言，经过半个多世纪，目前已经十分成熟了。
 
@@ -88,3 +92,6 @@ GC分代的基于一个假设：绝大部分对象的生命周期都非常短暂
 参考链接
 - [jvm系列(三):java GC算法 垃圾收集器](https://www.cnblogs.com/ityouknow/p/5614961.html)
 - [常见JVM垃圾收集器一览](https://www.jianshu.com/p/ab2b0d97d3f8)
+
+
+{{comment}}

@@ -1,5 +1,9 @@
 # JAVA的并发包JUC
 
+`时间`：`{docsify-updated}` <br>
+
+---
+
 ## 1 Future与Callable
 使用Runnable接口有很大的局限性，他不能够返回一个值或者一个受检查的异常。这种情况下，可以使用Callable<V>接口，其中V就是返回的结果。
 
@@ -489,3 +493,5 @@ protected final boolean tryReleaseShared(int releases) {
 
 锁分段劣势： 与采用单个锁来实现独占访问相比，要获取多个锁来实现独占访问将更加困难并且开销更高。例如：ConcurrentHashMap在扩容的时候，以及重新计算Hash并且重新散列分布时候，都需要获取所有锁，实现整个Map的独占访问。
 
+
+{{comment}}

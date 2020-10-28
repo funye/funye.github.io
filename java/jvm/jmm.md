@@ -1,6 +1,6 @@
 # Java内存模型
 
-创建时间：2020-03-12
+`时间`：`{docsify-updated}` <br>
 
 ---
 
@@ -100,4 +100,4 @@ JMM为了解决上面的问题，对cpu的寄存器和高速缓存进行抽象�
   - [Java内存模型（JMM）总结](https://zhuanlan.zhihu.com/p/29881777)
 
   
- 
+ {{comment}}

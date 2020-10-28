@@ -1,5 +1,9 @@
 # 十分钟解惑，让你真正用好MAVEN
 
+`时间`：`{docsify-updated}` <br>
+
+---
+
 我们日常工作中经常使用到maven，基本操作大家都会，但是涉及到父子pom继承和多模块的时候，很多时候使用的就会很混乱。
 
 本篇文章主要针对maven的父子pom继承和多模块展开一些讨论，默认读者以使用过maven（可参考：https://www.ibofine.com/mavenbook/index.html ）
@@ -411,3 +415,4 @@ fun-mall
 - 分析maven的依赖树: `mvn dependency:tree >text.txt`
 
 
+{{comment}}

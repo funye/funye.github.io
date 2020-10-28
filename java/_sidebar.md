@@ -16,8 +16,8 @@
   * [Java的线程Thread](java/concurrency/thread-2.md)
   * [Java的线程池](java/concurrency/thread-3.md)
   * [Java并发编程包](java/concurrency/thread-4.md)
-  * [volatile-synchronized-Lock](java/concurrency/concurrent-compare.md)
-  * JAVA的锁
+  * [JAVA并发中锁相关的处理](java/concurrency/concurrent-compare.md)
+
   
 * [JVM调优](java/jvm/index.md)
   * [JVM内存结构](java/jvm/jvm-structure.md)

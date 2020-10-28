@@ -1,5 +1,9 @@
 # mysql索引
 
+`时间`：`{docsify-updated}` <br>
+
+---
+
 总结关于mysql的索引，查询优化，SQL技巧等
 
 ## 1 索引类型
@@ -221,5 +225,6 @@ count(*) from payment
 ### 5.1 分组查询取 最大、最小、前N、后N	条记录
 
 
+{{comment}}
 
 

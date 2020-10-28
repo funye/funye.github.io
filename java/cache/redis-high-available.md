@@ -1,3 +1,8 @@
+# 高可用的redis服务
+
+`时间`：`{docsify-updated}` <br>
+
+---
 ## redis高可用性介绍
 
 前面说到使用主从备份的方式可以保证数据的安全性，当主节点挂了的时候，从节点可以顶上作为主节点。但是需要手动去切换，这个过程需要认为干预。那么有没有一种由程序自己监控主节点状态并在主节点挂了的时候自己选择一个从节点的方案呢？答案肯定是有的。redis sentinel(哨兵)。
@@ -253,6 +258,9 @@ press enter to continue
 
 
 ---
+
 参考资料：
 - [redis sentinel 官方文档](https://redis.io/topics/sentinel)
 - [redis sentinel 中文文档](http://www.redis.cn/topics/sentinel.html)
+
+{{comment}}

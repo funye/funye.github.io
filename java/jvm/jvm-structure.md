@@ -1,7 +1,6 @@
 ## 1 java内存结构图
 
-
-创建时间：2020-03-12
+`时间`：`{docsify-updated}` <br>
 
 ---
 
@@ -134,9 +133,12 @@
 此内存区域是唯一一个在Java 虚拟机规范中没有规定任何OutOfMemoryError 情况的区域。
 
 --- 
+
 参考链接
   - [InfoQ-程晓明](https://www.infoq.cn/profile/1278512/publish)
   - [JVM内存结构和Java内存模型](https://zhuanlan.zhihu.com/p/38348646)
   - [深入理解堆外内存 Metaspace](https://www.javadoop.com/post/metaspace)
   - [聊聊jvm的PermGen与Metaspace](https://segmentfault.com/a/1190000012577387)
 
+
+{{comment}}

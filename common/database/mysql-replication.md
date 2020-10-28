@@ -1,5 +1,9 @@
 # MySQL主从同步
 
+`时间`：`{docsify-updated}` <br>
+
+---
+
 ## 1 MySQL的安装
 
 关于MySQL的安装，可以在官网搜索教程或者在网上查找教程，也可以参考 [Mysql 8.0.12解压版安装](https://blog.csdn.net/wsdc0521/article/details/82864901) 
@@ -241,3 +245,6 @@ Slave_SQL_Running: Yes
 - [线上MYSQL同步报错故障处理方法总结(必看篇)](https://www.jb51.net/article/109107.htm)
 - [深度探索MySQL主从复制原理](https://zhuanlan.zhihu.com/p/50597960)
 - [Mysql主从基本原理，主要形式以及主从同步延迟原理 (读写分离)导致主库从库数据不一致问题的及解决方案](https://blog.csdn.net/helloxiaozhe/article/details/79548186)
+
+
+{{comment}}

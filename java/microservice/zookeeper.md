@@ -1,5 +1,9 @@
 # zookeeper入门
 
+`时间`：`{docsify-updated}` <br>
+
+---
+
 # 1 zookeeper网站
 
 [Zookeeper中文网站](http://zookeeper.majunwei.com/document/3.4.6/DeveloperProgrammerGuide.html)
@@ -206,3 +210,6 @@ addauth digest fun:123123
 3. **addauth授权的生命周期同session周期一致**
 
 # 4 zookeeper 一致性保证
+
+
+{{comment}}
