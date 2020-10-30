@@ -1,8 +1,6 @@
 # 这里是大标题
 
-`分类`：`模板` <br>
-`标签`：`模板`，`测试` <br>
-`时间`：`{docsify-updated}` <br>
+`时间`：`{docsify-updated}`
 
 ---
 

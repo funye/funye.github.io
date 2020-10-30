@@ -1,52 +1,29 @@
 
-> 记录工作中对java知识点的理解和总结，如有纰漏，欢迎指正交流。
+!> 记录平时对java知识点的理解和总结，如有纰漏，欢迎指正交流。
+## 如何认知一项技术（中间件、产品等）
+
+**步骤**
+- 知道是什么
+- 简单使用（实践）
+- 原理分析
+- 同类对比
+- 常见场景处理
+
+**示例**
+1. kafka是什么？适用哪些场景？
+2. kafka的搭建、基本操作
+3. kafka相关的原理（实现原理、集群原理等）
+4. kafka同类产品有哪些？各有哪些特点？（rocketmq、activemq、rabbitmq、zeromq等）
+5. 如何保证消息的可靠性？如何防止重复消费？消息大量积压如何处理 ？等等场景
+
+## FunNotes的文档结构
 
 * Java基础
   * [语言基础](java/lang_base/index.md)
-    * 内部类
-    * static关键字
-    * [List全面解析](java/lang_base/collection/list.md)
-    * [Set全面解析](java/lang_base/collection/set.md)
-    * [Map全面解析](java/lang_base/collection/map.md)
-  
   * [JAVA并发](java/concurrency/index.md)
-    * [认识Java的线程](java/concurrency/thread-1.md)
-    * [Java的线程Thread](java/concurrency/thread-2.md)
-    * [Java的线程池](java/concurrency/thread-3.md)
-    * [Java并发编程包](java/concurrency/thread-4.md)
-    * [volatile-synchronized-Lock](java/concurrency/concurrent-compare.md)
-    * JAVA的锁
-    
   * [JVM调优](java/jvm/index.md)
-    * [JVM内存结构](java/jvm/jvm-structure.md)
-    * [GC算法与垃圾收集器](java/jvm/gc.md)
-    * [JVM调优实战](java/jvm/jvm-in-action.md)
-    * [Java内存模型](java/jvm/jmm.md)
-    * [java的类加载机制](java/jvm/classloader.md)
-    
   * [基础框架](java/spring/index.md)
-    * Spring IoC
-    * Spring AOP
-    * [Spring MVC](java/spring/spring.md)
-    * spring 事务
-    * Springboot
-  
-  * [缓存](java/cache/index.md)
-    * [redis缓存](java/cache/redis.md)
-    * [构建高可用的redis服务](java/cache/redis-high-available.md)  
-    * [redis的常见使用场景与用法](java/cache/redis-use.md)
-  
-  * [消息](java/message/index.md)
-    * [换个角度看消息服务](java/message/message.md)
-    * [kafka实现的消息服务](java/message/kafka.md)
-  
-  * [搜索](java/search/index.md)
-    * [es搜索服务](java/search/elasticsearch.md)
-  
   * [网络编程](java/network/index.md)
-    * [NIO基础入门](java/network/nio.md)
-    * [netty知识梳理](java/network/netty.md)
-    * [netty实战](java/network/netty-in-action.md)  
   
 * 通用基础
   * [数据结构与算法](/common/data-structure/index.md)
@@ -55,13 +32,34 @@
   * [工具与运维](common/maintain/index.md)
 
 * 进阶提升
-  * [分布式](advance/solutions/index.md)
-  * [高可用](advance/solutions/index.md)
-  * [高并发](advance/concurrency/index.md)
-  * [微服务](advance/solutions/index.md)
-  * [大数据](advance/solutions/index.md)
+  * [分布式](advance/ds/index.md)
+    * 分布式典型架构设计
+    * 分布式框架DUBBO
+    * 分布式锁
+    * 分布式session
+    * [分布式事务](advance/ds/distribution-transaction.md)
+    * [分布式任务调度](advance/ds/job.md)
+  
+  * [高并发](advance/high-cc/index.md)
+    * [缓存](advance/cache/index.md)
+    * [消息队列](advance/message/index.md)
+    * [搜索引擎](advance/search/index.md)
+    * 分表分库
+    * 读写分离
+    * [秒杀场景的高并发](advance/high-cc/s-kill.md)
+  
+  * [高可用](advance/high-alb/index.md)
+    * 限流
+    * 熔断
+    * 降级
+    
+  * [微服务](advance/microservice/microservice.md)
+    * [微服务架构设计](advance/microservice/microservice.md)
+    * SpringCloud微服务架构
+    * ServiceMesh
+  
+  * [大数据](advance/big-data/index.md)
 
-* [关于作者](about/README.md)
 
 
 
