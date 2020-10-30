@@ -13,12 +13,6 @@ docker run -p 81:80 --name nginx01 \
 -d nginx
 ```
 
-```plantuml
-@startuml
-testdot
-@enduml
-```
-
 ---
 
 参考资料：
