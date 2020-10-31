@@ -139,3 +139,16 @@ git remote set-url origin https://github.com/Homebrew/homebrew-core.git
 原文：https://blog.csdn.net/Boyqicheng/article/details/80809983 
 版权声明：本文为博主原创文章，转载请附上博文链接！
 ```
+
+## linux让程序在后台运行
+
+- **& 命令** 
+功能：加在一个命令的最后，可以把这个命令放在后台执行
+
+- **nohup命令** 
+功能：不挂断的运行命令
+
+**示例**
+```
+nohup test.sh &
+```

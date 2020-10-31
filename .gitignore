@@ -2,3 +2,4 @@
 **/_book/
 *.iml
 .idea
+*.out

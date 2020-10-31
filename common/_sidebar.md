@@ -25,5 +25,5 @@
   * [git常用命令](common/maintain/git.md)
   * [Docker](common/maintain/docker.md)
   * [10分钟学会nginx常见配置](common/maintain/nginx.md)
-  * [使用人机交互shell完成自动化发布](common/maintain/shell.md)
+  * [常用的shell脚本](common/maintain/shell.md)
   * [十分钟解惑，让你真正用好MAVEN](common/maintain/maven.md)
