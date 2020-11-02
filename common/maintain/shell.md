@@ -150,5 +150,5 @@ git remote set-url origin https://github.com/Homebrew/homebrew-core.git
 
 **示例**
 ```
-nohup test.sh &
+nohup docsify serve . > nohup.out 2>&1 &
 ```
