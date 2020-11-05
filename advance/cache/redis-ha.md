@@ -1,6 +1,6 @@
 # 高可用的redis服务
 
-`时间`：`{docsify-updated}` <br>
+`发布于`：`{docsify-updated}` <br>
 
 ---
 ## redis高可用性介绍

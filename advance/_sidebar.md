@@ -5,15 +5,15 @@
   * 分布式框架DUBBO
     * [dubbo的基本原理](advance/ds/dubbo.md)
   * 分布式锁
-  * 分布式session
+  * 分布式 Session
     * [zookeeper基础入门](advance/ds/zookeeper.md)
   * [分布式事务](advance/ds/distribution-transaction.md)
-  * [分布式任务调度](advance/ds/job.md)
+  * [分布式任务](advance/ds/job.md)
 
 * [高并发](advance/high-cc/index.md)
   * [缓存](advance/cache/index.md)
     * [redis持久化与主从同步](advance/cache/redis.md)
-    * [构建高可用的redis服务](advance/cache/redis-high-available.md)  
+    * [构建高可用的redis服务](advance/cache/redis-ha.md)  
     * [redis的常见使用场景与用法](advance/cache/redis-use.md)
     * [分布式缓存与数据库不一样问题](advance/cache/cache-consistency.md)
   * [消息队列](advance/message/index.md)

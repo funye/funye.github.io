@@ -7,8 +7,11 @@
   * [图](common/data-structure/graph.md)
   
 * [算法设计](/common/algorithm/index.md)
-  * [查找排序算法](common/algorithm/algorithm_sort_search.md)
-  * [算法思想](common/algorithm/algorithm_thinking.md)
+  * [七大基本查找算法](common/algorithm/search.md)
+  * [七大基本排序算法](common/algorithm/sort.md)
+  * 算法思想
+    * [分治法](common/algorithm/divide.md)
+    * [动态规划](common/algorithm/dynamic.md)
 
 * [设计模式](common/design-pattern/index.md)
   * [几种常见的设计模式](common/design-pattern/design-pattern.md)
