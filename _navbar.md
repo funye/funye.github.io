@@ -16,8 +16,8 @@
   * [数据结构](/common/data-structure/index.md)
   * [算法设计](/common/algorithm/index.md)
   * [设计模式](common/design-pattern/index.md)
-  * [数据库](common/database/index.md)
-  * [工具运维](common/maintain/index.md)
+  * [数据存储](common/database/index.md)
+  * [日常工具](common/maintain/index.md)
   
 * [测试新栏目](newbook/README.md)
 

@@ -1,6 +1,6 @@
 # 这里是大标题
 
-`时间`：`{docsify-updated}`
+`发布于`：`{docsify-updated}`
 
 ---
 

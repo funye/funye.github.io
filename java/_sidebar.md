@@ -24,11 +24,14 @@
   * [java的类加载机制](java/jvm/classloader.md)
   
 * [基础框架](java/spring/index.md)
-  * Spring IoC
-  * Spring AOP
-  * [Spring MVC](java/spring/spring.md)
-  * spring 事务
-  * Springboot
+  * spring
+    * Spring IoC
+    * Spring AOP
+    * [Spring MVC](java/spring/spring.md)
+    * spring 事务
+    * Springboot
+  * mybatis
+    * [mybatis](java/spring/mybatis.md)
   
 * [网络编程](java/network/index.md)
   * [NIO基础入门](java/network/nio.md)
