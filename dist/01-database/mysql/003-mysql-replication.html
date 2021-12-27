@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>MySQL主从同步实践与原理解析 | Fun Notes</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.3e464078.css" as="style"><link rel="preload" href="/assets/js/app.764657af.js" as="script"><link rel="preload" href="/assets/js/3.13400d0e.js" as="script"><link rel="preload" href="/assets/js/1.f6a48a09.js" as="script"><link rel="preload" href="/assets/js/30.eb7ed9ba.js" as="script"><link rel="prefetch" href="/assets/js/10.2f5634d0.js"><link rel="prefetch" href="/assets/js/100.5e7903ac.js"><link rel="prefetch" href="/assets/js/101.870f93ef.js"><link rel="prefetch" href="/assets/js/102.22b9705c.js"><link rel="prefetch" href="/assets/js/103.560ad7c9.js"><link rel="prefetch" href="/assets/js/104.c8f84255.js"><link rel="prefetch" href="/assets/js/105.1c3ec0e0.js"><link rel="prefetch" href="/assets/js/106.c68aa3da.js"><link rel="prefetch" href="/assets/js/107.3aebb4fb.js"><link rel="prefetch" href="/assets/js/108.b0a39856.js"><link rel="prefetch" href="/assets/js/109.1dfe587e.js"><link rel="prefetch" href="/assets/js/11.8930fb63.js"><link rel="prefetch" href="/assets/js/110.d9c29693.js"><link rel="prefetch" href="/assets/js/111.ee35ba5e.js"><link rel="prefetch" href="/assets/js/112.8e9714cc.js"><link rel="prefetch" href="/assets/js/113.b0692777.js"><link rel="prefetch" href="/assets/js/12.c37223c1.js"><link rel="prefetch" href="/assets/js/13.07ddb5f0.js"><link rel="prefetch" href="/assets/js/14.85096f2f.js"><link rel="prefetch" href="/assets/js/15.f9725d75.js"><link rel="prefetch" href="/assets/js/16.0732d9db.js"><link rel="prefetch" href="/assets/js/17.51607509.js"><link rel="prefetch" href="/assets/js/18.254b6195.js"><link rel="prefetch" href="/assets/js/19.059e57c0.js"><link rel="prefetch" href="/assets/js/20.c42dc7c4.js"><link rel="prefetch" href="/assets/js/21.23f80bf2.js"><link rel="prefetch" href="/assets/js/22.cccb2697.js"><link rel="prefetch" href="/assets/js/23.ecd2a693.js"><link rel="prefetch" href="/assets/js/24.4990f380.js"><link rel="prefetch" href="/assets/js/25.d14c589f.js"><link rel="prefetch" href="/assets/js/26.235046fb.js"><link rel="prefetch" href="/assets/js/27.e6f9ec4b.js"><link rel="prefetch" href="/assets/js/28.36b50c2d.js"><link rel="prefetch" href="/assets/js/29.d4eea3d3.js"><link rel="prefetch" href="/assets/js/31.340ea671.js"><link rel="prefetch" href="/assets/js/32.ce34aba9.js"><link rel="prefetch" href="/assets/js/33.d1180fb6.js"><link rel="prefetch" href="/assets/js/34.aad04170.js"><link rel="prefetch" href="/assets/js/35.19cbbcf3.js"><link rel="prefetch" href="/assets/js/36.508c441c.js"><link rel="prefetch" href="/assets/js/37.2f0fcbd3.js"><link rel="prefetch" href="/assets/js/38.9b05935c.js"><link rel="prefetch" href="/assets/js/39.6a4a922d.js"><link rel="prefetch" href="/assets/js/4.e1d8719a.js"><link rel="prefetch" href="/assets/js/40.736ecb52.js"><link rel="prefetch" href="/assets/js/41.00f28811.js"><link rel="prefetch" href="/assets/js/42.045b67b0.js"><link rel="prefetch" href="/assets/js/43.56f181a3.js"><link rel="prefetch" href="/assets/js/44.f4d3babb.js"><link rel="prefetch" href="/assets/js/45.67a6063d.js"><link rel="prefetch" href="/assets/js/46.c516c869.js"><link rel="prefetch" href="/assets/js/47.cde618c9.js"><link rel="prefetch" href="/assets/js/48.e84aac87.js"><link rel="prefetch" href="/assets/js/49.90ff3d6e.js"><link rel="prefetch" href="/assets/js/5.c15e8f4c.js"><link rel="prefetch" href="/assets/js/50.2a5437e5.js"><link rel="prefetch" href="/assets/js/51.fb4cd3e5.js"><link rel="prefetch" href="/assets/js/52.f5732102.js"><link rel="prefetch" href="/assets/js/53.46f9c65b.js"><link rel="prefetch" href="/assets/js/54.6146213a.js"><link rel="prefetch" href="/assets/js/55.acf37d27.js"><link rel="prefetch" href="/assets/js/56.e0d3e571.js"><link rel="prefetch" href="/assets/js/57.8baac978.js"><link rel="prefetch" href="/assets/js/58.1e361eae.js"><link rel="prefetch" href="/assets/js/59.8ffe4144.js"><link rel="prefetch" href="/assets/js/6.983ea4f6.js"><link rel="prefetch" href="/assets/js/60.e1b69b91.js"><link rel="prefetch" href="/assets/js/61.61a060f7.js"><link rel="prefetch" href="/assets/js/62.95d8a4dc.js"><link rel="prefetch" href="/assets/js/63.6573cc41.js"><link rel="prefetch" href="/assets/js/64.e8472603.js"><link rel="prefetch" href="/assets/js/65.1eb766df.js"><link rel="prefetch" href="/assets/js/66.a981fa78.js"><link rel="prefetch" href="/assets/js/67.436bc8b4.js"><link rel="prefetch" href="/assets/js/68.e4d77ed7.js"><link rel="prefetch" href="/assets/js/69.c5f0385a.js"><link rel="prefetch" href="/assets/js/7.ba12fc64.js"><link rel="prefetch" href="/assets/js/70.44fed116.js"><link rel="prefetch" href="/assets/js/71.0347fd74.js"><link rel="prefetch" href="/assets/js/72.97e8abbf.js"><link rel="prefetch" href="/assets/js/73.5e815637.js"><link rel="prefetch" href="/assets/js/74.09605769.js"><link rel="prefetch" href="/assets/js/75.1bc7721c.js"><link rel="prefetch" href="/assets/js/76.ba837ea4.js"><link rel="prefetch" href="/assets/js/77.49dc26f2.js"><link rel="prefetch" href="/assets/js/78.02a4e9f8.js"><link rel="prefetch" href="/assets/js/79.72ea4189.js"><link rel="prefetch" href="/assets/js/8.40b43baf.js"><link rel="prefetch" href="/assets/js/80.761448a1.js"><link rel="prefetch" href="/assets/js/81.6283dd53.js"><link rel="prefetch" href="/assets/js/82.e62e638e.js"><link rel="prefetch" href="/assets/js/83.c14d1896.js"><link rel="prefetch" href="/assets/js/84.ac9c3b47.js"><link rel="prefetch" href="/assets/js/85.3ac0f5e3.js"><link rel="prefetch" href="/assets/js/86.e90b8fb1.js"><link rel="prefetch" href="/assets/js/87.e259ebf6.js"><link rel="prefetch" href="/assets/js/88.382047e5.js"><link rel="prefetch" href="/assets/js/89.372b764c.js"><link rel="prefetch" href="/assets/js/9.e76ee2e9.js"><link rel="prefetch" href="/assets/js/90.d4c8fcbc.js"><link rel="prefetch" href="/assets/js/91.b4e1e7d1.js"><link rel="prefetch" href="/assets/js/92.4f9612d1.js"><link rel="prefetch" href="/assets/js/93.ee6863a6.js"><link rel="prefetch" href="/assets/js/94.997b5bc9.js"><link rel="prefetch" href="/assets/js/95.989059cc.js"><link rel="prefetch" href="/assets/js/96.ab3cf4de.js"><link rel="prefetch" href="/assets/js/97.5698f03d.js"><link rel="prefetch" href="/assets/js/98.90155afd.js"><link rel="prefetch" href="/assets/js/99.79dc109a.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.3e464078.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-2d5f533b><div data-v-2d5f533b><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-2d5f533b data-v-2d5f533b><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-64685f0e data-v-2d5f533b data-v-2d5f533b><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>Fun Notes</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>Fun Notes</span>
+            
+          <!---->
+          2021
+        </a></span></div></div> <div class="hide" data-v-2d5f533b><header class="navbar" data-v-2d5f533b><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/images/logo.png" alt="Fun Notes" class="logo"> <span class="site-name">Fun Notes</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  主页
+</a></div><div class="nav-item"><a href="/00-java/" class="nav-link"><i class="iconfont "></i>
+  基础知识
+</a></div><div class="nav-item"><a href="/01-database/" class="nav-link router-link-active"><i class="iconfont "></i>
+  数据库
+</a></div><div class="nav-item"><a href="/02-algorithm/" class="nav-link"><i class="iconfont "></i>
+  算法设计
+</a></div><div class="nav-item"><a href="/03-framework/" class="nav-link"><i class="iconfont "></i>
+  基础组件
+</a></div><div class="nav-item"><a href="/04-architecture/" class="nav-link"><i class="iconfont "></i>
+  架构&amp;分布式
+</a></div><div class="nav-item"><a href="/05-bigdata/" class="nav-link"><i class="iconfont "></i>
+  大数据
+</a></div><div class="nav-item"><a href="/06-tool/" class="nav-link"><i class="iconfont "></i>
+  工具&amp;部署
+</a></div><div class="nav-item"><a href="/08-about/" class="nav-link"><i class="iconfont reco-account"></i>
+  关于
+</a></div><div class="nav-item"><a href="https://github.com/funye/funye.github.io" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-2d5f533b></div> <aside class="sidebar" data-v-2d5f533b><div class="personal-info-wrapper" data-v-ca798c94 data-v-2d5f533b><img src="/images/avatar.png" alt="author-avatar" class="personal-img" data-v-ca798c94> <h3 class="name" data-v-ca798c94>
+    Fun Notes
+  </h3> <div class="num" data-v-ca798c94><div data-v-ca798c94><h3 data-v-ca798c94>70</h3> <h6 data-v-ca798c94>Article</h6></div> <div data-v-ca798c94><h3 data-v-ca798c94>61</h3> <h6 data-v-ca798c94>Tag</h6></div></div> <hr data-v-ca798c94></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  主页
+</a></div><div class="nav-item"><a href="/00-java/" class="nav-link"><i class="iconfont "></i>
+  基础知识
+</a></div><div class="nav-item"><a href="/01-database/" class="nav-link router-link-active"><i class="iconfont "></i>
+  数据库
+</a></div><div class="nav-item"><a href="/02-algorithm/" class="nav-link"><i class="iconfont "></i>
+  算法设计
+</a></div><div class="nav-item"><a href="/03-framework/" class="nav-link"><i class="iconfont "></i>
+  基础组件
+</a></div><div class="nav-item"><a href="/04-architecture/" class="nav-link"><i class="iconfont "></i>
+  架构&amp;分布式
+</a></div><div class="nav-item"><a href="/05-bigdata/" class="nav-link"><i class="iconfont "></i>
+  大数据
+</a></div><div class="nav-item"><a href="/06-tool/" class="nav-link"><i class="iconfont "></i>
+  工具&amp;部署
+</a></div><div class="nav-item"><a href="/08-about/" class="nav-link"><i class="iconfont reco-account"></i>
+  关于
+</a></div><div class="nav-item"><a href="https://github.com/funye/funye.github.io" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>MySQL</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/01-database/mysql/001-mysql-idx-struct.html" class="sidebar-link">MySQL索引的数据结构</a></li><li><a href="/01-database/mysql/002-mysql-idx.html" class="sidebar-link">MySQL的索引使用解析</a></li><li><a href="/01-database/mysql/003-mysql-replication.html" aria-current="page" class="active sidebar-link">MySQL主从同步实践与原理解析</a></li><li><a href="/01-database/mysql/004-mysql-transaction.html" class="sidebar-link">MySQL的事务隔离级别与实现原理</a></li><li><a href="/01-database/mysql/0041-mysql-mvcc.html" class="sidebar-link">MySQL的并发控制机制</a></li><li><a href="/01-database/mysql/0042-mysql-sharding.html" class="sidebar-link">谈一谈分库分表</a></li><li><a href="/01-database/mysql/005-mycat.html" class="sidebar-link">MySQL中间件 - MyCat</a></li><li><a href="/01-database/mysql/006-sharding-jdbc.html" class="sidebar-link">MySQL中间件 sharding-jdbc</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>MongoDB</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/01-database/mongodb/001-mongodb.html" class="sidebar-link">MongoDB基础入门</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>ElasticSearch</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/01-database/es/elasticsearch.html" class="sidebar-link">ElasticSearch基础实践</a></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-64685f0e data-v-2d5f533b><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>MySQL主从同步实践与原理解析</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>Fun Notes</span>
+            
+          <!---->
+          2021
+        </a></span></div></div> <div data-v-2d5f533b><main class="page"><div class="page-title" style="display:none;"><h1 class="title">MySQL主从同步实践与原理解析</h1> <div data-v-3b7f5bdf><i class="iconfont reco-account" data-v-3b7f5bdf><span data-v-3b7f5bdf>Fun Notes</span></i> <i class="iconfont reco-date" data-v-3b7f5bdf><span data-v-3b7f5bdf>2020-11-20</span></i> <!----> <i class="iconfont reco-tag tags" data-v-3b7f5bdf><span class="tag-item" data-v-3b7f5bdf>MySQL</span></i></div></div> <div class="theme-reco-content content__default" style="display:none;"><h1 id="mysql主从同步"><a href="#mysql主从同步" class="header-anchor">#</a> MySQL主从同步</h1> <h2 id="_1-mysql的安装"><a href="#_1-mysql的安装" class="header-anchor">#</a> 1 MySQL的安装</h2> <p>关于MySQL的安装，可以在官网搜索教程或者在网上查找教程，也可以参考 <a href="https://blog.csdn.net/wsdc0521/article/details/82864901" target="_blank" rel="noopener noreferrer">Mysql 8.0.12解压版安装<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p>具体配置就不一一介绍了。基本按照上面的链接可以搞定。如果不行的话，就是用户权限或者目录权限的一些问题，调整下即可。</p> <h2 id="_2-mysql主从同步实践"><a href="#_2-mysql主从同步实践" class="header-anchor">#</a> 2 MySQl主从同步实践</h2> <p>MySQL复制有两种方法：</p> <ul><li>传统方式：基于主库的bin-log将日志事件和事件位置复制到从库，从库再加以 应用来达到主从同步的目的</li> <li>Gtid方式：global transaction identifiers是基于事务来复制数据，因此也就不依赖日志文件位置，同时又能更好的保证主从库数据一致性</li></ul> <p>MySQL复制有多种类型：</p> <ul><li>异步复制：一个主库，一个或多个从库，数据异步同步到从库</li> <li>同步复制：在MySQL Cluster中特有的复制方式</li> <li>半同步复制：在异步复制的基础上，确保任何一个主库上的事务在提交之前至 少有一个从库已经收到该事务并日志记录下来</li> <li>延迟复制：在异步复制的基础上，人为设定主库和从库的数据同步延迟时间，即保证数据延迟至少是这个参数</li></ul> <p>复制的工作原理是数据库修改事件记录到bin log中并传递到slave，然后slave在本地还原的过程。而事件记录到bin log的格式会有所不同。</p> <p>MySQL复制有三种核心格式</p> <ul><li>基于语句的复制(statement based replication)：基于主库将SQL语句写入到 bin log中完成复制</li> <li>基于行数据的复制(row based replication)：基于主库将每一个行数据变化的信息作为事件写入到bin log中完成日志</li> <li>混合复制(mixed based replication)：上述两者的结合。默认情况下优先使用基于语句的复制，只有当部分语句如果基于语句复制不安全的情况下才会自动切换为基于行数据的复制</li></ul> <p>以下binlog方式的主从同步实战</p> <h3 id="_2-1-主从同步配置"><a href="#_2-1-主从同步配置" class="header-anchor">#</a> 2.1 主从同步配置</h3> <h4 id="_2-1-1-配置方式1"><a href="#_2-1-1-配置方式1" class="header-anchor">#</a> 2.1.1 配置方式1</h4> <p><strong>mysql-master /etc/my.cnf 的配置</strong></p> <div class="language-text extra-class"><pre class="language-text"><code># mysql主节点编号
+[mysqld] 
+server-id = 1 #Mysql服务的唯一编号 每个mysql服务Id需唯一
+log-bin=mysql-bin # logbin的名字
+binlog-do-db=test01 #需要同步的数据库的名字，多个时候重复此配置
+binlog-do-db=test02
+#binlog-ignore-db=test03 #不需要同步的数据库的名字，多个时候重复此配置
+log-slave-updates=1 # log更新间隔
+slave-skip-errors=1 # 是跳过错误，继续执行复制操作(可选)
+</code></pre></div><p><strong>mysql-slave /etc/my.cnf 的配置</strong></p> <div class="language-text extra-class"><pre class="language-text"><code>[mysqld] 
+#Mysql服务的唯一编号 每个mysql服务Id需唯一
+server-id = 2
+# read_only=1只读模式，可以限定普通用户进行数据修改的操作，但不会限定具有super权限的用户（如超级管理员root用户）的数据修改操作。
+# 如果想保证super用户也不能写操作，就可以就需要执行给所有的表加读锁的命令 “flush tables with read lock;”
+read_only = 1
+</code></pre></div><h4 id="_2-1-2-配置方式2"><a href="#_2-1-2-配置方式2" class="header-anchor">#</a> 2.1.2 配置方式2</h4> <p><strong>mysql-master /etc/my.cnf 的配置</strong></p> <div class="language-text extra-class"><pre class="language-text"><code>[mysqld] 
+#Mysql服务的唯一编号 每个mysql服务Id需唯一
+server-id = 1
+log-bin=mysql-bin # logbin的名字
+</code></pre></div><p><strong>mysql-slave /etc/my.cnf 的配置</strong></p> <div class="language-text extra-class"><pre class="language-text"><code>[mysqld] 
+#Mysql服务的唯一编号 每个mysql服务Id需唯一
+server-id = 2
+# read_only=1只读模式，可以限定普通用户进行数据修改的操作，但不会限定具有super权限的用户（如超级管理员root用户）的数据修改操作。
+# 如果想保证super用户也不能写操作，就可以就需要执行给所有的表加读锁的命令 “flush tables with read lock;”
+read_only = 1
+replicate-do-db=test01 #需要复制的数据库名，如果复制多个数据库，重复设置这个选项即可
+replicate-ignore-db=test03 #需要复制的数据库名，如果复制多个数据库，重复设置这个选项即可
+</code></pre></div><h3 id="_2-2-启动主从同步"><a href="#_2-2-启动主从同步" class="header-anchor">#</a> 2.2 启动主从同步</h3> <p><strong>1. 创建同步账号</strong></p> <p>在从库创建同步账号并授权</p> <div class="language-text extra-class"><pre class="language-text"><code>mysql&gt;CREATE USER 'slave'@'%' IDENTIFIED BY '123456';
+mysql&gt;GRANT REPLICATION SLAVE ON *.* TO 'slave'@'%';
+mysql&gt;FLUSH PRIVILEGES;
+</code></pre></div><p><strong>2. 查看 master同步状态</strong></p> <p>查看master同步状态，记录结果中的file文件名和Position值，在从库开启同步的设置时候需要使用</p> <div class="language-text extra-class"><pre class="language-text"><code># 查看主节点状态
+mysql&gt;show master status;
++------------------+----------+--------------+------------------+-------------------+
+| File             | Position | Binlog_Do_DB | Binlog_Ignore_DB | Executed_Gtid_Set |
++------------------+----------+--------------+------------------+-------------------+
+| mysql-bin.000001 |     3693 |              |                  |                   |
++------------------+----------+--------------+------------------+-------------------+
+1 row in set (0.00 sec)
+</code></pre></div><p><strong>3. 开启slave同步</strong></p> <p>在从库上进行如下操作开启同步</p> <div class="language-text extra-class"><pre class="language-text"><code># 停止正在进行的slave(如果有)
+mysql&gt;stop slave;
+# 需要主机名，上面步骤的账户密码以及日志文件名字和位置(请根据实际情况自行修改)
+mysql&gt;change master to master_host='192.168.109.129', master_user='slave', master_password='123456', 
+\ master_log_file='mysql-bin.000001', master_log_pos=3693;
+# 启动
+mysql&gt;start slave;
+# 查看状态验证是否成功
+mysql&gt;show slave status\G;
+*************************** 1. row ***************************
+               Slave_IO_State: Waiting for master to send event
+                  Master_Host: 192.168.109.128
+                  Master_User: slave
+                  Master_Port: 3306
+                Connect_Retry: 60
+              Master_Log_File: mysql-bin.000001
+          Read_Master_Log_Pos: 3693
+               Relay_Log_File: localhost-relay-bin.000005
+                Relay_Log_Pos: 624
+        Relay_Master_Log_File: mysql-bin.000001
+             Slave_IO_Running: Yes # 网络OK
+            Slave_SQL_Running: Yes # SQL同步OK
+              Replicate_Do_DB: test_rp
+                ......其他就不复制了.....
+1 row in set (0.00 sec)
+</code></pre></div><blockquote><p><em><strong>注意：</strong></em>
+如果遇到Slave_IO_Running/Slave_SQL_Running 为NO 的情况，一般原因可能有：</p> <ul><li>1：机器网络不通</li> <li>2：配置项写错，例如ip，密码等</li> <li>3：防火墙问题</li> <li>4：my.cnf的server-id或者 auto.cnf里面的server-uuid 重复</li></ul></blockquote> <h3 id="_2-3-主从同步的异常处理"><a href="#_2-3-主从同步的异常处理" class="header-anchor">#</a> 2.3 主从同步的异常处理</h3> <div class="language-text extra-class"><pre class="language-text"><code>#在Slave上查看 
+mysql&gt; show slave status\G 
+Slave_IO_Running: Yes 
+Slave_SQL_Running: No 
+#可见是Slave不同步 
+</code></pre></div><p>针对这类同步异常的情况，一般有以下两种方式解决</p> <ul><li>方式1：跳过错误，继续执行后续同步</li> <li>方式2：dump主库数据，恢复到从库后，重新开始同步</li></ul> <p><strong>方式1：</strong> 适合于主从数据相差不大，数据一致性要求不是特别严格的情况，允许跳过部分错误，继续进行。操作如下：</p> <div class="language-text extra-class"><pre class="language-text"><code>## 进入从库的mysql
+mysql&gt;stop slave; 
+mysql&gt;et global sql_slave_skip_counter =1; #表示跳过一步错误，后面的数字可变 
+mysql&gt;start slave; 
+mysql&gt;show slave status\G; #查看
+Slave_IO_Running: Yes 
+Slave_SQL_Running: Yes 
+</code></pre></div><p>出现以上结果，表示主从同步状态正常了。。。</p> <p><strong>方式2：</strong> 适合主从数据相差比较大，数据一致性要求比较高。
+实现思路就是先把主库写停止，然后dump数据，在从库恢复，恢复之后再重新开启主从同步</p> <p>操作如下：</p> <div class="language-text extra-class"><pre class="language-text"><code>1.先进入主库，进行锁表，防止数据写入 
+使用命令： 
+mysql&gt; flush tables with read lock; 
+注意：该处是锁定为只读状态，语句不区分大小写 
+
+2.进行数据备份 
+#把数据备份到mysql.bak.sql文件 
+[root@server01 mysql]#mysqldump -uroot -p -hlocalhost -D dasenamexxx &gt; mysql.bak.sql 
+这里注意一点：数据库备份一定要定期进行，可以用shell脚本或者python脚本，都比较方便，确保数据万无一失 
+
+3.查看master 状态 
+mysql&gt; show master status; 
++-------------------+----------+--------------+-------------------------------+ 
+| File | Position | Binlog_Do_DB | Binlog_Ignore_DB | 
++-------------------+----------+--------------+-------------------------------+ 
+| mysqld-bin.000001 | 3260 | |  | 
++-------------------+----------+--------------+-------------------------------+ 
+1 row in set (0.00 sec) 
+
+4.把mysql备份文件传到从库机器，进行数据恢复 
+#使用scp命令 
+[root@server01 mysql]# scp mysql.bak.sql root@192.168.109.129:/tmp/ 
+
+5.停止从库的状态 
+mysql&gt; stop slave; 
+
+6.然后到从库执行mysql命令，导入数据备份 
+mysql&gt; source /tmp/mysql.bak.sql; 
+
+7.设置从库同步，注意该处的同步点，就是主库show master status信息里的| File| Position两项 
+mysql&gt;change master to master_host = '192.168.109.129', master_user = 'slave', master_port=3306, master_password='123456', 
+\ master_log_file = 'mysqld-bin.000001', master_log_pos=3260; 
+
+8.重新开启从同步 
+mysql&gt; stop slave; 
+
+9.查看同步状态 
+mysql&gt; show slave status\G; 
+Slave_IO_Running: Yes 
+Slave_SQL_Running: Yes 
+
+</code></pre></div><p><a href="https://blog.51cto.com/13407306/2067333" target="_blank" rel="noopener noreferrer">Mysql主从（主从不同步解决办法，常见问题及解决办法，在线对mysql做主从复制）<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h2 id="_3-mysql主从同步原理"><a href="#_3-mysql主从同步原理" class="header-anchor">#</a> 3 MySQl主从同步原理</h2> <p><img src="/assets/img/mysql-master-slave.0851437a.jpg" alt=""></p> <ol><li><p>在master机器上的操作：</p> <p>当master上的数据发生变化时，该事件变化会按照顺序写入bin-log中。当slave链接到master的时候，master机器会为slave开启binlog dump线程。
+当master的binlog发生变化的时候，bin-log dump线程会通知slave，并将相应的binlog内容发送给slave。</p></li> <li><p>在slave机器上操作：</p> <p>当主从同步开启的时候，slave上会创建两个线程：I\O线程。该线程连接到master机器，master机器上的binlog dump 线程会将binlog的内容发送给该I\O线程。
+该I/O线程接收到binlog内容后，再将内容写入到本地的relay log；sql线程。该线程读取到I/O线程写入的ralay log。并且根据relay log 的内容对slave数据库做相应的操作。</p></li></ol> <hr> <p>参考链接</p> <ul><li><a href="https://blog.csdn.net/wsdc0521/article/details/82864901" target="_blank" rel="noopener noreferrer">Mysql 8.0.12解压版安装<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://juejin.im/post/5c9d8109f265da612f1bb019" target="_blank" rel="noopener noreferrer">Mysql主从同步实战(一)【知其然】<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://blog.51cto.com/13407306/2067333" target="_blank" rel="noopener noreferrer">Mysql主从（主从不同步解决办法，常见问题及解决办法，在线对mysql做主从复制）<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://www.jb51.net/article/109107.htm" target="_blank" rel="noopener noreferrer">线上MYSQL同步报错故障处理方法总结(必看篇)<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://zhuanlan.zhihu.com/p/50597960" target="_blank" rel="noopener noreferrer">深度探索MySQL主从复制原理<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://blog.csdn.net/helloxiaozhe/article/details/79548186" target="_blank" rel="noopener noreferrer">Mysql主从基本原理，主要形式以及主从同步延迟原理 (读写分离)导致主库从库数据不一致问题的及解决方案<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul> <p></p></div> <footer class="page-edit" style="display:none;"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">12/21/2020, 5:49:20 PM</span></div></footer> <!----> <!----> <!----></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/assets/js/app.764657af.js" defer></script><script src="/assets/js/3.13400d0e.js" defer></script><script src="/assets/js/1.f6a48a09.js" defer></script><script src="/assets/js/30.eb7ed9ba.js" defer></script>
+  </body>
+</html>
