@@ -1,5 +1,5 @@
 ﻿const fs = require('fs')
-const baseFilePath = '/mnt/d/Users/80279309/Documents/fun/vuepress/funye/docs'
+const baseFilePath = '/mnt/d/Users/80279309/Documents/fun/github/funye.github.io/docs'
 
 function getChildren(path) {
   const result = []
