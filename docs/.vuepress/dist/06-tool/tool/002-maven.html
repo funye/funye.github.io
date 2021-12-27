@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>版本管理 - MAVEN | Fun Notes</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.3e464078.css" as="style"><link rel="preload" href="/assets/js/app.764657af.js" as="script"><link rel="preload" href="/assets/js/3.13400d0e.js" as="script"><link rel="preload" href="/assets/js/1.f6a48a09.js" as="script"><link rel="preload" href="/assets/js/104.c8f84255.js" as="script"><link rel="prefetch" href="/assets/js/10.2f5634d0.js"><link rel="prefetch" href="/assets/js/100.5e7903ac.js"><link rel="prefetch" href="/assets/js/101.870f93ef.js"><link rel="prefetch" href="/assets/js/102.22b9705c.js"><link rel="prefetch" href="/assets/js/103.560ad7c9.js"><link rel="prefetch" href="/assets/js/105.1c3ec0e0.js"><link rel="prefetch" href="/assets/js/106.c68aa3da.js"><link rel="prefetch" href="/assets/js/107.3aebb4fb.js"><link rel="prefetch" href="/assets/js/108.b0a39856.js"><link rel="prefetch" href="/assets/js/109.1dfe587e.js"><link rel="prefetch" href="/assets/js/11.8930fb63.js"><link rel="prefetch" href="/assets/js/110.d9c29693.js"><link rel="prefetch" href="/assets/js/111.ee35ba5e.js"><link rel="prefetch" href="/assets/js/112.8e9714cc.js"><link rel="prefetch" href="/assets/js/113.b0692777.js"><link rel="prefetch" href="/assets/js/12.c37223c1.js"><link rel="prefetch" href="/assets/js/13.07ddb5f0.js"><link rel="prefetch" href="/assets/js/14.85096f2f.js"><link rel="prefetch" href="/assets/js/15.f9725d75.js"><link rel="prefetch" href="/assets/js/16.0732d9db.js"><link rel="prefetch" href="/assets/js/17.51607509.js"><link rel="prefetch" href="/assets/js/18.254b6195.js"><link rel="prefetch" href="/assets/js/19.059e57c0.js"><link rel="prefetch" href="/assets/js/20.c42dc7c4.js"><link rel="prefetch" href="/assets/js/21.23f80bf2.js"><link rel="prefetch" href="/assets/js/22.cccb2697.js"><link rel="prefetch" href="/assets/js/23.ecd2a693.js"><link rel="prefetch" href="/assets/js/24.4990f380.js"><link rel="prefetch" href="/assets/js/25.d14c589f.js"><link rel="prefetch" href="/assets/js/26.235046fb.js"><link rel="prefetch" href="/assets/js/27.e6f9ec4b.js"><link rel="prefetch" href="/assets/js/28.36b50c2d.js"><link rel="prefetch" href="/assets/js/29.d4eea3d3.js"><link rel="prefetch" href="/assets/js/30.eb7ed9ba.js"><link rel="prefetch" href="/assets/js/31.340ea671.js"><link rel="prefetch" href="/assets/js/32.ce34aba9.js"><link rel="prefetch" href="/assets/js/33.d1180fb6.js"><link rel="prefetch" href="/assets/js/34.aad04170.js"><link rel="prefetch" href="/assets/js/35.19cbbcf3.js"><link rel="prefetch" href="/assets/js/36.508c441c.js"><link rel="prefetch" href="/assets/js/37.2f0fcbd3.js"><link rel="prefetch" href="/assets/js/38.9b05935c.js"><link rel="prefetch" href="/assets/js/39.6a4a922d.js"><link rel="prefetch" href="/assets/js/4.e1d8719a.js"><link rel="prefetch" href="/assets/js/40.736ecb52.js"><link rel="prefetch" href="/assets/js/41.00f28811.js"><link rel="prefetch" href="/assets/js/42.045b67b0.js"><link rel="prefetch" href="/assets/js/43.56f181a3.js"><link rel="prefetch" href="/assets/js/44.f4d3babb.js"><link rel="prefetch" href="/assets/js/45.67a6063d.js"><link rel="prefetch" href="/assets/js/46.c516c869.js"><link rel="prefetch" href="/assets/js/47.cde618c9.js"><link rel="prefetch" href="/assets/js/48.e84aac87.js"><link rel="prefetch" href="/assets/js/49.90ff3d6e.js"><link rel="prefetch" href="/assets/js/5.c15e8f4c.js"><link rel="prefetch" href="/assets/js/50.2a5437e5.js"><link rel="prefetch" href="/assets/js/51.fb4cd3e5.js"><link rel="prefetch" href="/assets/js/52.f5732102.js"><link rel="prefetch" href="/assets/js/53.46f9c65b.js"><link rel="prefetch" href="/assets/js/54.6146213a.js"><link rel="prefetch" href="/assets/js/55.acf37d27.js"><link rel="prefetch" href="/assets/js/56.e0d3e571.js"><link rel="prefetch" href="/assets/js/57.8baac978.js"><link rel="prefetch" href="/assets/js/58.1e361eae.js"><link rel="prefetch" href="/assets/js/59.8ffe4144.js"><link rel="prefetch" href="/assets/js/6.983ea4f6.js"><link rel="prefetch" href="/assets/js/60.e1b69b91.js"><link rel="prefetch" href="/assets/js/61.61a060f7.js"><link rel="prefetch" href="/assets/js/62.95d8a4dc.js"><link rel="prefetch" href="/assets/js/63.6573cc41.js"><link rel="prefetch" href="/assets/js/64.e8472603.js"><link rel="prefetch" href="/assets/js/65.1eb766df.js"><link rel="prefetch" href="/assets/js/66.a981fa78.js"><link rel="prefetch" href="/assets/js/67.436bc8b4.js"><link rel="prefetch" href="/assets/js/68.e4d77ed7.js"><link rel="prefetch" href="/assets/js/69.c5f0385a.js"><link rel="prefetch" href="/assets/js/7.ba12fc64.js"><link rel="prefetch" href="/assets/js/70.44fed116.js"><link rel="prefetch" href="/assets/js/71.0347fd74.js"><link rel="prefetch" href="/assets/js/72.97e8abbf.js"><link rel="prefetch" href="/assets/js/73.5e815637.js"><link rel="prefetch" href="/assets/js/74.09605769.js"><link rel="prefetch" href="/assets/js/75.1bc7721c.js"><link rel="prefetch" href="/assets/js/76.ba837ea4.js"><link rel="prefetch" href="/assets/js/77.49dc26f2.js"><link rel="prefetch" href="/assets/js/78.02a4e9f8.js"><link rel="prefetch" href="/assets/js/79.72ea4189.js"><link rel="prefetch" href="/assets/js/8.40b43baf.js"><link rel="prefetch" href="/assets/js/80.761448a1.js"><link rel="prefetch" href="/assets/js/81.6283dd53.js"><link rel="prefetch" href="/assets/js/82.e62e638e.js"><link rel="prefetch" href="/assets/js/83.c14d1896.js"><link rel="prefetch" href="/assets/js/84.ac9c3b47.js"><link rel="prefetch" href="/assets/js/85.3ac0f5e3.js"><link rel="prefetch" href="/assets/js/86.e90b8fb1.js"><link rel="prefetch" href="/assets/js/87.e259ebf6.js"><link rel="prefetch" href="/assets/js/88.382047e5.js"><link rel="prefetch" href="/assets/js/89.372b764c.js"><link rel="prefetch" href="/assets/js/9.e76ee2e9.js"><link rel="prefetch" href="/assets/js/90.d4c8fcbc.js"><link rel="prefetch" href="/assets/js/91.b4e1e7d1.js"><link rel="prefetch" href="/assets/js/92.4f9612d1.js"><link rel="prefetch" href="/assets/js/93.ee6863a6.js"><link rel="prefetch" href="/assets/js/94.997b5bc9.js"><link rel="prefetch" href="/assets/js/95.989059cc.js"><link rel="prefetch" href="/assets/js/96.ab3cf4de.js"><link rel="prefetch" href="/assets/js/97.5698f03d.js"><link rel="prefetch" href="/assets/js/98.90155afd.js"><link rel="prefetch" href="/assets/js/99.79dc109a.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.3e464078.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-2d5f533b><div data-v-2d5f533b><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-2d5f533b data-v-2d5f533b><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-64685f0e data-v-2d5f533b data-v-2d5f533b><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>Fun Notes</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>Fun Notes</span>
+            
+          <!---->
+          2021
+        </a></span></div></div> <div class="hide" data-v-2d5f533b><header class="navbar" data-v-2d5f533b><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/images/logo.png" alt="Fun Notes" class="logo"> <span class="site-name">Fun Notes</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  主页
+</a></div><div class="nav-item"><a href="/00-java/" class="nav-link"><i class="iconfont "></i>
+  基础知识
+</a></div><div class="nav-item"><a href="/01-database/" class="nav-link"><i class="iconfont "></i>
+  数据库
+</a></div><div class="nav-item"><a href="/02-algorithm/" class="nav-link"><i class="iconfont "></i>
+  算法设计
+</a></div><div class="nav-item"><a href="/03-framework/" class="nav-link"><i class="iconfont "></i>
+  基础组件
+</a></div><div class="nav-item"><a href="/04-architecture/" class="nav-link"><i class="iconfont "></i>
+  架构&amp;分布式
+</a></div><div class="nav-item"><a href="/05-bigdata/" class="nav-link"><i class="iconfont "></i>
+  大数据
+</a></div><div class="nav-item"><a href="/06-tool/" class="nav-link router-link-active"><i class="iconfont "></i>
+  工具&amp;部署
+</a></div><div class="nav-item"><a href="/08-about/" class="nav-link"><i class="iconfont reco-account"></i>
+  关于
+</a></div><div class="nav-item"><a href="https://github.com/funye/funye.github.io" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-2d5f533b></div> <aside class="sidebar" data-v-2d5f533b><div class="personal-info-wrapper" data-v-ca798c94 data-v-2d5f533b><img src="/images/avatar.png" alt="author-avatar" class="personal-img" data-v-ca798c94> <h3 class="name" data-v-ca798c94>
+    Fun Notes
+  </h3> <div class="num" data-v-ca798c94><div data-v-ca798c94><h3 data-v-ca798c94>70</h3> <h6 data-v-ca798c94>Article</h6></div> <div data-v-ca798c94><h3 data-v-ca798c94>61</h3> <h6 data-v-ca798c94>Tag</h6></div></div> <hr data-v-ca798c94></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  主页
+</a></div><div class="nav-item"><a href="/00-java/" class="nav-link"><i class="iconfont "></i>
+  基础知识
+</a></div><div class="nav-item"><a href="/01-database/" class="nav-link"><i class="iconfont "></i>
+  数据库
+</a></div><div class="nav-item"><a href="/02-algorithm/" class="nav-link"><i class="iconfont "></i>
+  算法设计
+</a></div><div class="nav-item"><a href="/03-framework/" class="nav-link"><i class="iconfont "></i>
+  基础组件
+</a></div><div class="nav-item"><a href="/04-architecture/" class="nav-link"><i class="iconfont "></i>
+  架构&amp;分布式
+</a></div><div class="nav-item"><a href="/05-bigdata/" class="nav-link"><i class="iconfont "></i>
+  大数据
+</a></div><div class="nav-item"><a href="/06-tool/" class="nav-link router-link-active"><i class="iconfont "></i>
+  工具&amp;部署
+</a></div><div class="nav-item"><a href="/08-about/" class="nav-link"><i class="iconfont reco-account"></i>
+  关于
+</a></div><div class="nav-item"><a href="https://github.com/funye/funye.github.io" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>常用工具</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/06-tool/tool/001-git.html" class="sidebar-link">Git中容易忘记的命令</a></li><li><a href="/06-tool/tool/002-maven.html" aria-current="page" class="active sidebar-link">版本管理 - MAVEN</a></li><li><a href="/06-tool/tool/003-wireshark-filter.html" class="sidebar-link">数据抓包 - wireshark</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Linux</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/06-tool/linux/001-shell.html" class="sidebar-link">使用shell脚本启动和停止Java服务</a></li><li><a href="/06-tool/linux/002-spawn.html" class="sidebar-link">实现简单人机交互-spawn</a></li><li><a href="/06-tool/linux/003-linux-command.html" class="sidebar-link">Linux常用命令笔记</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Docker</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/06-tool/docker/docker.html" class="sidebar-link">docker学习记录</a></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-64685f0e data-v-2d5f533b><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>版本管理 - MAVEN</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>Fun Notes</span>
+            
+          <!---->
+          2021
+        </a></span></div></div> <div data-v-2d5f533b><main class="page"><div class="page-title" style="display:none;"><h1 class="title">版本管理 - MAVEN</h1> <div data-v-3b7f5bdf><i class="iconfont reco-account" data-v-3b7f5bdf><span data-v-3b7f5bdf>Fun Notes</span></i> <i class="iconfont reco-date" data-v-3b7f5bdf><span data-v-3b7f5bdf>2020-11-23</span></i> <!----> <i class="iconfont reco-tag tags" data-v-3b7f5bdf><span class="tag-item" data-v-3b7f5bdf>maven</span><span class="tag-item" data-v-3b7f5bdf>常用工具</span></i></div></div> <div class="theme-reco-content content__default" style="display:none;"><h1 id="十分钟解惑-让你真正用好maven"><a href="#十分钟解惑-让你真正用好maven" class="header-anchor">#</a> 十分钟解惑，让你真正用好MAVEN</h1> <p>我们日常工作中经常使用到maven，基本操作大家都会，但是涉及到父子pom继承和多模块的时候，很多时候使用的就会很混乱。</p> <p>本篇文章主要针对maven的父子pom继承和多模块展开一些讨论，默认读者以使用过maven（可参考：https://www.ibofine.com/mavenbook/index.html ）</p> <h2 id="_1-maven的关于依赖的基本配置"><a href="#_1-maven的关于依赖的基本配置" class="header-anchor">#</a> 1 MAVEN的关于依赖的基本配置</h2> <h3 id="_1-1-坐标-定位三要素"><a href="#_1-1-坐标-定位三要素" class="header-anchor">#</a> 1.1 坐标（定位三要素）</h3> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>xxx.xxxxx.xxxx<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span> <span class="token comment">&lt;!-- 公司业务 --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>xxx-xxxx<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span> <span class="token comment">&lt;!-- 项目 --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>1.0.0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span> <span class="token comment">&lt;!-- 版本 --&gt;</span>
+
+    <span class="token comment">&lt;!-- ....其他配置 --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h3 id="_1-2-定义属性"><a href="#_1-2-定义属性" class="header-anchor">#</a> 1.2 定义属性</h3> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>properties</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>custom-data</span><span class="token punctuation">&gt;</span></span>hello<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>custom-data</span><span class="token punctuation">&gt;</span></span> <span class="token comment">&lt;!-- 自定义一个属性，在pom及子pom中使用${} 的形式使用 --&gt;</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>lombok-version</span><span class="token punctuation">&gt;</span></span>1.18.10<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>lombok-version</span><span class="token punctuation">&gt;</span></span> <span class="token comment">&lt;!-- 定义lombok的版本号 --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>properties</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h3 id="_1-3-申明依赖"><a href="#_1-3-申明依赖" class="header-anchor">#</a> 1.3 申明依赖</h3> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencyManagement</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencies</span><span class="token punctuation">&gt;</span></span>
+            <span class="token comment">&lt;!-- 定义好可能使用的包和版本 --&gt;</span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.projectlombok<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>lombok<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>${lombok-version}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span> <span class="token comment">&lt;!-- 版本统一放在属性里面管理，方便看，此处引用 --&gt;</span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+        
+            <span class="token comment">&lt;!-- .....其他包 --&gt;</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependencies</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependencyManagement</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h3 id="_1-4-使用依赖"><a href="#_1-4-使用依赖" class="header-anchor">#</a> 1.4 使用依赖</h3> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencies</span><span class="token punctuation">&gt;</span></span>
+        <span class="token comment">&lt;!-- 实际使用的包，dependencyManagement 定义过版本，实际使用的时候不需要写版本 --&gt;</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.projectlombok<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>lombok<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+    
+        <span class="token comment">&lt;!-- .....其他包 --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependencies</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h3 id="_1-5-排除依赖"><a href="#_1-5-排除依赖" class="header-anchor">#</a> 1.5 排除依赖</h3> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>properties</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>custom-data</span><span class="token punctuation">&gt;</span></span>hello<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>custom-data</span><span class="token punctuation">&gt;</span></span> <span class="token comment">&lt;!-- 自定义一个属性，在pom及子pom中使用${} 的形式使用 --&gt;</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>lombok-version</span><span class="token punctuation">&gt;</span></span>1.18.10<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>lombok-version</span><span class="token punctuation">&gt;</span></span> <span class="token comment">&lt;!-- 定义lombok的版本号 --&gt;</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>spring.version</span><span class="token punctuation">&gt;</span></span>5.2.4.RELEASE<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>spring.version</span><span class="token punctuation">&gt;</span></span> 
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>properties</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencyManagement</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-context<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>${spring.version}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>exclusions</span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>exclusion</span><span class="token punctuation">&gt;</span></span> <span class="token comment">&lt;!-- 排除日志包 commons-logging ,也可以选择在使用引用的时候排除 --&gt;</span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>commons-logging<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>commons-logging<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>exclusion</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>exclusions</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependencyManagement</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p><em><strong>注意：</strong></em> 排除依赖存在一些未知的风险。比如 A--&gt;B, B--&gt;C， 当B的某个实现需要C， 而B的这实现会在A中运行的时候，排除了C就可能出错。</p> <h2 id="_2-maven依赖特性"><a href="#_2-maven依赖特性" class="header-anchor">#</a> 2 MAVEN依赖特性</h2> <h3 id="_2-1-maven的依赖存在传递性"><a href="#_2-1-maven的依赖存在传递性" class="header-anchor">#</a> 2.1 maven的依赖存在传递性</h3> <p>如下：</p> <div class="language-text extra-class"><pre class="language-text"><code>A --&gt; B , B--&gt;C 则 A -- &gt; B --&gt; C
+
+A 依赖了B包 ， B中依赖C包 ，则 A如果自动会导入C 
+( 这个原因也是为什会有 排除依赖的存在，有时候A只想依赖B，而不想要C的时候。)
+</code></pre></div><h3 id="_2-2-依赖顺序原则"><a href="#_2-2-依赖顺序原则" class="header-anchor">#</a> 2.2 依赖顺序原则</h3> <p>依赖的顺序决定了最终使用的是哪个jar包，maven在解析依赖的时候的顺序是。<strong>先按最短路径，再按申明顺序</strong></p> <ul><li><p><strong>最短路径优先</strong>
+如 a--&gt; b --&gt; c1.1.0 , a--&gt;d --&gt; e --&gt;c1.2.0  则最终a中用的 c1.1.0</p></li> <li><p><strong>申明顺序优先</strong>
+当路径相同的时候，不能判断使用哪个，这时候就是按照申明的顺序 ，如 a--&gt;b--&gt;c1.1.0  a--&gt;d--&gt;c1.2.0 此时，如果路径c是一样的，如果b的申明在d的前面，
+在使用的是 c1.1.0, 反之则为 c1.2.0</p></li></ul> <h2 id="_3-maven继承特性-父子pom"><a href="#_3-maven继承特性-父子pom" class="header-anchor">#</a> 3 MAVEN继承特性（父子pom）</h2> <p>在pom文件中定义parent节点之后，子pom就可以继承父pom中的依赖和属性。</p> <p>通常使用这个特性，在父pom中统一一些公共的东西，如jar版本，定义的一些属性等。主要就是抽离，统一管理。</p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>parent</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-boot-starter-parent<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>2.2.2.RELEASE<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+        <span class="token comment">&lt;!-- lookup parent from repository , 这时候 spring-boot-starter-parent 
+        中定义的属性和依赖都可以在当前pom中使用 --&gt;</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>relativePath</span><span class="token punctuation">/&gt;</span></span> 
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>parent</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>com.fun<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>learn<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>0.0.1-SNAPSHOT<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>learn<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>description</span><span class="token punctuation">&gt;</span></span>Demo project for Spring Boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>description</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h2 id="_4-maven聚合特性-module"><a href="#_4-maven聚合特性-module" class="header-anchor">#</a> 4 MAVEN聚合特性（module）</h2> <p>module可以看做是项目结构的描述，通过<code>&lt;modules&gt;&lt;module&gt;...&lt;/module&gt;&lt;/modules&gt;</code> 来定义，可以一起来打包的一个整体。</p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>com.fun<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>learn<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>0.0.1-SNAPSHOT<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>learn<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>description</span><span class="token punctuation">&gt;</span></span>Demo project for Spring Boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>description</span><span class="token punctuation">&gt;</span></span>
+    
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>modules</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>module</span><span class="token punctuation">&gt;</span></span>learn-api<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>module</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>module</span><span class="token punctuation">&gt;</span></span>learn-server<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>module</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>modules</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token comment">&lt;!-- 
+上面配置的项目结构
+learn
+   |-learn-api
+   |-learn-server
+--&gt;</span>
+</code></pre></div><h2 id="_5-maven继承与聚合的区别"><a href="#_5-maven继承与聚合的区别" class="header-anchor">#</a> 5 MAVEN继承与聚合的区别</h2> <p>继承和聚合没有绝对要求的对应关系，他们目的上是不同。</p> <ul><li><p><strong>继承</strong> 讲究的是提炼统一公共的部分，子项目都使用，统一管理公共部分。（使用时候，可以单独定义一个父pom给所有的项目使用，统一项目中的jar包）</p></li> <li><p><strong>聚合</strong> 更像是定义项目的结构，哪些作为一个整理。</p></li></ul> <h2 id="_6-maven最佳实践"><a href="#_6-maven最佳实践" class="header-anchor">#</a> 6 MAVEN最佳实践</h2> <h3 id="_6-1-实践场景"><a href="#_6-1-实践场景" class="header-anchor">#</a> 6.1 实践场景</h3> <p>假设有下面一个实例，一个系统(fun-mall)有 用户服务(user)、订单服务(order)、支付服务(pay)、商品服务(product)， 他们之间通过dubbo调用。那么我们的使用maven可以统一成如下结构</p> <div class="language-text extra-class"><pre class="language-text"><code>xxx-api 提供dubbo调用的一些接口定义，**建议尽量少的依赖第三方的包。理论上他只是定义接口的和数据模型的。
+        不然，当别人引用你的时候，可能出现第三方包的冲突，需要排除依赖**
+xxx-server 启动jvm的进程
+
+fun-mall
+    |-- user
+        |-- user-api
+        |-- user-server
+    |-- order
+        |-- order-api
+        |-- order-server
+    |-- pay
+        |-- pay-api
+        |-- pay-server
+    |-- product
+        |-- product-api
+        |-- product-server
+</code></pre></div><p>针对上面的接口，我们创建项目的时候有两种比较合理的方式</p> <h3 id="_6-2-实现方式1"><a href="#_6-2-实现方式1" class="header-anchor">#</a> 6.2 实现方式1</h3> <ol><li>创建一个项目 fun-mall 一个git仓库地址，fun-mall下面包含四个module， 每个module下面有包含xxx-api,xxx-server 两个module， 所有模块的父pom都使用fun-mall（继承和聚合的区别）</li></ol> <div class="language-text extra-class"><pre class="language-text"><code>fun-mall
+    |-- user
+        |-- user-api
+            |-- pom.xml
+        |-- user-server
+            |-- pom.xml
+        |-- pom.xml
+    |-- order
+        |-- order-api
+            |-- pom.xml
+        |-- order-server
+            |-- pom.xml
+        |-- pom.xml
+    |-- pay
+        |-- pay-api
+            |-- pom.xml
+        |-- pay-server
+            |-- pom.xml
+        |-- pom.xml
+    |-- product
+        |-- product-api
+        |-- product-server
+        |-- pom.xml
+    |-- pom.xml
+</code></pre></div><p>具体配置</p> <p><strong>fun-mall的 pom.xml</strong></p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>com.fun<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>fun-mall<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>0.0.1-SNAPSHOT<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>fun-mall<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>description</span><span class="token punctuation">&gt;</span></span>fun mall<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>description</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>packaging</span><span class="token punctuation">&gt;</span></span>pom<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>packaging</span><span class="token punctuation">&gt;</span></span> <span class="token comment">&lt;!-- 注意是pom --&gt;</span>
+    
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>modules</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>module</span><span class="token punctuation">&gt;</span></span>user<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>module</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>module</span><span class="token punctuation">&gt;</span></span>order<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>module</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>module</span><span class="token punctuation">&gt;</span></span>pay<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>module</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>module</span><span class="token punctuation">&gt;</span></span>product<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>module</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>modules</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>properties</span><span class="token punctuation">&gt;</span></span>
+        <span class="token comment">&lt;!-- 一些通用的属性 --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>properties</span><span class="token punctuation">&gt;</span></span>
+    
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencyManagement</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+            <span class="token comment">&lt;!-- 依赖的jar和版本申明 --&gt;</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependencyManagement</span><span class="token punctuation">&gt;</span></span>
+    
+    <span class="token comment">&lt;!-- 其他配置 --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p><strong>user 的pom.xml</strong></p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>parent</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>com.fun<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>fun-mall<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>0.0.1-SNAPSHOT<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>parent</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>user<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>description</span><span class="token punctuation">&gt;</span></span>user module<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>description</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>packaging</span><span class="token punctuation">&gt;</span></span>pom<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>packaging</span><span class="token punctuation">&gt;</span></span> <span class="token comment">&lt;!-- 注意是pom, 另外groupId和version继承父类 --&gt;</span>
+    
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>modules</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>module</span><span class="token punctuation">&gt;</span></span>user-api<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>module</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>module</span><span class="token punctuation">&gt;</span></span>order-server<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>module</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>modules</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencies</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+            <span class="token comment">&lt;!-- 实际依赖的jar和版本 --&gt;</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependencies</span><span class="token punctuation">&gt;</span></span>
+    
+    <span class="token comment">&lt;!-- 其他配置 --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p><strong>user-api 的pom.xml</strong></p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>parent</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>com.fun<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>fun-mall<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>0.0.1-SNAPSHOT<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>parent</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>user-api<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>description</span><span class="token punctuation">&gt;</span></span>user server api define <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>description</span><span class="token punctuation">&gt;</span></span>
+    <span class="token comment">&lt;!-- 打包成jar提供出去给别的服务使用，另外groupId和version继承父类，也可自己指定新的 --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>packaging</span><span class="token punctuation">&gt;</span></span>jar<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>packaging</span><span class="token punctuation">&gt;</span></span> 
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencies</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+            <span class="token comment">&lt;!-- 实际依赖的jar和版本 --&gt;</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependencies</span><span class="token punctuation">&gt;</span></span>
+    
+    <span class="token comment">&lt;!-- 其他配置 --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p><strong>user-server的pom.xml</strong></p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>parent</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>com.fun<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>fun-mall<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>0.0.1-SNAPSHOT<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>parent</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>user-server<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>description</span><span class="token punctuation">&gt;</span></span>user server impl<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>description</span><span class="token punctuation">&gt;</span></span>
+    <span class="token comment">&lt;!-- 打包成可运行的jar或者war，或者zip等格式 。另外groupId和version继承父类，也可自己指定新的--&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>packaging</span><span class="token punctuation">&gt;</span></span>jar<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>packaging</span><span class="token punctuation">&gt;</span></span> 
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencies</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+            <span class="token comment">&lt;!-- 实际依赖的jar和版本 --&gt;</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependencies</span><span class="token punctuation">&gt;</span></span>
+    
+    <span class="token comment">&lt;!-- 添加打包可运行的jar或者war或者zip的配置 --&gt;</span>
+
+    <span class="token comment">&lt;!-- 其他配置 --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>order、pay、product的配置，同user模块类似即可。</p> <h3 id="_6-3-实现方式2"><a href="#_6-3-实现方式2" class="header-anchor">#</a> 6.3 实现方式2</h3> <ol start="2"><li>创建一个fun-mall 做个父项目，没有模块。 然后分别创建四个 项目 user、order、pay、product 继承这个fun-mall 拱为5个git地址，所有项目的parent都是 fun-mall（继承和聚合的区别）</li></ol> <div class="language-text extra-class"><pre class="language-text"><code>fun-mall
+    |-- pom.xml
+
+--------
+
+|-- user
+    |-- user-api
+        |-- pom.xml
+    |-- user-server
+        |-- pom.xml
+    |-- pom.xml
+
+--------
+
+|-- order
+    |-- order-api
+        |-- pom.xml
+    |-- order-server
+        |-- pom.xml
+    |-- pom.xml
+
+--------
+
+|-- pay
+    |-- pay-api
+        |-- pom.xml
+    |-- pay-server
+        |-- pom.xml
+    |-- pom.xml
+
+--------
+
+|-- product
+    |-- product-api
+    |-- product-server
+    |-- pom.xml
+</code></pre></div><p>这种方式的pom和上面在一个工程里面的方式是没有区别的，只是代码放在不同的仓库地址里面而已。</p> <p>考虑到不同模块迭代速度不同，每个服务有自己的代码和分支进行开发，相比上面在整个一个git而言，更加灵活，不用对其他的服务产生分支。</p> <p>其次，如果涉及到不同服务给不同团队开发，或者不同服务不需要看别人的实现的。只关心自己，则分开仓库很好的满足了</p> <h2 id="_7-maven-deploy时父pom的问题"><a href="#_7-maven-deploy时父pom的问题" class="header-anchor">#</a> 7 MAVEN deploy时父pom的问题</h2> <p>我们在deploy jar的时候，经常遇到一些因为父pom没有推导致推包失败的情况。所有一般推包看分为两种情况来处理</p> <h3 id="_7-1-子pom未使用父pom的变量"><a href="#_7-1-子pom未使用父pom的变量" class="header-anchor">#</a> 7.1 子pom未使用父pom的变量</h3> <p>这种情况下</p> <ul><li><p>方式1：因为子pom没有使用父pom的变量，可能考虑单独deploy, 注释掉<code>&lt;parent&gt;</code>, 然后确保自己有artfactId和version ，直接deploy.</p></li> <li><p>方式2：先推一下父pom，在推子模块。如果pom有很多子模块（fun-mall的第一种），可考虑只推父pom（<code>mvn clean deploy -N</code>），
+不要推子模块（所有的模块都推，连实现server可能都推了，没必要），然后再推需要的jar(如，user-spi，)</p></li></ul> <h3 id="_7-2-子pom有使用父pom的变量"><a href="#_7-2-子pom有使用父pom的变量" class="header-anchor">#</a> 7.2 子pom有使用父pom的变量</h3> <p>这种情况下, 因为使用父模块的变量，不能使用注释parent（不然不识别），所有只能先推一下父pom, 再推当前jar, 如上面的方式二</p> <h3 id="_7-3-记录"><a href="#_7-3-记录" class="header-anchor">#</a> 7.3 记录</h3> <ul><li>跳过Assembly：<code>clean deploy -DskipAssembly=true</code></li> <li>只推父pom: <code>mvn clean package deploy -Dmaven.test.skip=true -Drepository:snapshots -N</code></li> <li>mvn versions:set -DnewVersion=1.5.4</li> <li>分析maven的依赖树: <code>mvn dependency:tree &gt;text.txt</code></li></ul></div> <footer class="page-edit" style="display:none;"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">2/2/2021, 9:01:37 PM</span></div></footer> <!----> <!----> <!----></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/assets/js/app.764657af.js" defer></script><script src="/assets/js/3.13400d0e.js" defer></script><script src="/assets/js/1.f6a48a09.js" defer></script><script src="/assets/js/104.c8f84255.js" defer></script>
+  </body>
+</html>
