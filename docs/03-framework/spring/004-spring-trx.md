@@ -119,7 +119,7 @@ REQUIRES_NEW 一般用在子方法需要单独事务
 - `flush`方法：刷新底层会话中的修改到数据库，一般用于刷新如Hibernate/JPA的会话，是否生效由具体事务资源实现决定；
 - `isCompleted`方法：判断当前事务是否已完成（已提交或者已回滚）。
 
-
+https://www.cnblogs.com/dennyzhangdd/p/9602673.html
 
 ### 4.2 Spring事务切面(代理类生成)
 
@@ -271,6 +271,7 @@ public class OrderServiceImpl implements OrderService {
 - [【技术干货】Spring事务原理一探](https://zhuanlan.zhihu.com/p/54067384)
 - [Spring事务传播行为](https://juejin.cn/post/6844903600943022088)
 - [Spring事务失效的 8 大原因，这次可以吊打面试官了！](https://zhuanlan.zhihu.com/p/101396825)
+- [SpringBoot多数据源事务管理](https://blog.csdn.net/qq_34322777/article/details/80833935)
 
 
 

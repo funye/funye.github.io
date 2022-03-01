@@ -21,6 +21,7 @@ TCC 实战：
 seata(前身Fescar)
 - https://zhuanlan.zhihu.com/p/87097525
 - http://seata.io/zh-cn/docs/overview/what-is-seata.html
+- https://cloud.tencent.com/developer/article/1822227
 
 
 ---

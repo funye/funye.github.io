@@ -58,3 +58,13 @@ tags:
 
 ### 4.3 其他方案
 
+
+
+---
+
+【参考文档】
+
+- https://github.com/Netflix/Hystrix/wiki/How-it-Works
+
+- https://developer.aliyun.com/article/694256#slide-19
+- https://sentinelguard.io/zh-cn/blog/sentinel-vs-hystrix.html

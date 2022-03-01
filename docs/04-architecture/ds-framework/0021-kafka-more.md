@@ -10,7 +10,7 @@ tags:
 
 - Kafka的一些概念
   - ISR(In-sync Replicas), OSR(Out-of-Sync Replicas)
-  - HW(High watermark)、LSO(log Start Offset)、LEO(log End Offset)
+  - HW(High watermark)、LSO(log Stable Offset)、LEO(log End Offset)
 - Kafka 如果保证数据一致性
   - follower 同步进度不同的时候，选举leader 
 - Kafka的储存索引
